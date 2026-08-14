@@ -1,0 +1,18 @@
+{
+  "campaign_id": "macyste-20260726T113328Z",
+  "decided_at": "2026-07-26T12:20:00+00:00",
+  "decided_by": "proje sahibi (kullanici karari)",
+  "waived": [
+    {
+      "check": "tum imaj kimlikleri cozuldu",
+      "reason": "python_base (python:3.11.4) kimligi cozulemedi. Kampanya --no-build ile kosuldu (Docker Hub anonim oran siniri 429 verdiginde tam build mumkun degildi), bu yuzden taban imaj yerelde bulunmuyor ve kimligi kaydedilemedi. Sonuclarin butunlugu icin yeterli kanit mevcut: (1) fiilen kullanilan insa edilmis imaj kimlikleri tam olarak kayitli (steering sha256:2b923525..., engine sha256:5e657749...) ve taban katmanlari TRANSITIF olarak sabitliyor; (2) imajlarin icindeki cozulmus Python paket surumleri manifest'te metin olarak kayitli (steering 17, engine 5 paket); (3) 20/20 kaynak dosya hash'i ve tum kosu artifact hash'leri yeniden hesaplanip DOGRULANDI. Oran siniri kalktiginda tam build yalnizca ARSIVSEL yeniden uretilebilirlik icin yapilabilir; bu kampanyanin sonuclarinin yerine GECMEZ.",
+      "evidence": {
+        "build_skipped": true,
+        "built_image_ids_recorded": true,
+        "image_python_packages_recorded": true,
+        "source_hashes_verified": "20/20",
+        "artifact_hashes_verified": "tumu eslesti"
+      }
+    }
+  ]
+}

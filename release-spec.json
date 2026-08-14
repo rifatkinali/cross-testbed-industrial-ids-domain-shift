@@ -1,0 +1,78 @@
+{
+  "schema": "maritime.research-artifact-release-spec/v1",
+  "artifact_id": "openplc-macyste-transfer-v1",
+  "version": "1.0.0-rc1",
+  "status": "private_release_candidate",
+  "repository_url": "https://github.com/rifatkinali/cross-testbed-industrial-ids-domain-shift",
+  "purpose": [
+    "thesis_evaluation",
+    "independent_reproduction",
+    "product_hypothesis_testing",
+    "research_outreach"
+  ],
+  "reproducibility": {
+    "r0_hash_verification": "available",
+    "r1_derived_data_reanalysis": "available",
+    "r2_raw_campaign_regeneration": "pending_external_archive_doi",
+    "r3_independent_external_replication": "not_completed"
+  },
+  "source_campaign": "openplc-v0.3",
+  "target_campaign": "macyste-20260726T113328Z",
+  "expected_target_rows": 34949,
+  "expected_target_runs": 12,
+  "public_product_boundary": "research_artifact_only",
+  "data_distribution_decisions": {
+    "macyste_derived_events": {
+      "review_status": "completed",
+      "review_date": "2026-08-14",
+      "publication_decision": "publish_with_attribution",
+      "artifact_data_license": "CC-BY-4.0",
+      "basis": "AGPL-3.0 section 2 covers program output only when its content constitutes a covered work; the distributed CSV files contain generated experimental observations and no MaCySTe source code",
+      "upstream_project": "https://github.com/CRACK-MCR/MaCySTe",
+      "upstream_version": "local archive marked v1.1.2; selected files reproducibly referenced to v1.1.1 commit b41f148f0ded0732e7c11263fafe524eadc48611",
+      "provenance": "MACYSTE-PROVENANCE.json",
+      "notice": "THIRD-PARTY-NOTICE.md"
+    }
+  },
+  "forbidden_prefixes": [
+    "architecture/",
+    "artifacts/",
+    "captures/",
+    "docs/saha-kiti/",
+    "docs/sonuclar/CODEX-SECURITY-",
+    "edge_agent/",
+    "edge_capture/",
+    "edge_console/",
+    "edge_forwarder/",
+    "pilot_onboarding/",
+    "restricted-validation/",
+    "attack/scenarios/"
+  ],
+  "forbidden_exact_paths": [
+    "attack/attack_client.py",
+    "attack/benign_writes.py",
+    "docker-compose.edge.yml",
+    "docker-compose.edge-console.yml",
+    "docker-compose.edge-live.yml"
+  ],
+  "publication_blockers": [
+    "contributor_ownership_confirmation",
+    "ip_and_patent_disclosure_decision"
+  ],
+  "future_level_blockers": {
+    "r2": [
+      "raw_campaign_archive_doi",
+      "raw_campaign_privacy_and_security_scrub"
+    ],
+    "r3": [
+      "independent_external_replication"
+    ]
+  },
+  "release_checks": {
+    "citation_identity_and_repository_url": "completed_for_rc1",
+    "clean_history": "new_repository_without_private_history",
+    "security_and_metadata_scrub": "completed_2026-08-15",
+    "dependency_audit": "completed_2026-08-15_no_known_vulnerabilities",
+    "scientific_reproduction": "completed_2026-08-15"
+  }
+}

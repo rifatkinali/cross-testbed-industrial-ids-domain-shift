@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite it using the metadata below."
+title: "Cross-Testbed Domain Shift in Industrial IDS: An OpenPLC to MaCySTe Reproducible Case Study"
+type: software
+authors:
+  - given-names: "Rifat"
+    family-names: "Kinali"
+    email: "info@nauticmall.com"
+repository-code: "https://github.com/rifatkinali/cross-testbed-industrial-ids-domain-shift"
+version: "1.0.0-rc1"
+date-released: "2026-08-15"
+license:
+  - MIT
+  - CC-BY-4.0
+abstract: >-
+  A reproducible research artifact showing that an industrial intrusion
+  detection model trained and thresholded only on an OpenPLC campaign does
+  not transfer reliably to the held-out MaCySTe component-integration
+  campaign used in this case study. The artifact includes derived event data,
+  frozen analysis code, tests, result files, and machine-verifiable
+  provenance while excluding the private GÖZCÜ EDGE product source.
+keywords:
+  - industrial intrusion detection
+  - domain shift
+  - cross-testbed evaluation
+  - reproducibility
+  - OpenPLC
+  - MaCySTe
+  - maritime cybersecurity

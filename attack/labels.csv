@@ -1,0 +1,571 @@
+run_id,baslangic_ts_utc,bitis_ts_utc,etiket,senaryo,sensor,status,traffic_mode,cleanup_ok,mitre,notlar
+1,,,normal,baseline_read,ot,legacy,legacy-mixed,unknown,,normal_client.py ile ~5-10 dk okuma
+2,,,attack,modbus_write_setpoint,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,attack_client.py --dwell 30 calistir; setpoint 95
+3,2026-07-23T20:42:18.564304+00:00,2026-07-23T20:42:48.570691+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,warmup
+3,2026-07-23T20:42:48.578149+00:00,2026-07-23T20:42:49.016532+00:00,attack,recon_scan,ot,legacy,legacy-mixed,unknown,T0846;T0888,"32 okuma, 0..64 araligi tarandi"
+3,2026-07-23T20:42:49.020680+00:00,2026-07-23T20:43:09.026290+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-recon_scan
+3,2026-07-23T20:43:09.029590+00:00,2026-07-23T20:43:09.112539+00:00,attack,modbus_write,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True"
+3,2026-07-23T20:43:09.113306+00:00,2026-07-23T20:43:29.115182+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-modbus_write
+3,2026-07-23T20:43:29.117516+00:00,2026-07-23T20:43:31.622112+00:00,attack,dos_flood,ot,legacy,legacy-mixed,unknown,T0814;T0815,300/300 baglanti acildi
+3,2026-07-23T20:43:31.623694+00:00,2026-07-23T20:43:51.634332+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-dos_flood
+4,2026-07-23T20:47:19.518365+00:00,2026-07-23T20:49:19.530037+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,warmup
+4,2026-07-23T20:49:19.533459+00:00,2026-07-23T20:49:20.002222+00:00,attack,recon_scan,ot,legacy,legacy-mixed,unknown,T0846;T0888,"32 okuma, 0..64 araligi tarandi"
+4,2026-07-23T20:49:20.002849+00:00,2026-07-23T20:50:20.018409+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-recon_scan
+4,2026-07-23T20:50:20.019744+00:00,2026-07-23T20:50:20.046467+00:00,attack,modbus_write,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True"
+4,2026-07-23T20:50:20.047331+00:00,2026-07-23T20:51:20.047217+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-modbus_write
+4,2026-07-23T20:51:20.048731+00:00,2026-07-23T20:51:22.728080+00:00,attack,dos_flood,ot,legacy,legacy-mixed,unknown,T0814;T0815,300/300 baglanti acildi
+4,2026-07-23T20:51:22.729116+00:00,2026-07-23T20:52:22.738935+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-dos_flood
+5,2026-07-23T20:52:24.384908+00:00,2026-07-23T20:54:24.392880+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,warmup
+5,2026-07-23T20:54:24.396009+00:00,2026-07-23T20:54:24.833985+00:00,attack,recon_scan,ot,legacy,legacy-mixed,unknown,T0846;T0888,"32 okuma, 0..64 araligi tarandi"
+5,2026-07-23T20:54:24.834550+00:00,2026-07-23T20:55:24.841294+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-recon_scan
+5,2026-07-23T20:55:24.842561+00:00,2026-07-23T20:55:24.872292+00:00,attack,modbus_write,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True"
+5,2026-07-23T20:55:24.873084+00:00,2026-07-23T20:56:24.884353+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-modbus_write
+5,2026-07-23T20:56:24.886329+00:00,2026-07-23T20:56:27.256580+00:00,attack,dos_flood,ot,legacy,legacy-mixed,unknown,T0814;T0815,300/300 baglanti acildi
+5,2026-07-23T20:56:27.257583+00:00,2026-07-23T20:57:27.259187+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-dos_flood
+6,2026-07-23T20:57:28.725834+00:00,2026-07-23T20:59:28.740663+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,warmup
+6,2026-07-23T20:59:28.743337+00:00,2026-07-23T20:59:29.213819+00:00,attack,recon_scan,ot,legacy,legacy-mixed,unknown,T0846;T0888,"32 okuma, 0..64 araligi tarandi"
+6,2026-07-23T20:59:29.214315+00:00,2026-07-23T21:00:29.220049+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-recon_scan
+6,2026-07-23T21:00:29.221344+00:00,2026-07-23T21:00:29.255960+00:00,attack,modbus_write,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True"
+6,2026-07-23T21:00:29.257546+00:00,2026-07-23T21:01:29.267046+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-modbus_write
+6,2026-07-23T21:01:29.268472+00:00,2026-07-23T21:01:31.813544+00:00,attack,dos_flood,ot,legacy,legacy-mixed,unknown,T0814;T0815,300/300 baglanti acildi
+6,2026-07-23T21:01:31.814920+00:00,2026-07-23T21:02:31.822591+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-dos_flood
+7,2026-07-23T21:54:37.293441+00:00,2026-07-23T21:56:07.292604+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,warmup
+7,2026-07-23T21:56:07.295265+00:00,2026-07-23T21:56:07.735586+00:00,attack,recon_scan,ot,legacy,legacy-mixed,unknown,T0846;T0888,"32 okuma, 0..64 araligi tarandi"
+7,2026-07-23T21:56:07.736236+00:00,2026-07-23T21:56:52.741747+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-recon_scan
+7,2026-07-23T21:56:52.743182+00:00,2026-07-23T21:56:52.756388+00:00,attack,modbus_write,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True"
+7,2026-07-23T21:56:52.757037+00:00,2026-07-23T21:57:37.762502+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-modbus_write
+7,2026-07-23T21:57:37.768735+00:00,2026-07-23T21:57:40.346238+00:00,attack,dos_flood,ot,legacy,legacy-mixed,unknown,T0814;T0815,300/300 baglanti acildi
+7,2026-07-23T21:57:40.348496+00:00,2026-07-23T21:58:25.364199+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-dos_flood
+7,2026-07-23T21:58:25.367663+00:00,2026-07-23T21:58:25.385018+00:00,attack,steering_hijack,ot,legacy,legacy-mixed,unknown,T0836;T0831,HR4 (heading cmd) <- 270 derece
+7,2026-07-23T21:58:25.385535+00:00,2026-07-23T21:59:10.392302+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-steering_hijack
+7,2026-07-23T21:59:10.394698+00:00,2026-07-23T21:59:10.430916+00:00,attack,power_overload,ot,legacy,legacy-mixed,unknown,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk)
+7,2026-07-23T21:59:10.431556+00:00,2026-07-23T21:59:55.446022+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-power_overload
+8,2026-07-23T21:59:56.948345+00:00,2026-07-23T22:01:26.955844+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,warmup
+8,2026-07-23T22:01:26.959393+00:00,2026-07-23T22:01:27.414488+00:00,attack,recon_scan,ot,legacy,legacy-mixed,unknown,T0846;T0888,"32 okuma, 0..64 araligi tarandi"
+8,2026-07-23T22:01:27.415184+00:00,2026-07-23T22:02:12.427497+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-recon_scan
+8,2026-07-23T22:02:12.428574+00:00,2026-07-23T22:02:12.440994+00:00,attack,modbus_write,ot,legacy,legacy-mixed,unknown,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True"
+8,2026-07-23T22:02:12.441583+00:00,2026-07-23T22:02:57.450732+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-modbus_write
+8,2026-07-23T22:02:57.452019+00:00,2026-07-23T22:03:00.065463+00:00,attack,dos_flood,ot,legacy,legacy-mixed,unknown,T0814;T0815,300/300 baglanti acildi
+8,2026-07-23T22:03:00.066445+00:00,2026-07-23T22:03:45.079275+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-dos_flood
+8,2026-07-23T22:03:45.080647+00:00,2026-07-23T22:03:45.139573+00:00,attack,steering_hijack,ot,legacy,legacy-mixed,unknown,T0836;T0831,HR4 (heading cmd) <- 270 derece
+8,2026-07-23T22:03:45.140209+00:00,2026-07-23T22:04:30.151223+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-steering_hijack
+8,2026-07-23T22:04:30.152967+00:00,2026-07-23T22:04:30.186420+00:00,attack,power_overload,ot,legacy,legacy-mixed,unknown,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk)
+8,2026-07-23T22:04:30.187120+00:00,2026-07-23T22:05:15.194120+00:00,normal,baseline,ot,legacy,legacy-mixed,unknown,,gap-after-power_overload
+9,2026-07-23T22:49:02.248467+00:00,2026-07-23T22:49:05.260277+00:00,normal,baseline,ot,ok,isolated,,,warmup
+9,2026-07-23T22:49:06.462125+00:00,2026-07-23T22:49:06.893715+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+9,2026-07-23T22:49:07.394705+00:00,2026-07-23T22:49:09.395826+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+9,2026-07-23T22:49:10.602615+00:00,2026-07-23T22:49:10.680381+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+9,2026-07-23T22:49:11.286148+00:00,2026-07-23T22:49:13.288298+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+9,2026-07-23T22:49:14.497718+00:00,2026-07-23T22:49:17.317606+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+9,2026-07-23T22:49:17.820376+00:00,2026-07-23T22:49:19.827047+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+9,2026-07-23T22:49:21.032950+00:00,2026-07-23T22:49:21.036807+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,HR4 (heading cmd) <- 270 derece; cleanup=HR4=90
+9,2026-07-23T22:49:21.641372+00:00,2026-07-23T22:49:23.647675+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+9,2026-07-23T22:49:24.855732+00:00,2026-07-23T22:49:24.943243+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+9,2026-07-23T22:49:25.544451+00:00,2026-07-23T22:49:27.556599+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+10,2026-07-23T22:49:53.430019+00:00,2026-07-23T22:49:56.440922+00:00,normal,baseline,ot,ok,isolated,,,warmup
+10,2026-07-23T22:49:57.657722+00:00,2026-07-23T22:49:58.122180+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+10,2026-07-23T22:49:58.630273+00:00,2026-07-23T22:50:00.630961+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+10,2026-07-23T22:50:01.834120+00:00,2026-07-23T22:50:01.901483+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+10,2026-07-23T22:50:02.505714+00:00,2026-07-23T22:50:04.509743+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+10,2026-07-23T22:50:05.721065+00:00,2026-07-23T22:50:08.469409+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+10,2026-07-23T22:50:08.985178+00:00,2026-07-23T22:50:10.998150+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+10,2026-07-23T22:50:12.207665+00:00,2026-07-23T22:50:12.215272+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,HR4 (heading cmd) <- 270 derece; cleanup=HR4=90
+10,2026-07-23T22:50:12.828240+00:00,2026-07-23T22:50:14.841982+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+10,2026-07-23T22:50:16.044743+00:00,2026-07-23T22:50:16.119608+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+10,2026-07-23T22:50:16.726971+00:00,2026-07-23T22:50:18.730833+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+11,2026-07-23T22:50:20.356753+00:00,2026-07-23T22:50:23.362347+00:00,normal,baseline,ot,ok,isolated,,,warmup
+11,2026-07-23T22:50:24.569047+00:00,2026-07-23T22:50:25.072740+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+11,2026-07-23T22:50:25.585244+00:00,2026-07-23T22:50:27.601858+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+11,2026-07-23T22:50:28.808541+00:00,2026-07-23T22:50:28.842268+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+11,2026-07-23T22:50:29.445607+00:00,2026-07-23T22:50:31.446426+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+11,2026-07-23T22:50:32.660491+00:00,2026-07-23T22:50:35.379163+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+11,2026-07-23T22:50:35.880676+00:00,2026-07-23T22:50:37.885777+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+11,2026-07-23T22:50:39.105503+00:00,2026-07-23T22:50:39.144232+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,HR4 (heading cmd) <- 270 derece; cleanup=HR4=90
+11,2026-07-23T22:50:39.754685+00:00,2026-07-23T22:50:41.758475+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+11,2026-07-23T22:50:42.973425+00:00,2026-07-23T22:50:43.050830+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+11,2026-07-23T22:50:43.663689+00:00,2026-07-23T22:50:45.677011+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+12,2026-07-24T13:06:17.983793+00:00,2026-07-24T13:06:47.988833+00:00,normal,baseline,ot,ok,isolated,,,warmup
+12,2026-07-24T13:06:49.205927+00:00,2026-07-24T13:06:49.713000+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+12,2026-07-24T13:06:50.218404+00:00,2026-07-24T13:07:10.222332+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+12,2026-07-24T13:07:11.429393+00:00,2026-07-24T13:07:11.507294+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+12,2026-07-24T13:07:12.118288+00:00,2026-07-24T13:07:32.129418+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+12,2026-07-24T13:07:33.345913+00:00,2026-07-24T13:07:36.064599+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+12,2026-07-24T13:07:36.613812+00:00,2026-07-24T13:07:56.618056+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+12,2026-07-24T13:07:57.830222+00:00,2026-07-24T13:07:58.529606+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [10, 4, 40, 327, 315, 206] derece (out-of-band x6); cleanup=HR4=90"
+12,2026-07-24T13:07:59.130177+00:00,2026-07-24T13:08:19.132696+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+12,2026-07-24T13:08:20.345055+00:00,2026-07-24T13:08:20.446326+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+12,2026-07-24T13:08:21.052711+00:00,2026-07-24T13:08:41.063210+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+12,2026-07-24T13:08:42.279428+00:00,2026-07-24T13:08:44.781111+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+12,2026-07-24T13:08:45.384744+00:00,2026-07-24T13:09:05.385600+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+12,2026-07-24T13:09:06.596415+00:00,2026-07-24T13:09:08.703688+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+12,2026-07-24T13:09:09.301255+00:00,2026-07-24T13:09:29.309117+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+13,2026-07-25T12:49:34.522661+00:00,2026-07-25T12:51:04.528223+00:00,normal,baseline,ot,ok,isolated,,,warmup
+13,2026-07-25T12:51:05.742151+00:00,2026-07-25T12:51:06.232284+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+13,2026-07-25T12:51:06.747033+00:00,2026-07-25T12:51:51.756619+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+13,2026-07-25T12:51:52.971572+00:00,2026-07-25T12:51:53.062795+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+13,2026-07-25T12:51:53.673012+00:00,2026-07-25T12:52:38.677782+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+13,2026-07-25T12:52:39.887274+00:00,2026-07-25T12:52:39.913929+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+13,2026-07-25T12:52:40.515863+00:00,2026-07-25T12:53:25.523981+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+13,2026-07-25T12:53:26.732246+00:00,2026-07-25T12:53:26.765737+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+13,2026-07-25T12:53:27.377233+00:00,2026-07-25T12:54:12.379035+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+13,2026-07-25T12:54:13.589692+00:00,2026-07-25T12:54:13.611232+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+13,2026-07-25T12:54:14.227495+00:00,2026-07-25T12:54:59.239590+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+13,2026-07-25T12:55:00.454378+00:00,2026-07-25T12:55:00.556887+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+13,2026-07-25T12:55:01.168279+00:00,2026-07-25T12:55:46.173106+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+13,2026-07-25T12:55:47.386412+00:00,2026-07-25T12:55:48.010408+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [13, 201, 196, 300, 187, 227] derece (out-of-band x6); cleanup=HR4=90"
+13,2026-07-25T12:55:48.614222+00:00,2026-07-25T12:56:33.626795+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+13,2026-07-25T12:56:34.834762+00:00,2026-07-25T12:56:35.458900+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [27, 2, 0, 332, 159, 262] derece (out-of-band x6); cleanup=HR4=90"
+13,2026-07-25T12:56:36.062714+00:00,2026-07-25T12:57:21.066494+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+13,2026-07-25T12:57:22.278714+00:00,2026-07-25T12:57:22.906236+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [227, 331, 281, 163, 201, 335] derece (out-of-band x6); cleanup=HR4=90"
+13,2026-07-25T12:57:23.504264+00:00,2026-07-25T12:58:08.513377+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+13,2026-07-25T12:58:09.725151+00:00,2026-07-25T12:58:10.351513+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [15, 9, 33, 298, 340, 350] derece (out-of-band x6); cleanup=HR4=90"
+13,2026-07-25T12:58:10.954018+00:00,2026-07-25T12:58:55.963345+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+13,2026-07-25T12:58:57.176486+00:00,2026-07-25T12:58:57.796971+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [0, 300, 19, 36, 348, 2] derece (out-of-band x6); cleanup=HR4=90"
+13,2026-07-25T12:58:58.399384+00:00,2026-07-25T12:59:43.404316+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+13,2026-07-25T12:59:44.615257+00:00,2026-07-25T12:59:44.636760+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+13,2026-07-25T12:59:45.238489+00:00,2026-07-25T13:00:30.253269+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+13,2026-07-25T13:00:31.457956+00:00,2026-07-25T13:00:31.483971+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+13,2026-07-25T13:00:32.094391+00:00,2026-07-25T13:01:17.095711+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+13,2026-07-25T13:01:18.300268+00:00,2026-07-25T13:01:18.330993+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+13,2026-07-25T13:01:18.941832+00:00,2026-07-25T13:02:03.941452+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+13,2026-07-25T13:02:05.151525+00:00,2026-07-25T13:02:05.174767+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+13,2026-07-25T13:02:05.787325+00:00,2026-07-25T13:02:50.791600+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+13,2026-07-25T13:02:52.000557+00:00,2026-07-25T13:02:52.018399+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+13,2026-07-25T13:02:52.619715+00:00,2026-07-25T13:03:37.627839+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+13,2026-07-25T13:03:38.836547+00:00,2026-07-25T13:03:41.271594+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+13,2026-07-25T13:03:41.869964+00:00,2026-07-25T13:04:26.872286+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+13,2026-07-25T13:04:28.086474+00:00,2026-07-25T13:04:30.518372+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+13,2026-07-25T13:04:31.129867+00:00,2026-07-25T13:05:16.133464+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+13,2026-07-25T13:05:17.348007+00:00,2026-07-25T13:05:19.768267+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+13,2026-07-25T13:05:20.377908+00:00,2026-07-25T13:06:05.380179+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+13,2026-07-25T13:06:06.584613+00:00,2026-07-25T13:06:09.012490+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+13,2026-07-25T13:06:09.619671+00:00,2026-07-25T13:06:54.630021+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+13,2026-07-25T13:06:55.842310+00:00,2026-07-25T13:06:58.265139+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+13,2026-07-25T13:06:58.856992+00:00,2026-07-25T13:07:43.865091+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+13,2026-07-25T13:07:45.072499+00:00,2026-07-25T13:07:47.102625+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+13,2026-07-25T13:07:47.708567+00:00,2026-07-25T13:08:32.722966+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+13,2026-07-25T13:08:33.924572+00:00,2026-07-25T13:08:35.947966+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+13,2026-07-25T13:08:36.552494+00:00,2026-07-25T13:09:21.557527+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+13,2026-07-25T13:09:22.761131+00:00,2026-07-25T13:09:24.794208+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+13,2026-07-25T13:09:25.404234+00:00,2026-07-25T13:10:10.407708+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+13,2026-07-25T13:10:11.622544+00:00,2026-07-25T13:10:13.638394+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+13,2026-07-25T13:10:14.250228+00:00,2026-07-25T13:10:59.250740+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+13,2026-07-25T13:11:00.461911+00:00,2026-07-25T13:11:02.483387+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+13,2026-07-25T13:11:03.086000+00:00,2026-07-25T13:11:48.100520+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+13,2026-07-25T13:11:49.306713+00:00,2026-07-25T13:11:55.313621+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+13,2026-07-25T13:11:55.818025+00:00,2026-07-25T13:12:40.832474+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+13,2026-07-25T13:12:42.040020+00:00,2026-07-25T13:12:48.045838+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+13,2026-07-25T13:12:48.561325+00:00,2026-07-25T13:13:33.561488+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+13,2026-07-25T13:13:34.762570+00:00,2026-07-25T13:13:40.784023+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+13,2026-07-25T13:13:41.289079+00:00,2026-07-25T13:14:26.298739+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+13,2026-07-25T13:14:27.507578+00:00,2026-07-25T13:14:33.514037+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+13,2026-07-25T13:14:34.027823+00:00,2026-07-25T13:15:19.030281+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+13,2026-07-25T13:15:20.238735+00:00,2026-07-25T13:15:26.245546+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+13,2026-07-25T13:15:26.754952+00:00,2026-07-25T13:16:11.760715+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+14,2026-07-25T13:20:58.699837+00:00,2026-07-25T13:22:28.704282+00:00,normal,baseline,ot,ok,isolated,,,warmup
+14,2026-07-25T13:22:29.907897+00:00,2026-07-25T13:22:30.337492+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+14,2026-07-25T13:22:30.838871+00:00,2026-07-25T13:23:15.840193+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+14,2026-07-25T13:23:17.053117+00:00,2026-07-25T13:23:17.058002+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+14,2026-07-25T13:23:17.672634+00:00,2026-07-25T13:24:02.673669+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+14,2026-07-25T13:24:03.886194+00:00,2026-07-25T13:24:03.898843+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+14,2026-07-25T13:24:04.502731+00:00,2026-07-25T13:24:49.512388+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+14,2026-07-25T13:24:50.723975+00:00,2026-07-25T13:24:50.740746+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+14,2026-07-25T13:24:51.345293+00:00,2026-07-25T13:25:36.358959+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+14,2026-07-25T13:25:37.573841+00:00,2026-07-25T13:25:37.580564+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+14,2026-07-25T13:25:38.195928+00:00,2026-07-25T13:26:23.195429+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+14,2026-07-25T13:26:24.397466+00:00,2026-07-25T13:26:24.421366+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+14,2026-07-25T13:26:25.034831+00:00,2026-07-25T13:27:10.041920+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+14,2026-07-25T13:27:11.250033+00:00,2026-07-25T13:27:11.867286+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [214, 16, 7, 2, 8, 7] derece (out-of-band x6); cleanup=HR4=90"
+14,2026-07-25T13:27:12.477561+00:00,2026-07-25T13:27:57.478073+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+14,2026-07-25T13:27:58.688845+00:00,2026-07-25T13:27:59.309365+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [238, 33, 8, 353, 232, 290] derece (out-of-band x6); cleanup=HR4=90"
+14,2026-07-25T13:27:59.916628+00:00,2026-07-25T13:28:44.925392+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+14,2026-07-25T13:28:46.136389+00:00,2026-07-25T13:28:46.751543+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [37, 216, 243, 17, 296, 0] derece (out-of-band x6); cleanup=HR4=90"
+14,2026-07-25T13:28:47.345127+00:00,2026-07-25T13:29:32.349311+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+14,2026-07-25T13:29:33.562732+00:00,2026-07-25T13:29:34.191756+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [244, 260, 9, 12, 253, 173] derece (out-of-band x6); cleanup=HR4=90"
+14,2026-07-25T13:29:34.801231+00:00,2026-07-25T13:30:19.806957+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+14,2026-07-25T13:30:21.022863+00:00,2026-07-25T13:30:21.632035+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [231, 262, 17, 286, 232, 26] derece (out-of-band x6); cleanup=HR4=90"
+14,2026-07-25T13:30:22.229052+00:00,2026-07-25T13:31:07.234791+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+14,2026-07-25T13:31:08.448553+00:00,2026-07-25T13:31:08.467386+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+14,2026-07-25T13:31:09.070463+00:00,2026-07-25T13:31:54.083444+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+14,2026-07-25T13:31:55.284252+00:00,2026-07-25T13:31:55.307902+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+14,2026-07-25T13:31:55.919783+00:00,2026-07-25T13:32:40.920080+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+14,2026-07-25T13:32:42.130897+00:00,2026-07-25T13:32:42.143153+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+14,2026-07-25T13:32:42.754636+00:00,2026-07-25T13:33:27.755867+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+14,2026-07-25T13:33:28.966874+00:00,2026-07-25T13:33:28.986119+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+14,2026-07-25T13:33:29.602525+00:00,2026-07-25T13:34:14.616164+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+14,2026-07-25T13:34:15.830976+00:00,2026-07-25T13:34:15.929067+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+14,2026-07-25T13:34:16.545103+00:00,2026-07-25T13:35:01.556616+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+14,2026-07-25T13:35:02.768475+00:00,2026-07-25T13:35:05.274563+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+14,2026-07-25T13:35:05.877179+00:00,2026-07-25T13:35:50.883695+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+14,2026-07-25T13:35:52.084145+00:00,2026-07-25T13:35:54.518556+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+14,2026-07-25T13:35:55.121586+00:00,2026-07-25T13:36:40.134728+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+14,2026-07-25T13:36:41.348709+00:00,2026-07-25T13:36:43.761539+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+14,2026-07-25T13:36:44.362232+00:00,2026-07-25T13:37:29.364211+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+14,2026-07-25T13:37:30.575453+00:00,2026-07-25T13:37:33.005453+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+14,2026-07-25T13:37:33.614141+00:00,2026-07-25T13:38:18.614609+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+14,2026-07-25T13:38:19.826159+00:00,2026-07-25T13:38:22.248617+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+14,2026-07-25T13:38:22.853012+00:00,2026-07-25T13:39:07.855496+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+14,2026-07-25T13:39:09.071351+00:00,2026-07-25T13:39:11.091411+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+14,2026-07-25T13:39:11.702049+00:00,2026-07-25T13:39:56.716345+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+14,2026-07-25T13:39:57.927800+00:00,2026-07-25T13:40:00.034741+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+14,2026-07-25T13:40:00.637807+00:00,2026-07-25T13:40:45.650177+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+14,2026-07-25T13:40:46.854600+00:00,2026-07-25T13:40:48.877632+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+14,2026-07-25T13:40:49.490709+00:00,2026-07-25T13:41:34.505106+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+14,2026-07-25T13:41:35.717600+00:00,2026-07-25T13:41:37.821293+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+14,2026-07-25T13:41:38.428235+00:00,2026-07-25T13:42:23.429862+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+14,2026-07-25T13:42:24.634718+00:00,2026-07-25T13:42:26.663974+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+14,2026-07-25T13:42:27.269077+00:00,2026-07-25T13:43:12.276603+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+14,2026-07-25T13:43:13.483069+00:00,2026-07-25T13:43:19.489746+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+14,2026-07-25T13:43:19.993071+00:00,2026-07-25T13:44:05.003421+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+14,2026-07-25T13:44:06.216116+00:00,2026-07-25T13:44:12.222360+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+14,2026-07-25T13:44:12.736085+00:00,2026-07-25T13:44:57.747277+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+14,2026-07-25T13:44:58.954978+00:00,2026-07-25T13:45:04.961511+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+14,2026-07-25T13:45:05.471852+00:00,2026-07-25T13:45:50.476718+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+14,2026-07-25T13:45:51.687877+00:00,2026-07-25T13:45:57.693466+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+14,2026-07-25T13:45:58.206198+00:00,2026-07-25T13:46:43.207550+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+14,2026-07-25T13:46:44.417560+00:00,2026-07-25T13:46:50.424534+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+14,2026-07-25T13:46:50.932357+00:00,2026-07-25T13:47:35.934494+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+15,2026-07-25T13:50:40.807584+00:00,2026-07-25T13:52:10.821827+00:00,normal,baseline,ot,ok,isolated,,,warmup
+15,2026-07-25T13:52:12.033945+00:00,2026-07-25T13:52:12.545321+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+15,2026-07-25T13:52:13.055470+00:00,2026-07-25T13:52:43.065729+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+15,2026-07-25T13:52:44.283324+00:00,2026-07-25T13:52:44.355385+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+15,2026-07-25T13:52:44.966120+00:00,2026-07-25T13:53:14.965478+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+15,2026-07-25T13:53:16.171179+00:00,2026-07-25T13:53:16.184325+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+15,2026-07-25T13:53:16.791212+00:00,2026-07-25T13:53:46.794182+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+15,2026-07-25T13:53:48.001688+00:00,2026-07-25T13:53:48.013645+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+15,2026-07-25T13:53:48.621840+00:00,2026-07-25T13:54:18.622104+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+15,2026-07-25T13:54:19.828695+00:00,2026-07-25T13:54:19.842898+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+15,2026-07-25T13:54:20.447647+00:00,2026-07-25T13:54:50.458414+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+15,2026-07-25T13:54:51.665925+00:00,2026-07-25T13:54:51.675889+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+15,2026-07-25T13:54:52.284807+00:00,2026-07-25T13:55:22.287252+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+15,2026-07-25T13:55:23.499339+00:00,2026-07-25T13:55:24.107850+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [22, 37, 277, 312, 16, 9] derece (out-of-band x6); cleanup=HR4=90"
+15,2026-07-25T13:55:24.703803+00:00,2026-07-25T13:55:54.710246+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+15,2026-07-25T13:55:55.920088+00:00,2026-07-25T13:55:56.538274+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [293, 13, 20, 295, 303, 325] derece (out-of-band x6); cleanup=HR4=90"
+15,2026-07-25T13:55:57.142993+00:00,2026-07-25T13:56:27.153115+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+15,2026-07-25T13:56:28.363351+00:00,2026-07-25T13:56:29.068135+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [30, 26, 318, 24, 268, 16] derece (out-of-band x6); cleanup=HR4=90"
+15,2026-07-25T13:56:29.678013+00:00,2026-07-25T13:56:59.684389+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+15,2026-07-25T13:57:00.897192+00:00,2026-07-25T13:57:01.599889+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [269, 327, 21, 351, 4, 13] derece (out-of-band x6); cleanup=HR4=90"
+15,2026-07-25T13:57:02.194907+00:00,2026-07-25T13:57:32.199178+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+15,2026-07-25T13:57:33.409530+00:00,2026-07-25T13:57:34.028740+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [308, 178, 17, 283, 263, 37] derece (out-of-band x6); cleanup=HR4=90"
+15,2026-07-25T13:57:34.631107+00:00,2026-07-25T13:58:04.633133+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+15,2026-07-25T13:58:05.843141+00:00,2026-07-25T13:58:05.852300+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+15,2026-07-25T13:58:06.461434+00:00,2026-07-25T13:58:36.475649+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+15,2026-07-25T13:58:37.681146+00:00,2026-07-25T13:58:37.781457+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+15,2026-07-25T13:58:38.390619+00:00,2026-07-25T13:59:08.395762+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+15,2026-07-25T13:59:09.608187+00:00,2026-07-25T13:59:09.610074+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+15,2026-07-25T13:59:10.214940+00:00,2026-07-25T13:59:40.218852+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+15,2026-07-25T13:59:41.431099+00:00,2026-07-25T13:59:41.439348+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+15,2026-07-25T13:59:42.047975+00:00,2026-07-25T14:00:12.051755+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+15,2026-07-25T14:00:13.266247+00:00,2026-07-25T14:00:13.269781+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+15,2026-07-25T14:00:13.871123+00:00,2026-07-25T14:00:43.880035+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+15,2026-07-25T14:00:45.083182+00:00,2026-07-25T14:00:47.505816+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+15,2026-07-25T14:00:48.104495+00:00,2026-07-25T14:01:18.111599+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+15,2026-07-25T14:01:19.318662+00:00,2026-07-25T14:01:21.736959+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+15,2026-07-25T14:01:22.339719+00:00,2026-07-25T14:01:52.353197+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+15,2026-07-25T14:01:53.562377+00:00,2026-07-25T14:01:56.069873+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+15,2026-07-25T14:01:56.670497+00:00,2026-07-25T14:02:26.678244+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+15,2026-07-25T14:02:27.889305+00:00,2026-07-25T14:02:30.301055+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+15,2026-07-25T14:02:30.905575+00:00,2026-07-25T14:03:00.919137+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+15,2026-07-25T14:03:02.132104+00:00,2026-07-25T14:03:04.638213+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+15,2026-07-25T14:03:05.231665+00:00,2026-07-25T14:03:35.232246+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+15,2026-07-25T14:03:36.444857+00:00,2026-07-25T14:03:38.465571+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+15,2026-07-25T14:03:39.064902+00:00,2026-07-25T14:04:09.065975+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+15,2026-07-25T14:04:10.274960+00:00,2026-07-25T14:04:12.296078+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+15,2026-07-25T14:04:12.896625+00:00,2026-07-25T14:04:42.906125+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+15,2026-07-25T14:04:44.112816+00:00,2026-07-25T14:04:46.126600+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+15,2026-07-25T14:04:46.728313+00:00,2026-07-25T14:05:16.739014+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+15,2026-07-25T14:05:17.954259+00:00,2026-07-25T14:05:20.059031+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+15,2026-07-25T14:05:20.668311+00:00,2026-07-25T14:05:50.675919+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+15,2026-07-25T14:05:51.883635+00:00,2026-07-25T14:05:53.990960+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+15,2026-07-25T14:05:54.591364+00:00,2026-07-25T14:06:24.605743+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+15,2026-07-25T14:06:25.816787+00:00,2026-07-25T14:06:31.822224+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+15,2026-07-25T14:06:32.334824+00:00,2026-07-25T14:07:02.334544+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+15,2026-07-25T14:07:03.540112+00:00,2026-07-25T14:07:09.546799+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+15,2026-07-25T14:07:10.058757+00:00,2026-07-25T14:07:40.066009+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+15,2026-07-25T14:07:41.280571+00:00,2026-07-25T14:07:47.287010+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+15,2026-07-25T14:07:47.791047+00:00,2026-07-25T14:08:17.795447+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+15,2026-07-25T14:08:19.000451+00:00,2026-07-25T14:08:25.006008+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+15,2026-07-25T14:08:25.520902+00:00,2026-07-25T14:08:55.522154+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+15,2026-07-25T14:08:56.730225+00:00,2026-07-25T14:09:02.735311+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+15,2026-07-25T14:09:03.246594+00:00,2026-07-25T14:09:33.247435+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+16,2026-07-25T14:10:12.091359+00:00,2026-07-25T14:11:42.103322+00:00,normal,baseline,ot,ok,isolated,,,warmup
+16,2026-07-25T14:11:43.311086+00:00,2026-07-25T14:11:43.746731+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+16,2026-07-25T14:11:44.253585+00:00,2026-07-25T14:12:29.267671+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+16,2026-07-25T14:12:30.477341+00:00,2026-07-25T14:12:30.560364+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+16,2026-07-25T14:12:31.166555+00:00,2026-07-25T14:13:16.177273+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+16,2026-07-25T14:13:17.381174+00:00,2026-07-25T14:13:17.402270+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+16,2026-07-25T14:13:18.016914+00:00,2026-07-25T14:14:03.021687+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+16,2026-07-25T14:14:04.234363+00:00,2026-07-25T14:14:04.244945+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+16,2026-07-25T14:14:04.853036+00:00,2026-07-25T14:14:49.865727+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+16,2026-07-25T14:14:51.078676+00:00,2026-07-25T14:14:53.758518+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+16,2026-07-25T14:14:54.263076+00:00,2026-07-25T14:15:39.269045+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+16,2026-07-25T14:15:40.474257+00:00,2026-07-25T14:15:41.097759+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [227, 154, 37, 34, 1, 327] derece (out-of-band x6); cleanup=HR4=90"
+16,2026-07-25T14:15:41.708897+00:00,2026-07-25T14:16:26.714742+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+16,2026-07-25T14:16:27.923874+00:00,2026-07-25T14:16:28.542754+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [13, 12, 1, 248, 340, 271] derece (out-of-band x6); cleanup=HR4=90"
+16,2026-07-25T14:16:29.148581+00:00,2026-07-25T14:17:14.160500+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+16,2026-07-25T14:17:15.369952+00:00,2026-07-25T14:17:15.984220+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [151, 215, 238, 345, 204, 327] derece (out-of-band x6); cleanup=HR4=90"
+16,2026-07-25T14:17:16.592964+00:00,2026-07-25T14:18:01.595277+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+16,2026-07-25T14:18:02.802196+00:00,2026-07-25T14:18:02.824511+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+16,2026-07-25T14:18:03.439091+00:00,2026-07-25T14:18:48.444754+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+16,2026-07-25T14:18:49.657269+00:00,2026-07-25T14:18:49.666425+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+16,2026-07-25T14:18:50.276120+00:00,2026-07-25T14:19:35.286690+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+16,2026-07-25T14:19:36.495837+00:00,2026-07-25T14:19:36.508015+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+16,2026-07-25T14:19:37.116478+00:00,2026-07-25T14:20:22.122496+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+16,2026-07-25T14:20:23.332771+00:00,2026-07-25T14:20:25.756588+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+16,2026-07-25T14:20:26.356117+00:00,2026-07-25T14:21:11.361895+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+16,2026-07-25T14:21:12.571790+00:00,2026-07-25T14:21:15.000128+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+16,2026-07-25T14:21:15.608820+00:00,2026-07-25T14:22:00.620867+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+16,2026-07-25T14:22:01.821003+00:00,2026-07-25T14:22:04.243738+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+16,2026-07-25T14:22:04.855221+00:00,2026-07-25T14:22:49.855408+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+16,2026-07-25T14:22:51.065775+00:00,2026-07-25T14:22:53.086456+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+16,2026-07-25T14:22:53.685045+00:00,2026-07-25T14:23:38.690547+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+16,2026-07-25T14:23:39.905156+00:00,2026-07-25T14:23:41.929285+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+16,2026-07-25T14:23:42.529773+00:00,2026-07-25T14:24:27.529512+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+16,2026-07-25T14:24:28.736852+00:00,2026-07-25T14:24:30.773844+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+16,2026-07-25T14:24:31.379546+00:00,2026-07-25T14:25:16.385193+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+16,2026-07-25T14:25:17.587584+00:00,2026-07-25T14:25:23.607153+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+16,2026-07-25T14:25:24.120595+00:00,2026-07-25T14:26:09.125217+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+16,2026-07-25T14:26:10.335431+00:00,2026-07-25T14:26:16.341898+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+16,2026-07-25T14:26:16.843566+00:00,2026-07-25T14:27:01.848818+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+16,2026-07-25T14:27:03.062915+00:00,2026-07-25T14:27:09.084545+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+16,2026-07-25T14:27:09.601673+00:00,2026-07-25T14:27:54.611451+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+17,2026-07-25T14:28:07.004538+00:00,2026-07-25T14:29:37.019195+00:00,normal,baseline,ot,ok,isolated,,,warmup
+17,2026-07-25T14:29:38.228523+00:00,2026-07-25T14:29:38.666607+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+17,2026-07-25T14:29:39.167542+00:00,2026-07-25T14:30:24.175535+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+17,2026-07-25T14:30:25.381914+00:00,2026-07-25T14:30:25.385954+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+17,2026-07-25T14:30:25.998771+00:00,2026-07-25T14:31:11.004125+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+17,2026-07-25T14:31:12.211587+00:00,2026-07-25T14:31:12.222724+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+17,2026-07-25T14:31:12.833105+00:00,2026-07-25T14:31:57.834074+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+17,2026-07-25T14:31:59.044586+00:00,2026-07-25T14:31:59.061573+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+17,2026-07-25T14:31:59.663919+00:00,2026-07-25T14:32:44.675957+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+17,2026-07-25T14:32:45.887004+00:00,2026-07-25T14:32:48.269533+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+17,2026-07-25T14:32:48.784337+00:00,2026-07-25T14:33:33.790042+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+17,2026-07-25T14:33:35.000596+00:00,2026-07-25T14:33:35.706345+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [19, 27, 2, 28, 3, 233] derece (out-of-band x6); cleanup=HR4=90"
+17,2026-07-25T14:33:36.316220+00:00,2026-07-25T14:34:21.325521+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+17,2026-07-25T14:34:22.534417+00:00,2026-07-25T14:34:23.152801+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [328, 31, 226, 40, 233, 7] derece (out-of-band x6); cleanup=HR4=90"
+17,2026-07-25T14:34:23.761251+00:00,2026-07-25T14:35:08.773075+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+17,2026-07-25T14:35:09.981225+00:00,2026-07-25T14:35:10.588535+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [4, 21, 19, 1, 345, 23] derece (out-of-band x6); cleanup=HR4=90"
+17,2026-07-25T14:35:11.190660+00:00,2026-07-25T14:35:56.198820+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+17,2026-07-25T14:35:57.404761+00:00,2026-07-25T14:35:57.418294+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+17,2026-07-25T14:35:58.024731+00:00,2026-07-25T14:36:43.035523+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+17,2026-07-25T14:36:44.246522+00:00,2026-07-25T14:36:44.262335+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+17,2026-07-25T14:36:44.864569+00:00,2026-07-25T14:37:29.874233+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+17,2026-07-25T14:37:31.082734+00:00,2026-07-25T14:37:31.085248+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+17,2026-07-25T14:37:31.688607+00:00,2026-07-25T14:38:16.702534+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+17,2026-07-25T14:38:17.911237+00:00,2026-07-25T14:38:20.327624+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+17,2026-07-25T14:38:20.937997+00:00,2026-07-25T14:39:05.946584+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+17,2026-07-25T14:39:07.151779+00:00,2026-07-25T14:39:09.565731+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+17,2026-07-25T14:39:10.171565+00:00,2026-07-25T14:39:55.173555+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+17,2026-07-25T14:39:56.386432+00:00,2026-07-25T14:39:58.806181+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+17,2026-07-25T14:39:59.405513+00:00,2026-07-25T14:40:44.420441+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+17,2026-07-25T14:40:45.627897+00:00,2026-07-25T14:40:47.645094+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+17,2026-07-25T14:40:48.244755+00:00,2026-07-25T14:41:33.251458+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+17,2026-07-25T14:41:34.459670+00:00,2026-07-25T14:41:36.502068+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+17,2026-07-25T14:41:37.107819+00:00,2026-07-25T14:42:22.119910+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+17,2026-07-25T14:42:23.331340+00:00,2026-07-25T14:42:25.345618+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+17,2026-07-25T14:42:25.947762+00:00,2026-07-25T14:43:10.957518+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+17,2026-07-25T14:43:12.171830+00:00,2026-07-25T14:43:18.177996+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+17,2026-07-25T14:43:18.680630+00:00,2026-07-25T14:44:03.684200+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+17,2026-07-25T14:44:04.888789+00:00,2026-07-25T14:44:10.892598+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+17,2026-07-25T14:44:11.402665+00:00,2026-07-25T14:44:56.416211+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+17,2026-07-25T14:44:57.625902+00:00,2026-07-25T14:45:03.632519+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+17,2026-07-25T14:45:04.135089+00:00,2026-07-25T14:45:49.144059+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+18,2026-07-25T14:46:07.263080+00:00,2026-07-25T14:56:07.265424+00:00,normal,baseline,ot,ok,isolated,,,warmup
+18,2026-07-25T14:56:08.474901+00:00,2026-07-25T14:56:08.919286+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+18,2026-07-25T14:56:09.420230+00:00,2026-07-25T14:57:09.421858+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+18,2026-07-25T14:57:10.630907+00:00,2026-07-25T14:57:10.659098+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+18,2026-07-25T14:57:11.263686+00:00,2026-07-25T14:58:11.265157+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+18,2026-07-25T14:58:12.469453+00:00,2026-07-25T14:58:15.222701+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+18,2026-07-25T14:58:15.731826+00:00,2026-07-25T14:59:15.744461+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+19,2026-07-25T15:52:10.415256+00:00,2026-07-25T15:53:10.417750+00:00,normal,baseline,ot,ok,isolated,,,warmup
+19,2026-07-25T15:53:11.632179+00:00,2026-07-25T15:53:19.315654+00:00,fault,fault_comm_dropout,ot,ok,fault,true,,"4 normal okuma, ardindan 6 sn haberlesme kopmasi (RST + sessizlik)"
+19,2026-07-25T15:53:19.822308+00:00,2026-07-25T15:53:49.836230+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_comm_dropout
+19,2026-07-25T15:53:51.048661+00:00,2026-07-25T15:53:55.600555+00:00,fault,fault_plc_restart,ot,ok,fault,true,,"15 kisa baglanti / 15 basarili poll (reconnect firtinasi, kapsam-ici okuma)"
+19,2026-07-25T15:53:56.112446+00:00,2026-07-25T15:54:26.114331+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_plc_restart
+19,2026-07-25T15:54:27.330669+00:00,2026-07-25T15:54:32.334896+00:00,fault,fault_poll_storm,ot,ok,fault,true,,"455 mesru okuma / 5 sn (~91 istek/sn asiri poll, kapsam-ici)"
+19,2026-07-25T15:54:32.846455+00:00,2026-07-25T15:55:02.861086+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_poll_storm
+19,2026-07-25T15:55:04.073213+00:00,2026-07-25T15:55:11.712719+00:00,fault,fault_comm_dropout,ot,ok,fault,true,,"4 normal okuma, ardindan 6 sn haberlesme kopmasi (RST + sessizlik)"
+19,2026-07-25T15:55:12.223689+00:00,2026-07-25T15:55:42.234751+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_comm_dropout
+19,2026-07-25T15:55:43.442161+00:00,2026-07-25T15:55:47.900906+00:00,fault,fault_plc_restart,ot,ok,fault,true,,"15 kisa baglanti / 15 basarili poll (reconnect firtinasi, kapsam-ici okuma)"
+19,2026-07-25T15:55:48.415435+00:00,2026-07-25T15:56:18.419168+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_plc_restart
+19,2026-07-25T15:56:19.627486+00:00,2026-07-25T15:56:24.636418+00:00,fault,fault_poll_storm,ot,ok,fault,true,,"450 mesru okuma / 5 sn (~90 istek/sn asiri poll, kapsam-ici)"
+19,2026-07-25T15:56:25.138177+00:00,2026-07-25T15:56:55.141392+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_poll_storm
+19,2026-07-25T15:56:56.356920+00:00,2026-07-25T15:57:04.017718+00:00,fault,fault_comm_dropout,ot,ok,fault,true,,"4 normal okuma, ardindan 6 sn haberlesme kopmasi (RST + sessizlik)"
+19,2026-07-25T15:57:04.527165+00:00,2026-07-25T15:57:34.534728+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_comm_dropout
+19,2026-07-25T15:57:35.747939+00:00,2026-07-25T15:57:40.303576+00:00,fault,fault_plc_restart,ot,ok,fault,true,,"15 kisa baglanti / 15 basarili poll (reconnect firtinasi, kapsam-ici okuma)"
+19,2026-07-25T15:57:40.815575+00:00,2026-07-25T15:58:10.823175+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_plc_restart
+19,2026-07-25T15:58:12.034867+00:00,2026-07-25T15:58:17.045232+00:00,fault,fault_poll_storm,ot,ok,fault,true,,"447 mesru okuma / 5 sn (~89 istek/sn asiri poll, kapsam-ici)"
+19,2026-07-25T15:58:17.552804+00:00,2026-07-25T15:58:47.566688+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_poll_storm
+20,2026-07-25T15:59:04.865678+00:00,2026-07-25T15:59:34.871239+00:00,normal,baseline,ot,ok,isolated,,,warmup
+20,2026-07-25T15:59:36.074041+00:00,2026-07-25T15:59:36.586050+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+20,2026-07-25T15:59:37.089591+00:00,2026-07-25T15:59:57.104236+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+20,2026-07-25T15:59:58.307832+00:00,2026-07-25T15:59:58.385879+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+20,2026-07-25T15:59:58.989368+00:00,2026-07-25T16:00:18.997608+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+20,2026-07-25T16:00:20.205871+00:00,2026-07-25T16:00:20.306838+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+20,2026-07-25T16:00:20.919921+00:00,2026-07-25T16:00:40.923582+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+20,2026-07-25T16:00:42.125840+00:00,2026-07-25T16:00:42.227778+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+20,2026-07-25T16:00:42.837853+00:00,2026-07-25T16:01:02.846958+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+20,2026-07-25T16:01:04.060384+00:00,2026-07-25T16:01:06.654928+00:00,attack,dos_flood,ot,ok,attack-only,true,T0814;T0815,300/300 baglanti acildi
+20,2026-07-25T16:01:07.160247+00:00,2026-07-25T16:01:27.166413+00:00,normal,baseline,ot,ok,isolated,,,gap-after-dos_flood
+20,2026-07-25T16:01:28.374188+00:00,2026-07-25T16:01:29.001328+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [2, 20, 18, 250, 340, 22] derece (out-of-band x6); cleanup=HR4=90"
+20,2026-07-25T16:01:29.611139+00:00,2026-07-25T16:01:49.616953+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+20,2026-07-25T16:01:50.825293+00:00,2026-07-25T16:01:51.525324+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [31, 234, 199, 29, 272, 25] derece (out-of-band x6); cleanup=HR4=90"
+20,2026-07-25T16:01:52.133441+00:00,2026-07-25T16:02:12.138807+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+20,2026-07-25T16:02:13.343274+00:00,2026-07-25T16:02:14.049478+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [19, 180, 33, 179, 309, 234] derece (out-of-band x6); cleanup=HR4=90"
+20,2026-07-25T16:02:14.647843+00:00,2026-07-25T16:02:34.660273+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+20,2026-07-25T16:02:35.864509+00:00,2026-07-25T16:02:35.966777+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+20,2026-07-25T16:02:36.571987+00:00,2026-07-25T16:02:56.576816+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+20,2026-07-25T16:02:57.779228+00:00,2026-07-25T16:02:57.790941+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+20,2026-07-25T16:02:58.396579+00:00,2026-07-25T16:03:18.407324+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+20,2026-07-25T16:03:19.614624+00:00,2026-07-25T16:03:19.712118+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,HR9 (load cmd) <- 100% (asiri yuk); cleanup=HR9=60
+20,2026-07-25T16:03:20.326269+00:00,2026-07-25T16:03:40.331696+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+20,2026-07-25T16:03:41.539499+00:00,2026-07-25T16:03:44.036844+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+20,2026-07-25T16:03:44.651040+00:00,2026-07-25T16:04:04.666493+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+20,2026-07-25T16:04:05.873168+00:00,2026-07-25T16:04:08.361454+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+20,2026-07-25T16:04:08.963050+00:00,2026-07-25T16:04:28.972784+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+20,2026-07-25T16:04:30.173065+00:00,2026-07-25T16:04:32.585184+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+20,2026-07-25T16:04:33.193883+00:00,2026-07-25T16:04:53.198470+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+20,2026-07-25T16:04:54.402508+00:00,2026-07-25T16:04:56.508536+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+20,2026-07-25T16:04:57.115769+00:00,2026-07-25T16:05:17.121695+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+20,2026-07-25T16:05:18.325481+00:00,2026-07-25T16:05:20.431033+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+20,2026-07-25T16:05:21.034642+00:00,2026-07-25T16:05:41.041081+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+20,2026-07-25T16:05:42.245048+00:00,2026-07-25T16:05:44.253172+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+20,2026-07-25T16:05:44.865160+00:00,2026-07-25T16:06:04.865766+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+20,2026-07-25T16:06:06.082060+00:00,2026-07-25T16:06:12.088279+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+20,2026-07-25T16:06:12.599235+00:00,2026-07-25T16:06:32.613104+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+20,2026-07-25T16:06:33.816923+00:00,2026-07-25T16:06:39.822032+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+20,2026-07-25T16:06:40.328999+00:00,2026-07-25T16:07:00.343860+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+20,2026-07-25T16:07:01.548641+00:00,2026-07-25T16:07:07.555564+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,12 sahte GPRMC enjekte edildi
+20,2026-07-25T16:07:08.064952+00:00,2026-07-25T16:07:28.074255+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+20,2026-07-25T16:07:29.276605+00:00,2026-07-25T16:07:36.960117+00:00,fault,fault_comm_dropout,ot,ok,fault,true,,"4 normal okuma, ardindan 6 sn haberlesme kopmasi (RST + sessizlik)"
+20,2026-07-25T16:07:37.472763+00:00,2026-07-25T16:07:57.474058+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_comm_dropout
+20,2026-07-25T16:07:58.685216+00:00,2026-07-25T16:08:03.236446+00:00,fault,fault_plc_restart,ot,ok,fault,true,,"15 kisa baglanti / 15 basarili poll (reconnect firtinasi, kapsam-ici okuma)"
+20,2026-07-25T16:08:03.741518+00:00,2026-07-25T16:08:23.752163+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_plc_restart
+20,2026-07-25T16:08:24.957047+00:00,2026-07-25T16:08:29.959488+00:00,fault,fault_poll_storm,ot,ok,fault,true,,"453 mesru okuma / 5 sn (~91 istek/sn asiri poll, kapsam-ici)"
+20,2026-07-25T16:08:30.463332+00:00,2026-07-25T16:08:50.467368+00:00,normal,baseline,ot,ok,isolated,,,gap-after-fault_poll_storm
+21,2026-07-25T19:19:36.951959+00:00,2026-07-25T19:21:06.960859+00:00,normal,baseline,ot,ok,isolated,,,warmup
+21,2026-07-25T19:21:08.181351+00:00,2026-07-25T19:21:08.638192+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+21,2026-07-25T19:21:09.141955+00:00,2026-07-25T19:21:54.152023+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+21,2026-07-25T19:21:55.363714+00:00,2026-07-25T19:21:55.461623+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+21,2026-07-25T19:21:56.080093+00:00,2026-07-25T19:22:41.084167+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+21,2026-07-25T19:22:42.295259+00:00,2026-07-25T19:22:42.312643+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+21,2026-07-25T19:22:42.921638+00:00,2026-07-25T19:23:27.924893+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+21,2026-07-25T19:23:29.136165+00:00,2026-07-25T19:23:29.160982+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+21,2026-07-25T19:23:29.777394+00:00,2026-07-25T19:24:14.777106+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+21,2026-07-25T19:24:15.988392+00:00,2026-07-25T19:24:16.014338+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+21,2026-07-25T19:24:16.616894+00:00,2026-07-25T19:25:01.619279+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+21,2026-07-25T19:25:02.829252+00:00,2026-07-25T19:25:02.864163+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+21,2026-07-25T19:25:03.467166+00:00,2026-07-25T19:25:48.479176+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+21,2026-07-25T19:25:49.701196+00:00,2026-07-25T19:25:50.319561+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [24, 226, 7, 287, 25, 285] derece (out-of-band x6); cleanup=HR4=90"
+21,2026-07-25T19:25:50.926490+00:00,2026-07-25T19:26:35.938248+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+21,2026-07-25T19:26:37.142508+00:00,2026-07-25T19:26:37.774545+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [22, 2, 37, 286, 37, 253] derece (out-of-band x6); cleanup=HR4=90"
+21,2026-07-25T19:26:38.368663+00:00,2026-07-25T19:27:23.373216+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+21,2026-07-25T19:27:24.578153+00:00,2026-07-25T19:27:25.231759+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [4, 297, 185, 278, 144, 201] derece (out-of-band x6); cleanup=HR4=90"
+21,2026-07-25T19:27:25.830001+00:00,2026-07-25T19:28:10.835099+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+21,2026-07-25T19:28:12.038983+00:00,2026-07-25T19:28:12.687987+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [337, 279, 303, 212, 184, 39] derece (out-of-band x6); cleanup=HR4=90"
+21,2026-07-25T19:28:13.290987+00:00,2026-07-25T19:28:58.301787+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+21,2026-07-25T19:28:59.506644+00:00,2026-07-25T19:29:00.137864+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [252, 165, 317, 7, 191, 39] derece (out-of-band x6); cleanup=HR4=90"
+21,2026-07-25T19:29:00.744739+00:00,2026-07-25T19:29:45.756306+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+21,2026-07-25T19:29:46.963811+00:00,2026-07-25T19:29:49.398239+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+21,2026-07-25T19:29:49.997834+00:00,2026-07-25T19:30:35.010241+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+21,2026-07-25T19:30:36.211994+00:00,2026-07-25T19:30:38.652795+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+21,2026-07-25T19:30:39.250490+00:00,2026-07-25T19:31:24.263670+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+21,2026-07-25T19:31:25.474986+00:00,2026-07-25T19:31:27.907824+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+21,2026-07-25T19:31:28.500649+00:00,2026-07-25T19:32:13.504048+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+21,2026-07-25T19:32:14.719276+00:00,2026-07-25T19:32:17.155747+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+21,2026-07-25T19:32:17.747142+00:00,2026-07-25T19:33:02.758919+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+21,2026-07-25T19:33:03.979710+00:00,2026-07-25T19:33:06.611997+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+21,2026-07-25T19:33:07.241025+00:00,2026-07-25T19:33:52.248974+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+21,2026-07-25T19:33:53.461753+00:00,2026-07-25T19:33:55.886972+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+21,2026-07-25T19:33:56.484092+00:00,2026-07-25T19:34:41.488328+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+21,2026-07-25T19:34:42.697927+00:00,2026-07-25T19:34:45.137102+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+21,2026-07-25T19:34:45.748074+00:00,2026-07-25T19:35:30.748384+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+21,2026-07-25T19:35:31.964205+00:00,2026-07-25T19:35:34.391921+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+21,2026-07-25T19:35:34.995276+00:00,2026-07-25T19:36:19.995696+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+21,2026-07-25T19:36:21.200838+00:00,2026-07-25T19:36:23.645191+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+21,2026-07-25T19:36:24.243433+00:00,2026-07-25T19:37:09.245553+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+21,2026-07-25T19:37:10.450922+00:00,2026-07-25T19:37:12.901917+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+21,2026-07-25T19:37:13.510621+00:00,2026-07-25T19:37:58.522243+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+21,2026-07-25T19:37:59.735207+00:00,2026-07-25T19:38:01.757269+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+21,2026-07-25T19:38:02.367825+00:00,2026-07-25T19:38:47.375127+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+21,2026-07-25T19:38:48.578068+00:00,2026-07-25T19:38:50.615664+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+21,2026-07-25T19:38:51.225736+00:00,2026-07-25T19:39:36.228187+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+21,2026-07-25T19:39:37.437066+00:00,2026-07-25T19:39:39.467513+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+21,2026-07-25T19:39:40.065695+00:00,2026-07-25T19:40:25.077304+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+21,2026-07-25T19:40:26.291905+00:00,2026-07-25T19:40:28.320945+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+21,2026-07-25T19:40:28.925651+00:00,2026-07-25T19:41:13.934173+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+21,2026-07-25T19:41:15.145873+00:00,2026-07-25T19:41:17.173298+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+21,2026-07-25T19:41:17.784617+00:00,2026-07-25T19:42:02.798263+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+21,2026-07-25T19:42:04.022423+00:00,2026-07-25T19:42:16.055847+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+21,2026-07-25T19:42:16.557250+00:00,2026-07-25T19:43:01.570959+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+21,2026-07-25T19:43:02.783531+00:00,2026-07-25T19:43:14.803507+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+21,2026-07-25T19:43:15.305515+00:00,2026-07-25T19:44:00.314086+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+21,2026-07-25T19:44:01.515480+00:00,2026-07-25T19:44:13.554135+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+21,2026-07-25T19:44:14.056590+00:00,2026-07-25T19:44:59.060993+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+21,2026-07-25T19:45:00.274865+00:00,2026-07-25T19:45:12.294414+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+21,2026-07-25T19:45:12.796146+00:00,2026-07-25T19:45:57.809532+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+21,2026-07-25T19:45:59.015017+00:00,2026-07-25T19:46:11.036036+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+21,2026-07-25T19:46:11.539274+00:00,2026-07-25T19:46:56.542060+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+22,2026-07-25T19:48:27.068084+00:00,2026-07-25T19:49:57.069718+00:00,normal,baseline,ot,ok,isolated,,,warmup
+22,2026-07-25T19:49:58.282970+00:00,2026-07-25T19:49:58.767711+00:00,attack,recon_scan,ot,ok,attack-only,true,T0846;T0888,"32 basarili/0 hatali okuma, 0..64 tarandi"
+22,2026-07-25T19:49:59.281857+00:00,2026-07-25T19:50:44.292218+00:00,normal,baseline,ot,ok,isolated,,,gap-after-recon_scan
+22,2026-07-25T19:50:45.505074+00:00,2026-07-25T19:50:45.589443+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+22,2026-07-25T19:50:46.203776+00:00,2026-07-25T19:51:31.216726+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+22,2026-07-25T19:51:32.429024+00:00,2026-07-25T19:51:32.440428+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+22,2026-07-25T19:51:33.051690+00:00,2026-07-25T19:52:18.051339+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+22,2026-07-25T19:52:19.264826+00:00,2026-07-25T19:52:19.291522+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+22,2026-07-25T19:52:19.895216+00:00,2026-07-25T19:53:04.907883+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+22,2026-07-25T19:53:06.120839+00:00,2026-07-25T19:53:06.142529+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+22,2026-07-25T19:53:06.755045+00:00,2026-07-25T19:53:51.756718+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+22,2026-07-25T19:53:52.962017+00:00,2026-07-25T19:53:52.992561+00:00,attack,modbus_write,ot,ok,attack-only,true,T0836;T0855;T0831,"HR2<-95, HR3<-1200, Coil0<-True; cleanup=HR2=50, HR3=0, Coil0=False"
+22,2026-07-25T19:53:53.608690+00:00,2026-07-25T19:54:38.619450+00:00,normal,baseline,ot,ok,isolated,,,gap-after-modbus_write
+22,2026-07-25T19:54:39.823334+00:00,2026-07-25T19:54:40.448048+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [29, 36, 34, 269, 146, 142] derece (out-of-band x6); cleanup=HR4=90"
+22,2026-07-25T19:54:41.052690+00:00,2026-07-25T19:55:26.064370+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+22,2026-07-25T19:55:27.275582+00:00,2026-07-25T19:55:27.900553+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [298, 150, 206, 196, 29, 23] derece (out-of-band x6); cleanup=HR4=90"
+22,2026-07-25T19:55:28.505839+00:00,2026-07-25T19:56:13.511544+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+22,2026-07-25T19:56:14.717025+00:00,2026-07-25T19:56:15.348388+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [31, 303, 1, 286, 23, 168] derece (out-of-band x6); cleanup=HR4=90"
+22,2026-07-25T19:56:15.957698+00:00,2026-07-25T19:57:00.959521+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+22,2026-07-25T19:57:02.168596+00:00,2026-07-25T19:57:02.802745+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [22, 262, 186, 9, 40, 30] derece (out-of-band x6); cleanup=HR4=90"
+22,2026-07-25T19:57:03.406154+00:00,2026-07-25T19:57:48.421253+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+22,2026-07-25T19:57:49.626187+00:00,2026-07-25T19:57:50.254627+00:00,attack,steering_hijack,ot,ok,attack-only,true,T0836;T0831,"HR4 (heading cmd) <- [6, 8, 191, 35, 39, 17] derece (out-of-band x6); cleanup=HR4=90"
+22,2026-07-25T19:57:50.859477+00:00,2026-07-25T19:58:35.863019+00:00,normal,baseline,ot,ok,isolated,,,gap-after-steering_hijack
+22,2026-07-25T19:58:37.076240+00:00,2026-07-25T19:58:39.513241+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+22,2026-07-25T19:58:40.111115+00:00,2026-07-25T19:59:25.124124+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+22,2026-07-25T19:59:26.337086+00:00,2026-07-25T19:59:28.776478+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+22,2026-07-25T19:59:29.368838+00:00,2026-07-25T20:00:14.382015+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+22,2026-07-25T20:00:15.594782+00:00,2026-07-25T20:00:18.029683+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+22,2026-07-25T20:00:18.632809+00:00,2026-07-25T20:01:03.635477+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+22,2026-07-25T20:01:04.851997+00:00,2026-07-25T20:01:07.284194+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+22,2026-07-25T20:01:07.882795+00:00,2026-07-25T20:01:52.895069+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+22,2026-07-25T20:01:54.102337+00:00,2026-07-25T20:01:56.537256+00:00,attack,power_overload,ot,ok,attack-only,true,T0836;T0831,"HR9 (load cmd) kademeli rampa [75, 85, 95, 105, 115, 120] % (6 yazma + 12 dogrulama okumasi); cleanup=HR9=60"
+22,2026-07-25T20:01:57.140081+00:00,2026-07-25T20:02:42.142637+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_overload
+22,2026-07-25T20:02:43.357289+00:00,2026-07-25T20:02:45.783275+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+22,2026-07-25T20:02:46.385571+00:00,2026-07-25T20:03:31.396659+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+22,2026-07-25T20:03:32.605854+00:00,2026-07-25T20:03:35.035255+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+22,2026-07-25T20:03:35.644442+00:00,2026-07-25T20:04:20.657064+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+22,2026-07-25T20:04:21.869240+00:00,2026-07-25T20:04:24.289734+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+22,2026-07-25T20:04:24.899927+00:00,2026-07-25T20:05:09.901886+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+22,2026-07-25T20:05:11.116095+00:00,2026-07-25T20:05:13.540994+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+22,2026-07-25T20:05:14.143312+00:00,2026-07-25T20:05:59.151223+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+22,2026-07-25T20:06:00.364201+00:00,2026-07-25T20:06:02.794272+00:00,attack,engine_rpm_ramping,ot,ok,attack-only,true,T0836;T0831,"HR3 (RPM_COMMAND) <- [1200, 0, 1200, 10, 1150, 0] RPM (rapid ramping x6); cleanup=HR3 (RPM_COMMAND) -> 0 RPM (safely reset)"
+22,2026-07-25T20:06:03.391756+00:00,2026-07-25T20:06:48.396110+00:00,normal,baseline,ot,ok,isolated,,,gap-after-engine_rpm_ramping
+22,2026-07-25T20:06:49.611021+00:00,2026-07-25T20:06:51.657885+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+22,2026-07-25T20:06:52.257985+00:00,2026-07-25T20:07:37.268950+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+22,2026-07-25T20:07:38.484122+00:00,2026-07-25T20:07:40.521319+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+22,2026-07-25T20:07:41.131588+00:00,2026-07-25T20:08:26.146289+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+22,2026-07-25T20:08:27.361888+00:00,2026-07-25T20:08:29.384819+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+22,2026-07-25T20:08:29.983852+00:00,2026-07-25T20:09:14.993925+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+22,2026-07-25T20:09:16.205269+00:00,2026-07-25T20:09:18.255479+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+22,2026-07-25T20:09:18.859262+00:00,2026-07-25T20:10:03.861016+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+22,2026-07-25T20:10:05.074164+00:00,2026-07-25T20:10:07.115164+00:00,attack,power_blackout_trip,ot,ok,attack-only,true,T0836;T0814,"HR9 (LOAD_CMD) <- [100, 0, 100, 0, 100]% (power blackout trip x5); cleanup=HR9 (LOAD_CMD) -> 60% (nominal reset)"
+22,2026-07-25T20:10:07.713020+00:00,2026-07-25T20:10:52.715255+00:00,normal,baseline,ot,ok,isolated,,,gap-after-power_blackout_trip
+22,2026-07-25T20:10:53.929632+00:00,2026-07-25T20:11:06.203705+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+22,2026-07-25T20:11:06.705950+00:00,2026-07-25T20:11:51.715002+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+22,2026-07-25T20:11:52.915319+00:00,2026-07-25T20:12:04.937287+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+22,2026-07-25T20:12:05.445675+00:00,2026-07-25T20:12:50.455320+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+22,2026-07-25T20:12:51.662913+00:00,2026-07-25T20:13:03.683445+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+22,2026-07-25T20:13:04.197739+00:00,2026-07-25T20:13:49.200702+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+22,2026-07-25T20:13:50.414199+00:00,2026-07-25T20:14:02.467358+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+22,2026-07-25T20:14:02.971894+00:00,2026-07-25T20:14:47.973022+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof
+22,2026-07-25T20:14:49.187052+00:00,2026-07-25T20:15:01.205170+00:00,attack,ais_spoof,signalk,ok,attack-only,true,T0856;T0830,40 sahte GPRMC enjekte edildi (mode=jump)
+22,2026-07-25T20:15:01.711862+00:00,2026-07-25T20:15:46.718777+00:00,normal,baseline,ot,ok,isolated,,,gap-after-ais_spoof

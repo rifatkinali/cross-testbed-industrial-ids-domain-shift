@@ -1,0 +1,68 @@
+{
+  "schema": "maritime.research-artifact-release-checks/v1",
+  "candidate_version": "1.0.0-rc1",
+  "checked_at": "2026-08-15",
+  "checks": {
+    "package_contract_tests": {
+      "status": "passed",
+      "passed": 2,
+      "failed": 0
+    },
+    "academic_contract_tests": {
+      "status": "passed",
+      "passed": 153,
+      "failed": 0
+    },
+    "openplc_snapshot": {
+      "status": "passed",
+      "files": 2
+    },
+    "macyste_derived_campaign": {
+      "status": "passed",
+      "runs": 12,
+      "rows": 34949
+    },
+    "scientific_outputs": {
+      "status": "passed",
+      "semantic_matches": 5,
+      "mismatches": 0,
+      "normalization": "host-specific combined-target path only"
+    },
+    "content_scrub": {
+      "status": "passed",
+      "rejects": [
+        "host user paths",
+        "placeholder citation identity",
+        "private development email",
+        "GitHub access tokens",
+        "AWS access keys",
+        "private keys",
+        "forbidden product paths",
+        "PCAP and private-key file extensions"
+      ]
+    },
+    "dependency_audit": {
+      "status": "passed",
+      "tool": "pip-audit --strict --no-deps",
+      "known_vulnerabilities": 0,
+      "remediation": "pytest upgraded from vulnerable 8.3.4 to 9.1.1"
+    },
+    "antimalware_scan": {
+      "status": "passed",
+      "tool": "Microsoft Defender custom scan with remediation disabled",
+      "targets": [
+        "built artifact directory",
+        "built ZIP archive"
+      ],
+      "threats": 0
+    },
+    "ruff": {
+      "status": "passed"
+    }
+  },
+  "public_release_eligible": false,
+  "remaining_owner_decisions": [
+    "contributor ownership confirmation",
+    "IP and patent disclosure decision"
+  ]
+}

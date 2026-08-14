@@ -1,0 +1,400 @@
+{
+  "derived_version": "v0.4",
+  "created_at": "2026-07-26T11:57:54.970571+00:00",
+  "campaign_dir": "macyste-20260726T113328Z",
+  "raw_manifest_sha256": "5f292140c6137eef955d93f1714aad54bd83ddfeab426f8b78071c7899540475",
+  "raw_manifest_present": true,
+  "transformer_paths": [
+    "ml/label_phases.py",
+    "ml/import_macyste.py",
+    "ml/features.py"
+  ],
+  "transformer_paths_dirty": false,
+  "transformer_dirty_paths": [],
+  "transformer_commit": "53b7951017ce6852753fa48bde64d440f8940b49",
+  "transformer_source_hashes": {
+    "ml/label_phases.py": "78971f492ad376f3b1df2a42fde7ec776f5a7dcfdf2a3a826b8b9aa4f600db98",
+    "ml/import_macyste.py": "91d16ad92a7756759b894c83b669fac76fc12e91e9866b32daa033218529d69e",
+    "ml/features.py": "cbe110e677a399dd9dcf681912e9584b0cd09ae46d4ed04935d9626a2cc5e75b"
+  },
+  "repo_tag_at_head": null,
+  "repo_head": "f7dd4a87b6fc6c6df8d5966848c6c3dbe40392fc",
+  "timestamp_policy": "flow.end",
+  "timestamp_policy_note": "flow satirlari baglanti boyunca BIRIKMIS sayaclari ozetler; ozet baglanti bitmeden mevcut degildir. Kanonik zaman flow.end'dir. flow.start kullanmak gelecekten turetilmis toplamlari gecmise koyar (temporal leakage).",
+  "phase_backdating_policy": "first matching WRITE carrying the phase setpoint",
+  "phase_backdating_note": "Istemci faz isaretini fazi olusturan yazmalardan SONRA kaydeder; isaret, setpointi tasiyan ilk YAZMA paketine geri tarihlenir. Okuma yanitlari eslestirmeye girmez.",
+  "phase_labels": {
+    "authorized_baseline": "normal",
+    "baseline": "normal",
+    "healthy_baseline": "normal",
+    "unauthorized_manipulation": "attack",
+    "recon_burst": "attack",
+    "recon_complete": "attack",
+    "dual_hydraulic_pump_loss": "fault"
+  },
+  "runs": [
+    {
+      "rows": 1437,
+      "phases": [
+        "healthy_baseline",
+        "dual_hydraulic_pump_loss"
+      ],
+      "anchors": {
+        "healthy_baseline": "marker",
+        "dual_hydraulic_pump_loss": "setpoint"
+      },
+      "backdated": [
+        "dual_hydraulic_pump_loss"
+      ],
+      "phase_row_counts": {
+        "dual_hydraulic_pump_loss": 1398,
+        "healthy_baseline": 29,
+        "pre-phase": 10
+      },
+      "label_row_counts": {
+        "fault": 1398,
+        "normal": 39
+      },
+      "run_label": "fault",
+      "label_is_phase_level": true,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "fault-r01",
+      "eve_sha256": "3a510a4f68081e8ce064653cb38922b99be5819251d5784fc37bfbec33c62335",
+      "ground_truth_sha256": "ef15bce4d2442617c28ed37233ce03b7388c9377abbad0f325d336c937c2a035",
+      "output": "events-v0.4.csv",
+      "output_sha256": "3eef99ef0b564c2288126a736a9a86e2af08a62fb6f2b8c1c3f0df895e78e6a8"
+    },
+    {
+      "rows": 1439,
+      "phases": [
+        "healthy_baseline",
+        "dual_hydraulic_pump_loss"
+      ],
+      "anchors": {
+        "healthy_baseline": "marker",
+        "dual_hydraulic_pump_loss": "setpoint"
+      },
+      "backdated": [
+        "dual_hydraulic_pump_loss"
+      ],
+      "phase_row_counts": {
+        "dual_hydraulic_pump_loss": 1400,
+        "healthy_baseline": 29,
+        "pre-phase": 10
+      },
+      "label_row_counts": {
+        "fault": 1400,
+        "normal": 39
+      },
+      "run_label": "fault",
+      "label_is_phase_level": true,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "fault-r02",
+      "eve_sha256": "5357b4032a85d679857949432c9ee54e414d45b69252be87fee80ca6ca3b660e",
+      "ground_truth_sha256": "afb963e1c9c109566e61d0aadb61e5c1d797d7f97b9741ea0954392948c6adec",
+      "output": "events-v0.4.csv",
+      "output_sha256": "2f71d3f16cad126e2a2fb88237cd8f73d86339f98ad677f898f9fe145ad75110"
+    },
+    {
+      "rows": 1441,
+      "phases": [
+        "healthy_baseline",
+        "dual_hydraulic_pump_loss"
+      ],
+      "anchors": {
+        "healthy_baseline": "marker",
+        "dual_hydraulic_pump_loss": "setpoint"
+      },
+      "backdated": [
+        "dual_hydraulic_pump_loss"
+      ],
+      "phase_row_counts": {
+        "dual_hydraulic_pump_loss": 1402,
+        "healthy_baseline": 29,
+        "pre-phase": 10
+      },
+      "label_row_counts": {
+        "fault": 1402,
+        "normal": 39
+      },
+      "run_label": "fault",
+      "label_is_phase_level": true,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "fault-r03",
+      "eve_sha256": "5153eb4db69d7354c3282978a65727354133fd17ca2de20e74d1adfcc89f6ffd",
+      "ground_truth_sha256": "db8f670b929ab9ff252290c1d446fd41f3e4cbc31c4e247e9886e7906c387f62",
+      "output": "events-v0.4.csv",
+      "output_sha256": "acfc4e9310e02ff7107fc06cfa56d7b0ff13df52f0323e28638b58bf0bac223e"
+    },
+    {
+      "rows": 1441,
+      "phases": [
+        "baseline",
+        "unauthorized_manipulation"
+      ],
+      "anchors": {
+        "baseline": "marker",
+        "unauthorized_manipulation": "setpoint"
+      },
+      "backdated": [
+        "unauthorized_manipulation"
+      ],
+      "phase_row_counts": {
+        "unauthorized_manipulation": 1402,
+        "baseline": 29,
+        "pre-phase": 10
+      },
+      "label_row_counts": {
+        "attack": 1402,
+        "normal": 39
+      },
+      "run_label": "attack",
+      "label_is_phase_level": true,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "manipulation-r01",
+      "eve_sha256": "f7c17a71b2c079f7ab287b1be66185b59cbf8cc032622e2074827ca0c14bf931",
+      "ground_truth_sha256": "ac2ff2b8d95f9beb664c8f90854a8d31c6ba196ee80c80d59bf38dcbc71571c3",
+      "output": "events-v0.4.csv",
+      "output_sha256": "4d3a08fbb3285cd7f21588840a746e26e4cb096ba4bb7fe83db77dbe361f0a8a"
+    },
+    {
+      "rows": 1441,
+      "phases": [
+        "baseline",
+        "unauthorized_manipulation"
+      ],
+      "anchors": {
+        "baseline": "marker",
+        "unauthorized_manipulation": "setpoint"
+      },
+      "backdated": [
+        "unauthorized_manipulation"
+      ],
+      "phase_row_counts": {
+        "unauthorized_manipulation": 1402,
+        "baseline": 29,
+        "pre-phase": 10
+      },
+      "label_row_counts": {
+        "attack": 1402,
+        "normal": 39
+      },
+      "run_label": "attack",
+      "label_is_phase_level": true,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "manipulation-r02",
+      "eve_sha256": "6c2b8a618b7bb81c954eb9b7cbae63d1e37541aa0115208fa4bd36d9bc8ae104",
+      "ground_truth_sha256": "bde7abaebcf7790f19486f699fa903540b0613e7fbbacd7b1c288a4c695f980a",
+      "output": "events-v0.4.csv",
+      "output_sha256": "4435ac8c1cb4c9621c085470aa008be1c5c0de1827a40a249ebcb97468035b1d"
+    },
+    {
+      "rows": 1443,
+      "phases": [
+        "baseline",
+        "unauthorized_manipulation"
+      ],
+      "anchors": {
+        "baseline": "marker",
+        "unauthorized_manipulation": "setpoint"
+      },
+      "backdated": [
+        "unauthorized_manipulation"
+      ],
+      "phase_row_counts": {
+        "unauthorized_manipulation": 1404,
+        "baseline": 29,
+        "pre-phase": 10
+      },
+      "label_row_counts": {
+        "attack": 1404,
+        "normal": 39
+      },
+      "run_label": "attack",
+      "label_is_phase_level": true,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "manipulation-r03",
+      "eve_sha256": "d2b39591519fafbf4d2a5e4a91f4e7d31fb0a3fd8e58a655e44cc567de8535e1",
+      "ground_truth_sha256": "e7251781c0fba0024009b2a69cf5dc6dd605d21f2101b6f068acca1ef152d96f",
+      "output": "events-v0.4.csv",
+      "output_sha256": "2edc1e5b60f8bfff7f00d6d10c5bcda870188dc01ecee622edeb8fda87b541b5"
+    },
+    {
+      "rows": 1076,
+      "phases": [
+        "authorized_baseline"
+      ],
+      "anchors": {
+        "authorized_baseline": "setpoint"
+      },
+      "backdated": [
+        "authorized_baseline"
+      ],
+      "phase_row_counts": {
+        "authorized_baseline": 1070,
+        "pre-phase": 6
+      },
+      "label_row_counts": {
+        "normal": 1076
+      },
+      "run_label": "normal",
+      "label_is_phase_level": false,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "normal-r01",
+      "eve_sha256": "4c464263d376cfc629c464612982776a8e1d04be1ebec851042cb40d33d10321",
+      "ground_truth_sha256": "34af2e9ad52f6cdb237c737a4fd90d1e82e3efffd8cadfef350aeb63184e6d73",
+      "output": "events-v0.4.csv",
+      "output_sha256": "d0453006882d8c22cb0dea966f2f2c997034ed622f800d572ab5db301c77b030"
+    },
+    {
+      "rows": 1080,
+      "phases": [
+        "authorized_baseline"
+      ],
+      "anchors": {
+        "authorized_baseline": "setpoint"
+      },
+      "backdated": [
+        "authorized_baseline"
+      ],
+      "phase_row_counts": {
+        "authorized_baseline": 1074,
+        "pre-phase": 6
+      },
+      "label_row_counts": {
+        "normal": 1080
+      },
+      "run_label": "normal",
+      "label_is_phase_level": false,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "normal-r02",
+      "eve_sha256": "a549f9e31bed3bb7a34e61f8c65d4b0768374542ab0f04e1b39d54ec400ecff7",
+      "ground_truth_sha256": "e207d873b7a13cb1664f261ae0b9004494fed557d899988916aca5f2958ced96",
+      "output": "events-v0.4.csv",
+      "output_sha256": "e723330d48ea579b698896aa7bafdd509b613a15a17fab0ce57e4a5e947e085d"
+    },
+    {
+      "rows": 1082,
+      "phases": [
+        "authorized_baseline"
+      ],
+      "anchors": {
+        "authorized_baseline": "setpoint"
+      },
+      "backdated": [
+        "authorized_baseline"
+      ],
+      "phase_row_counts": {
+        "authorized_baseline": 1076,
+        "pre-phase": 6
+      },
+      "label_row_counts": {
+        "normal": 1082
+      },
+      "run_label": "normal",
+      "label_is_phase_level": false,
+      "flow_rows": 6,
+      "flow_rows_spanning_boundary": 3,
+      "run": "normal-r03",
+      "eve_sha256": "267cd28af861676d584be270c85a7eff8b5b3e30a881cc6b5cba1c8f79b9dc8d",
+      "ground_truth_sha256": "f28d71300cf4cd10e357894409a79dc10ad23e3cc952906db389df652924654c",
+      "output": "events-v0.4.csv",
+      "output_sha256": "1beca9bb8342d13df9d807169f4e6016d60dbab0a8162e70cf5e2a4f114f94d0"
+    },
+    {
+      "rows": 7674,
+      "phases": [
+        "recon_burst",
+        "recon_complete"
+      ],
+      "anchors": {
+        "recon_burst": "marker",
+        "recon_complete": "marker"
+      },
+      "backdated": [],
+      "phase_row_counts": {
+        "recon_burst": 7669,
+        "pre-phase": 5
+      },
+      "label_row_counts": {
+        "attack": 7669,
+        "normal": 5
+      },
+      "run_label": "attack",
+      "label_is_phase_level": true,
+      "flow_rows": 3289,
+      "flow_rows_spanning_boundary": 1,
+      "run": "recon-r01",
+      "eve_sha256": "437d39b8672e89695ca07876b0812f92d4fbdd155f223ba92a2cb1e29e944e70",
+      "ground_truth_sha256": "b527878cab66cc833515c39760f239605a3fe722e5e8ba063bb848991dcc064e",
+      "output": "events-v0.4.csv",
+      "output_sha256": "c0849bbe0342e425db21b6c957dfb5699ed51a4f44ad6ccd29387057b894c91d"
+    },
+    {
+      "rows": 7691,
+      "phases": [
+        "recon_burst",
+        "recon_complete"
+      ],
+      "anchors": {
+        "recon_burst": "marker",
+        "recon_complete": "marker"
+      },
+      "backdated": [],
+      "phase_row_counts": {
+        "recon_burst": 7686,
+        "pre-phase": 5
+      },
+      "label_row_counts": {
+        "attack": 7686,
+        "normal": 5
+      },
+      "run_label": "attack",
+      "label_is_phase_level": true,
+      "flow_rows": 3298,
+      "flow_rows_spanning_boundary": 1,
+      "run": "recon-r02",
+      "eve_sha256": "d980564d5cc681751aab5d12f3fd23214432648928a1bbd7877c7ac051f5a879",
+      "ground_truth_sha256": "9070d3cf01187afbf14bfb877fb1e81713311a1691b3c2e7018150b893adb17e",
+      "output": "events-v0.4.csv",
+      "output_sha256": "03f489988bbbedfbb8f71b9d8de6c4c8843ca1129cf3b383e1bc3836233db71a"
+    },
+    {
+      "rows": 7704,
+      "phases": [
+        "recon_burst",
+        "recon_complete"
+      ],
+      "anchors": {
+        "recon_burst": "marker",
+        "recon_complete": "marker"
+      },
+      "backdated": [],
+      "phase_row_counts": {
+        "recon_burst": 7699,
+        "pre-phase": 5
+      },
+      "label_row_counts": {
+        "attack": 7699,
+        "normal": 5
+      },
+      "run_label": "attack",
+      "label_is_phase_level": true,
+      "flow_rows": 3302,
+      "flow_rows_spanning_boundary": 1,
+      "run": "recon-r03",
+      "eve_sha256": "650f2f920e41afc95cfd90aad2436258ffed71c66d921afaa531b1d28ce9c353",
+      "ground_truth_sha256": "cabc911b26b6e5d1d945afb144f5d8031b69154dd468cbbea66560975437b3bf",
+      "output": "events-v0.4.csv",
+      "output_sha256": "54c960c16d12c089e16254e55d2e1a326ba695ff1ea806eecde909327e6202b7"
+    }
+  ]
+}

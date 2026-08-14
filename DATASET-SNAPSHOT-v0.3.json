@@ -1,0 +1,284 @@
+{
+  "schema": "maritime-lab-dataset-snapshot/v1",
+  "dataset_name": "Maritime-Lab OT IDS Dataset",
+  "dataset_version": "v0.3",
+  "generated_at_utc": "2026-07-28T14:49:11.371769+00:00",
+  "provenance": {
+    "source": "synthetic-lab-only-no-real-vessel-traffic",
+    "attestation_scope": [
+      "primary_dataset",
+      "ground_truth"
+    ],
+    "synthetic_lab_data": true,
+    "live_systems_contacted": false,
+    "real_vessel_data_in_open_release": false,
+    "git": {
+      "head": "08bcfcf66acea182210ad3aef96418e46c6f3409",
+      "worktree_clean": false,
+      "changed_path_count": 26
+    }
+  },
+  "runtime": {
+    "python": "3.14.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "numpy": "2.5.1",
+      "pandas": "3.0.5",
+      "scapy": "2.7.0",
+      "scikit-learn": "1.9.0",
+      "xgboost": "3.3.0"
+    }
+  },
+  "primary_dataset": {
+    "path": "attack/dataset.csv",
+    "bytes": 8989024,
+    "sha256": "24d3380a9d237e3b90f4ff942823edd94252d336f59ed12203b4ec6a00a30a46",
+    "statistics": {
+      "rows": 57499,
+      "columns": 34,
+      "column_names": [
+        "timestamp",
+        "run_id",
+        "label",
+        "scenario",
+        "sensor",
+        "event_type",
+        "proto",
+        "app_proto",
+        "src_ip",
+        "src_port",
+        "dest_ip",
+        "dest_port",
+        "pkts_toserver",
+        "pkts_toclient",
+        "bytes_toserver",
+        "bytes_toclient",
+        "flow_state",
+        "modbus_function",
+        "modbus_access",
+        "modbus_address",
+        "modbus_quantity",
+        "modbus_value",
+        "engine_rpm",
+        "ballast_level",
+        "ballast_setpoint",
+        "rpm_command",
+        "heading_cmd",
+        "heading",
+        "rudder_angle",
+        "gen_load",
+        "bus_freq",
+        "load_cmd",
+        "alert_signature",
+        "alert_sid"
+      ],
+      "run_ids": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22"
+      ],
+      "run_count": 20,
+      "timestamp_min": "2026-07-23T20:42:18.730196+0000",
+      "timestamp_max": "2026-07-25T20:15:44.162022+0000",
+      "label_counts": {
+        "attack": 12378,
+        "fault": 3563,
+        "normal": 41558
+      },
+      "scenario_counts": {
+        "ais_spoof": 102,
+        "background": 614,
+        "baseline": 40944,
+        "dos_flood": 8553,
+        "engine_rpm_ramping": 685,
+        "fault_comm_dropout": 70,
+        "fault_plc_restart": 221,
+        "fault_poll_storm": 3272,
+        "modbus_write": 379,
+        "power_blackout_trip": 576,
+        "power_overload": 481,
+        "recon_scan": 905,
+        "steering_hijack": 697
+      },
+      "event_type_counts": {
+        "alert": 17739,
+        "anomaly": 6821,
+        "fileinfo": 4457,
+        "flow": 8275,
+        "http": 4470,
+        "modbus": 14108,
+        "stats": 1629
+      },
+      "sensor_counts": {
+        "ot": 57397,
+        "signalk": 102
+      },
+      "model_input": {
+        "event_types": [
+          "flow",
+          "modbus"
+        ],
+        "rows": 22383,
+        "label_counts": {
+          "attack": 1415,
+          "fault": 1691,
+          "normal": 19277
+        },
+        "scenario_counts": {
+          "ais_spoof": 31,
+          "background": 377,
+          "baseline": 18900,
+          "engine_rpm_ramping": 210,
+          "fault_comm_dropout": 24,
+          "fault_plc_restart": 68,
+          "fault_poll_storm": 1599,
+          "modbus_write": 96,
+          "power_blackout_trip": 175,
+          "power_overload": 139,
+          "recon_scan": 551,
+          "steering_hijack": 213
+        }
+      }
+    }
+  },
+  "ground_truth": {
+    "path": "attack/labels.csv",
+    "bytes": 93567,
+    "sha256": "72f28e4d1fe40e3b55fd92d4cf3c96162b01523a060e1eb208a80ddba3240a75"
+  },
+  "evaluation_reports": [
+    {
+      "path": "ml/ml_out/detection_report.json",
+      "bytes": 29459,
+      "sha256": "afa1a06ec91db48149e56eb2e91f09f447eb318f6bfda7d9e66d950613aae284"
+    },
+    {
+      "path": "ml/ml_out/benchmark_results.json",
+      "bytes": 15768,
+      "sha256": "8096acf814c4a7429f5ca984035924067d1441c8d5ddf28f3de2adde8a0b9e29"
+    },
+    {
+      "path": "ml/ml_out/loso_results.json",
+      "bytes": 3076,
+      "sha256": "2e2de0a82027b11b198835e753261fd699520f4918fceb74dcfa3c6e164a267b"
+    },
+    {
+      "path": "ml/ml_out/fault_report.json",
+      "bytes": 685,
+      "sha256": "8e611bd719626b070fe7368b0ca4bda1574493a453f25134662f0368405ec033"
+    },
+    {
+      "path": "ml/ml_out/marsim_benchmark.json",
+      "bytes": 10494,
+      "sha256": "5a42fb63d79d8ea18c447757acba11eca73c19726435a2ad4e2416c41b192958"
+    },
+    {
+      "path": "ml/ml_out/radarpwn_benchmark.json",
+      "bytes": 28750,
+      "sha256": "fc2a89eb7733f88e75e890cc05e7cc7902f9ef93931b5202b0e0078b6c2c00f4"
+    },
+    {
+      "path": "ml/ml_out/too2025_integration_report.json",
+      "bytes": 3226,
+      "sha256": "e7b22a118e92b55b4c3278232bc960a22a8d27d552c9e2af659f601ad6e0a2e6"
+    }
+  ],
+  "external_profiles": [
+    {
+      "name": "lemay",
+      "path": "lemay_all.csv",
+      "bytes": 9631662,
+      "sha256": "3942dc47c5a272d1970cceed736f0d0ceeabd124c67e380589b2f58daefd5d85",
+      "rows": 190279,
+      "columns": 8
+    },
+    {
+      "name": "marsim",
+      "path": "ml/ml_out/marsim.csv",
+      "bytes": 21943114,
+      "sha256": "86521261d6033ca2d8e21697d0f586a4b5026317390b561d4de17ed94b331a57",
+      "rows": 43320,
+      "columns": 36
+    },
+    {
+      "name": "radarpwn",
+      "path": "ml/ml_out/radarpwn.csv",
+      "bytes": 56788681,
+      "sha256": "27f9d79628fa94ee35f669f411352009f3a5ba7bd0bdc4b994c58395a4db467b",
+      "rows": 79045,
+      "columns": 105
+    },
+    {
+      "name": "too2025-independent",
+      "path": "ml/ml_out/too2025.csv",
+      "bytes": 203919,
+      "sha256": "3c84ecd58ad4cb8173195e05f85abad24615e4f36cd17cf8dd9a77b880bf25a7",
+      "rows": 720,
+      "columns": 26
+    }
+  ],
+  "source_files": [
+    {
+      "path": "attack/build_dataset.py",
+      "bytes": 8876,
+      "sha256": "1b5e9edaa11f7931fd71878d0c470015018a14b1b813be8c20597ce3f3cdf108"
+    },
+    {
+      "path": "attack/run_scenarios.py",
+      "bytes": 11943,
+      "sha256": "3c36e93fff8d05caa6bb49f2ae1a502716aa7cec757eaf4edae98bcd515543f2"
+    },
+    {
+      "path": "ml/features.py",
+      "bytes": 13274,
+      "sha256": "b8d03589ae1036494f2674aa49dc15d76a565734a27cfd9a09e701bbc3e76a34"
+    },
+    {
+      "path": "ml/modeling.py",
+      "bytes": 5163,
+      "sha256": "6cade993a60253f71234f403ac6e5bf695ef99ef0aeb2465849f5002184255b9"
+    },
+    {
+      "path": "ml/evaluate_detection.py",
+      "bytes": 11640,
+      "sha256": "741cb57d6ca01b291b6507edb5b8add9c0a7ec6c011956bd38d2bd9b8ca6b6eb"
+    },
+    {
+      "path": "ml/benchmark_marsim.py",
+      "bytes": 16471,
+      "sha256": "1ccb9855dd999166d723526684dec118d6a51f74db09659cdcb452ede9937271"
+    },
+    {
+      "path": "ml/benchmark_radarpwn.py",
+      "bytes": 11627,
+      "sha256": "ce9d63575773722a7bb676a670ca76d7e90e362038d3d50239e4c1e4b6774e2b"
+    },
+    {
+      "path": "ml/evaluate_too2025.py",
+      "bytes": 13886,
+      "sha256": "1ba491335f6dcf14325473f8fc1f856f4610d76880058c43660e119f43eea259"
+    }
+  ],
+  "notes": [
+    "Hashes identify the exact local artifacts used for v0.3.",
+    "External profiles have different sampling units and must not be concatenated.",
+    "A dirty git worktree means this is a logical data snapshot, not a release commit."
+  ]
+}
