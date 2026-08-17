@@ -2,8 +2,9 @@
 
 ## A preregistered OpenPLC → MaCySTe maritime OT transfer case study
 
-> **RC2 candidate — not public yet.** The repository and release remain private
-> while the corrected package is independently checked.
+> **Public RC2 prerelease.** This corrected package passed its preregistered
+> contract, clean-artifact reproduction, integrity, dependency, and malware
+> checks before publication on 17 August 2026.
 >
 > **Main result:** protocol and process-aware models reached median source
 > validation AUCs of **0.90–0.97**, yet their held-out MaCySTe ensemble event

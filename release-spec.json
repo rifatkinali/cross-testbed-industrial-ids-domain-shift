@@ -2,7 +2,7 @@
   "schema": "maritime.research-artifact-release-spec/v1",
   "artifact_id": "openplc-macyste-transfer-v2",
   "version": "1.0.0-rc2",
-  "status": "public_release_approved_pending_publish",
+  "status": "published_public_prerelease",
   "repository_url": "https://github.com/rifatkinali/cross-testbed-industrial-ids-domain-shift",
   "purpose": [
     "independent_reproduction",

@@ -8,6 +8,7 @@ authors:
     email: "info@nauticmall.com"
 repository-code: "https://github.com/rifatkinali/cross-testbed-industrial-ids-domain-shift"
 version: "1.0.0-rc2"
+date-released: "2026-08-17"
 license:
   - MIT
   - CC-BY-4.0

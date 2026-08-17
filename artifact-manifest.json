@@ -2,9 +2,9 @@
   "schema": "maritime.research-artifact-manifest/v1",
   "artifact_id": "openplc-macyste-transfer-v2",
   "version": "1.0.0-rc2",
-  "status": "public_release_approved_pending_publish",
+  "status": "published_public_prerelease",
   "release_eligible": true,
-  "source_revision": "b860fc6bd5114101fe3fe58435c1ac4b5ca6c31a",
+  "source_revision": "24a86392570124c1e4b1d85ae2553aa515e46570",
   "reproducibility": {
     "r0_hash_verification": "available",
     "r1_derived_data_reanalysis": "available",
@@ -99,8 +99,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 1044,
-      "sha256": "11d49c40e5fbcde84b4447c02ab19c4d8541a5d2adf745d1acc56ac12b5bd6e4"
+      "bytes": 1072,
+      "sha256": "fa7af9eb614cfe040e5c9d2830ae188b72bba448d25519256f33dae96ae951db"
     },
     {
       "path": "CONTRIBUTING.md",
@@ -169,23 +169,23 @@
     },
     {
       "path": "README.md",
-      "bytes": 6956,
-      "sha256": "7ca827d76bb4bc0a55e5fff4f3870d550dded52aa6eea10ce3b065822187409d"
+      "bytes": 7018,
+      "sha256": "22fafa2ab4004c9a151da9cf03521e3ec27a2fdeb0c717f53fc00db5c848d4bf"
     },
     {
       "path": "RELEASE-CHECKS.json",
-      "bytes": 2644,
-      "sha256": "812625786e79d7c95e761d48967211b8812491cf7b1e23af603615a08e4bca5f"
+      "bytes": 2710,
+      "sha256": "d517712fc34b1b83d2f8cab4c196d18f879f1f6a034f9bf8f5aca17664236478"
     },
     {
       "path": "RELEASE-NOTES.md",
-      "bytes": 2210,
-      "sha256": "8a46b9bcc814b8669d7c00e9162dc0c6d03f35714453e9ba388c5dbd3a38e92e"
+      "bytes": 2207,
+      "sha256": "0e82028f3b07970dc49593409f6e9512b9da11eb509b04d6cc0d2f9f5c2c13e2"
     },
     {
       "path": "release-spec.json",
-      "bytes": 2334,
-      "sha256": "f033bd4fbf4460dc598b8cc83a87ad49df4b4d322210aa64a1984d7aba555636"
+      "bytes": 2322,
+      "sha256": "08d579a46465eb5147e4083fe509614320d45b70798862a1b608fffc90fb9f02"
     },
     {
       "path": "requirements.txt",
@@ -254,6 +254,6 @@
     }
   ],
   "file_count": 48,
-  "total_bytes": 22813275,
+  "total_bytes": 22813416,
   "publication_blockers": []
 }

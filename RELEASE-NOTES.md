@@ -24,7 +24,7 @@ industrial IDSs, real vessels, or a commercial product.
   20-model ensemble score;
 - MaCySTe threshold-dependent false-positive and recall values are descriptive,
   not headline claims;
-- the release carries no `date-released` until it is actually published;
+- `date-released` records the actual 17 August 2026 publication date;
 - the archive root is exactly versioned and contains no staging suffix.
 
 ## Main frozen values

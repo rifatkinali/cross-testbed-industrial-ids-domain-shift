@@ -73,7 +73,8 @@
     },
     "citation_metadata": {
       "status": "passed",
-      "date_released_present": false
+      "date_released_present": true,
+      "date_released": "2026-08-17"
     },
     "product_boundary": {
       "status": "passed",
@@ -82,5 +83,6 @@
   },
   "public_release_eligible": true,
   "remaining_owner_decisions": [],
-  "publication_state": "private_repository_and_unpublished_release_draft"
+  "publication_state": "published_public_repository_and_rc2_prerelease",
+  "published_on": "2026-08-17"
 }
