@@ -1,202 +1,158 @@
-# When a Lab-Accurate Industrial IDS Meets a New Testbed
+# A Strong Lab Result Can Still Fail in the Next Lab
 
-## A reproducible OpenPLC → MaCySTe maritime OT case study
+## A preregistered OpenPLC → MaCySTe maritime OT transfer case study
 
-> **Release state:** public R1 release approved; GitHub publication pending
+> **RC2 candidate — not public yet.** The repository and release remain private
+> while the corrected package is independently checked.
 >
-> **Headline result:** a model scoring **0.95–0.98 AUC** on OpenPLC fell to
-> **0.32–0.46 AUC** on held-out MaCySTe data. A threshold selected for a 1%
-> false-positive rate produced approximately **26–50%** on the new testbed.
+> **Main result:** protocol and process-aware models reached median source
+> validation AUCs of **0.90–0.97**, yet their held-out MaCySTe ensemble event
+> AUCs were only **0.32–0.40**.
 
-That is not a small accuracy drop. In this case study, a detector that looked
-strong in its source laboratory could create an operationally unusable alarm
-load—and parts of its target-domain ranking were inverted.
+Can an industrial intrusion detector that looks convincing in one laboratory
+be trusted in another? In this bounded experiment, no. The ranking degraded
+below random for every tested schema on the held-out target campaign.
 
-This repository lets researchers and maritime-OT practitioners verify the
-result from distributed data and frozen analysis code. It also tests a product
-hypothesis: dependable vessel monitoring may require deployment-specific
-discovery, semantic mapping, local calibration, explicit degraded-state
-reporting, and change-triggered revalidation instead of trusting a static
-model trained elsewhere.
+This release is designed to attract the most useful kind of attention:
+independent attempts to reproduce, challenge, or extend the result. It includes
+the data required for derived-data reanalysis, a result-blind preregistration,
+20 fixed seeds, run-level splitting, machine-verifiable hashes, and an explicit
+record of what the experiment does **not** establish.
 
-The repository is a deliberately narrow research slice of Maritime-Lab. The
-private GÖZCÜ EDGE product source, customer delivery methods, and production
-security configuration are not included.
+The package is a research slice, not a product release. GÖZCÜ EDGE source,
+customer delivery material, production security configuration, and executable
+attack clients are excluded.
 
-## Sixty-second result
+## The result in sixty seconds
 
-| Feature schema | OpenPLC validation AUC | MaCySTe event AUC | MaCySTe scenario-balanced AUC |
+| Feature schema | Source validation AUC, median [min, max] | MaCySTe event AUC, 20-model ensemble | Scenario-balanced AUC |
 |---|---:|---:|---:|
-| `flow` | 0.9543 | 0.3220 | 0.3940 |
-| `protocol` | 0.9759 | 0.3186 | 0.3895 |
-| `physical_strict` | 0.9813 | 0.3289 | 0.3845 |
-| `physical_proxy` | 0.9842 | 0.4001 | 0.4595 |
+| `flow` | 0.723 [0.645, 0.764] | 0.322 | 0.394 |
+| `protocol` | 0.904 [0.822, 0.932] | 0.318 | 0.389 |
+| `physical_strict` | 0.936 [0.850, 0.953] | 0.329 | 0.385 |
+| `physical_proxy` | 0.968 [0.923, 0.981] | 0.400 | 0.454 |
 
-The threshold was selected only on OpenPLC for a target false-positive rate of
-1%. On the held-out MaCySTe campaign, the observed false-positive rate rises to
-approximately 26–50%, depending on the feature schema. AUC values below 0.5
-mean that the target-domain ranking is not merely weaker; it can be inverted.
+![Source validation AUC versus held-out MaCySTe ensemble AUC](results/rc2-main-figure.svg)
 
-![OpenPLC validation performance compared with held-out MaCySTe event and scenario-balanced performance](results/lodo-main-figure.svg)
+The source value summarizes 20 run-level train/validation splits. The target
+point estimate uses the arithmetic mean of all 20 model scores for each event.
+Its scenario-stratified run-bootstrap interval uses that same score and metric,
+fixing the point/interval mismatch identified in RC1.
 
-The result is bounded to one transfer direction, one OpenPLC–MaCySTe testbed
-pair, one 200-tree Random Forest model family, and the included attack/fault
-implementations. It is not evidence about all industrial IDSs, cross-vendor
-performance, or real-vessel operation. `physical_proxy` is the least degraded
-schema in this case study, but that is a secondary hypothesis-generating
-observation—not evidence that process-aware features generally transfer.
+Because MaCySTe has only three closely scripted repetitions per scenario, those
+intervals describe sensitivity to these 12 runs. They are not population or
+cross-testbed generalization confidence intervals.
 
-## What can be tested
+## What RC2 corrected
 
-The package has four reproducibility levels:
+RC1 is retained only as a private draft and must not be published as the main
+result. RC2 corrects four material problems:
 
-| Level | Meaning | Current state |
+1. The main OpenPLC model now uses only `flow/modbus` and `normal/attack` rows.
+2. Any run containing a `fault` event is excluded in full from training and
+   threshold selection, preventing fault-context leakage.
+3. All 20 preregistered seeds (`42–61`) are reported; no favorable seed is
+   selected.
+4. Target point estimates and sensitivity intervals use the same ensemble
+   score and the same metric.
+
+The full contract was committed before recomputation and is available in
+[`PREREGISTRATION.md`](PREREGISTRATION.md) and
+[`preregistration.json`](preregistration.json).
+
+## A separate benign-fault stress test
+
+Eight independent OpenPLC runs (`19, 20, 23–28`) contain 3,337 fault events in
+24 run×scenario cells. They were never used for model fitting, feature choice,
+or threshold selection.
+
+At thresholds selected only on source validation normals, the median
+cell-balanced false-positive rate was 0 for `flow`, `protocol`, and
+`physical_strict`, and 0.000568 (about 0.057%) for `physical_proxy`.
+
+This is encouraging but deliberately **descriptive**. Eight laboratory runs do
+not estimate field reliability, product performance, or a population false-
+alarm rate. MaCySTe threshold-dependent false-positive and recall values are
+also descriptive and are not a headline result because each scenario has only
+three near-scripted repeats.
+
+## Help us falsify or extend it
+
+The highest-value contributions are not stars. We are looking for:
+
+- an independent R1 reproduction on a clean machine;
+- a second authorized testbed or a reverse MaCySTe → OpenPLC experiment;
+- comparisons with IPAL, SIMPLE, GeCo, or another defensible baseline;
+- a laboratory willing to run varied, independently initialized campaigns;
+- maritime faculty, simulator operators, integrators, yards, owners, and cyber
+  teams who can test whether calibration and evidence gaps are operationally
+  important;
+- technical mentors, research sponsors, or design partners who can support an
+  authorized simulator, VDR, or later field-validation path.
+
+Open a GitHub issue for a public reproduction or methodological challenge.
+For a private introduction, email **info@nauticmall.com**. Do not send vessel
+data, credentials, restricted captures, or sensitive topology through a public
+issue.
+
+## Reproducibility levels
+
+| Level | Meaning | RC2 state |
 |---|---|---|
-| R0 | Verify every distributed file and frozen result by SHA-256 | Available |
-| R1 | Re-run tests and the complete analysis from the 12 derived MaCySTe event files | Available |
-| R2 | Re-create derived events from the exact raw PCAP/EVE campaign | Pending external immutable data archive/DOI |
-| R3 | Independent party repeats the method on another testbed or capture | Not yet completed |
+| R0 | Verify every distributed byte and result by SHA-256 | Available |
+| R1 | Re-run the preregistered analysis from distributed derived events | Available |
+| R2 | Re-create derived events from an immutable raw archive | Not claimed; DOI archive pending |
+| R3 | Independent external replication | Not claimed; collaborators wanted |
 
-R1 is the minimum useful GitHub research artifact: a fresh clone can recompute
-the headline result without access to the private product repository. R2 should
-be delivered through Zenodo or another immutable research-data archive rather
-than placing the approximately 200 MiB raw campaign in Git history.
-
-## Quick verification
+### Fast integrity check
 
 ```bash
 python scripts/verify_artifact.py
 ```
 
-This verifies `artifact-manifest.json`, rejects unexpected product/sensitive
-paths, and checks all distributed bytes.
-
-## Full derived-data reproduction
-
-Create an isolated environment, install the pinned research dependencies, then
-run:
+### Full R1 reanalysis
 
 ```bash
 python -m pip install -r requirements.txt
-python scripts/reproduce_openplc_macyste.py
+python scripts/reproduce_openplc_macyste_rc2.py
 ```
 
-The command:
+The full run verifies the preregistration and input hashes, checks all 20
+run-level splits, trains 80 models, recomputes the 2,000-repeat scripted-run
+sensitivity analysis, and requires exact semantic equality with the frozen
+result JSON.
 
-1. runs the 153 academic contract tests;
-2. verifies the OpenPLC dataset snapshot;
-3. validates the 12 MaCySTe derived files and their frozen manifest;
-4. rebuilds the exact 34,949-row combined target table;
-5. recomputes LODO, unseen-category, stratification, and score-discreteness
-   results;
-6. compares all five new JSON outputs with the frozen results after normalizing
-   only the host-specific absolute path of the temporary combined CSV.
+## Scientific boundary
 
-The executable analysis modules and their contract tests are exported from the
-exact `v0.5.0-academic-freeze` Git tag, not from the evolving product working
-tree. The tag and commit are recorded in `artifact-manifest.json`; the original
-full runtime dependency file and freeze entrypoint are retained under
-`provenance/`. The release-specific test dependency is security-maintained in
-the root `requirements.txt` rather than copying the historical development pin.
+This package supports one narrow statement:
 
-Use `--skip-tests` only for a faster local rerun after a full verified run.
+> For the included OpenPLC → MaCySTe direction, data generation, feature
+> schemas, and 200-tree Random Forest family, source-laboratory ranking did not
+> transfer reliably to the held-out target campaign.
 
-## Scientific contribution
+It does not establish that:
 
-The artifact tests a narrower and more defensible question than “does ML work
-for maritime cybersecurity?”:
-
-> How does an IDS trained and calibrated in one maritime OT testbed behave
-> under a held-out testbed with different protocol encodings and operational
-> distributions, and which observable mechanisms explain transfer failure?
-
-The contribution is the combination of:
-
-- a leakage-resistant cross-testbed protocol;
-- source-only threshold selection;
-- event-weighted and scenario-balanced reporting;
-- explicit unseen-category mass diagnostics;
-- score-support/threshold plateau diagnostics;
-- machine-verifiable provenance and result boundaries.
-
-## Product-learning boundary
-
-The artifact can test an important product hypothesis without being the
-product itself: if static models do not transfer safely between testbeds, a
-commercial observer may need vessel-specific discovery, semantic mapping,
-calibration, degraded-state reporting, and evidence-backed change management.
-
-Evidence that would strengthen this hypothesis:
-
-- independent R1 reproductions;
-- the same experiment using IPAL/SIMPLE/GeCo baselines;
-- a second independent target testbed or reverse-direction transfer;
-- a qualified integrator or owner confirming that calibration and evidence
-  gaps are a purchasing problem;
-- later, authorized simulator/VDR/field validation.
-
-Repository stars alone are not product validation. Useful signals are external
-reproductions, citations, dataset reuse, integration pull requests, qualified
-industry conversations, and a paid design-partner path.
-
-## We are looking for collaborators
-
-This release is meant to start useful conversations, not merely collect stars.
-We would especially like to hear from:
-
-- researchers who can independently reproduce R1 or challenge the method;
-- laboratories that can support a second authorized testbed or reverse-transfer
-  experiment;
-- maritime faculties, simulator operators, integrators, yards, owners, and
-  cyber teams that can test whether calibration and evidence gaps are real
-  operational problems;
-- technical mentors, research sponsors, and design partners who can help move
-  the work from a bounded laboratory result toward authorized simulator, VDR,
-  or field validation.
-
-Open a GitHub issue for a public reproduction or collaboration question, or
-contact **info@nauticmall.com** for a private introduction. Do not send vessel
-data, credentials, private captures, or sensitive topology through a public
-issue.
+- all industrial or maritime IDS models fail to transfer;
+- the result applies to a real vessel or another testbed;
+- GÖZCÜ EDGE is validated or superior;
+- the descriptive fault or threshold metrics are population estimates;
+- the diagnostic mechanisms prove causality;
+- IMO, IACS, class, flag, or customer acceptance requirements are satisfied.
 
 ## Deliberately excluded
 
-This artifact must not contain:
-
-- `edge_agent`, `edge_console`, `edge_forwarder`, or production deployment
-  source;
-- production PKI, IAM, firewall, trust-root, update, or support configuration;
-- executable attack campaign clients or evasion material;
-- customer, vessel, topology, pricing, or field-delivery records;
-- raw security scan/remediation reports;
-- real-vessel or restricted validation data;
-- private keys, credentials, runtime logs, PCAP/PCAPNG, or debrief material.
-
-## Release readiness
-
-The owner confirmed project-code and generated-data publication authority on
-15 August 2026. On 17 August 2026, the owner decided not to pursue a patent
-application for this RC1 research artifact and approved public release because
-the GÖZCÜ product sources remain outside the package.
-
-Identity, ownership, licensing/provenance, privacy and secret review,
-dependency audit, malware scan, clean release history, R0 hash verification,
-and R1 derived-data reproduction checks are complete. R2 raw-campaign DOI
-archiving and R3 independent replication remain future reproducibility levels;
-they are not claims or blockers for this R1 release.
+The artifact rejects product source, production PKI/IAM/firewall/update
+configuration, attack campaign clients, customer or vessel records, raw PCAP,
+private keys, credentials, runtime logs, private security reports, and
+restricted validation material.
 
 ## Licenses and provenance
 
-Maritime-Lab software included in the candidate currently follows the root MIT
-license. The OpenPLC-derived research dataset and the project-owned MaCySTe
-experimental observations are declared CC BY 4.0 in the dataset card.
+Included Maritime-Lab research code follows the MIT license. Project-generated
+research observations are distributed under CC BY 4.0 as documented in the
+dataset and provenance records.
 
-The MaCySTe-derived data distribution review was completed on 14 August 2026.
-AGPL-3.0 section 2 states that output from running a covered work is covered
-only when the output's content constitutes a covered work. The 12 distributed
-`events-v0.4.csv` files contain generated protocol/process observations,
-project labels, and project-computed fields; they contain no MaCySTe source
-code. The publication decision is therefore to distribute those observations
-under CC BY 4.0 with explicit MaCySTe attribution. This decision does not
-relicense MaCySTe source code. Upstream attribution, license, and README are
-preserved in `THIRD_PARTY_LICENSES/`.
+The distributed MaCySTe-derived CSV files contain experimental observations,
+project labels, and project-computed fields—not MaCySTe source code. Upstream
+attribution, license, and README are preserved under `THIRD_PARTY_LICENSES/`.
+No affiliation with or endorsement by the MaCySTe authors is claimed.

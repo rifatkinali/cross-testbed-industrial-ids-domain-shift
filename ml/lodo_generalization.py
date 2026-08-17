@@ -72,6 +72,7 @@ Kullanim (veri hazir OLDUGUNDA):
 Yapisal dogrulama (veri gerekmez, sklearn gerekmez):
     python ml/lodo_generalization.py --self-test
 """
+
 from __future__ import annotations
 
 import argparse
@@ -79,7 +80,6 @@ import inspect
 import json
 import os
 import statistics
-import sys
 
 import numpy as np
 import pandas as pd
@@ -87,19 +87,50 @@ import pandas as pd
 # ---------------------------------------------------------------------------
 # 0. Sert domain-kimligi blocklist -- bu kolonlar modele ASLA girmez.
 # ---------------------------------------------------------------------------
-DOMAIN_IDENTITY_BLOCKLIST = frozenset({
-    "source_dataset", "sensor", "register_space", "macyste_decoded",
-    "src_ip", "dest_ip", "dst_ip", "sip", "dip",
-    "src_port", "dest_port", "dst_port", "src_port_role",
-    "modbus_address", "modbus_quantity", "modbus_quantity_norm",  # encoding sizintisi
-    "run_id", "scenario", "phase", "label", "attack_type",
-    "alert_signature", "alert_sid", "timestamp", "_order",
-    # POZISYONLA cozulmus, ham (domaine gore anlami degisen) register alanlari:
-    "engine_rpm", "ballast_level", "ballast_setpoint", "rpm_command",
-    "heading_cmd", "heading", "rudder_angle", "gen_load", "bus_freq", "load_cmd",
-    "hydraulic_pump_rpm_left", "hydraulic_pump_rpm_right",  # MaCySTe: pompa RPM'i
-    "throttle_command_left", "throttle_command_right",  # ham; role coalesce edilir
-})
+DOMAIN_IDENTITY_BLOCKLIST = frozenset(
+    {
+        "source_dataset",
+        "sensor",
+        "register_space",
+        "macyste_decoded",
+        "src_ip",
+        "dest_ip",
+        "dst_ip",
+        "sip",
+        "dip",
+        "src_port",
+        "dest_port",
+        "dst_port",
+        "src_port_role",
+        "modbus_address",
+        "modbus_quantity",
+        "modbus_quantity_norm",  # encoding sizintisi
+        "run_id",
+        "scenario",
+        "phase",
+        "label",
+        "attack_type",
+        "alert_signature",
+        "alert_sid",
+        "timestamp",
+        "_order",
+        # POZISYONLA cozulmus, ham (domaine gore anlami degisen) register alanlari:
+        "engine_rpm",
+        "ballast_level",
+        "ballast_setpoint",
+        "rpm_command",
+        "heading_cmd",
+        "heading",
+        "rudder_angle",
+        "gen_load",
+        "bus_freq",
+        "load_cmd",
+        "hydraulic_pump_rpm_left",
+        "hydraulic_pump_rpm_right",  # MaCySTe: pompa RPM'i
+        "throttle_command_left",
+        "throttle_command_right",  # ham; role coalesce edilir
+    }
+)
 
 
 # ---------------------------------------------------------------------------
@@ -112,19 +143,19 @@ def _num(v):
         return np.nan
 
 
-def _n_rudder(v):      # dumen acisi -> 35 derece = 1.0
+def _n_rudder(v):  # dumen acisi -> 35 derece = 1.0
     return _num(v) / 35.0
 
 
-def _n_rpm1200(v):     # ana makine devir hedefi 0..1200 -> 0..1 (propulsion proxy)
+def _n_rpm1200(v):  # ana makine devir hedefi 0..1200 -> 0..1 (propulsion proxy)
     return _num(v) / 1200.0
 
 
-def _n_unit(v):        # throttle telgrafi zaten 0..1
+def _n_unit(v):  # throttle telgrafi zaten 0..1
     return _num(v)
 
 
-def _n_pump3000(v):    # hidrolik pompa RPM -> 0..1 (ANA MAKINE RPM'i DEGIL; yan analiz)
+def _n_pump3000(v):  # hidrolik pompa RPM -> 0..1 (ANA MAKINE RPM'i DEGIL; yan analiz)
     return _num(v) / 3000.0
 
 
@@ -138,8 +169,11 @@ ROLE_SPECS = {
     ],
     "macyste": [
         (["rudder_angle"], "rudder_norm", _n_rudder),
-        (["throttle_command_left", "throttle_command_right"],
-         "propulsion_demand_norm", _n_unit),                      # sol+sag coalesce
+        (
+            ["throttle_command_left", "throttle_command_right"],
+            "propulsion_demand_norm",
+            _n_unit,
+        ),  # sol+sag coalesce
     ],
 }
 
@@ -151,12 +185,12 @@ SIDE_ROLE_SPECS = {
     ],
 }
 
-STRICT_ROLES = ["rudder_norm"]                          # birebir ortak fiziksel
+STRICT_ROLES = ["rudder_norm"]  # birebir ortak fiziksel
 PROXY_ROLES = ["rudder_norm", "propulsion_demand_norm"]  # strict + proxy
 
 # Fiziksel bantlar NORMALIZE role gore (adrese gore DEGIL).
-RUDDER_SAFE = (-1.0, 1.0)    # |dumen| <= 35 derece
-PROP_SAFE = (0.0, 1.0)       # propulsion demand 0..1
+RUDDER_SAFE = (-1.0, 1.0)  # |dumen| <= 35 derece
+PROP_SAFE = (0.0, 1.0)  # propulsion demand 0..1
 
 BASE_FLOW_NUM = ["pkts_toserver", "pkts_toclient", "bytes_toserver", "bytes_toclient"]
 BASE_FLOW_CAT = ["flow_state"]
@@ -166,7 +200,9 @@ SCHEMA_NAMES = ["flow", "protocol", "physical_strict", "physical_proxy"]
 
 
 def _schema_roles(schema):
-    return {"physical_strict": STRICT_ROLES, "physical_proxy": PROXY_ROLES}.get(schema, [])
+    return {"physical_strict": STRICT_ROLES, "physical_proxy": PROXY_ROLES}.get(
+        schema, []
+    )
 
 
 def _uses_protocol(schema):
@@ -238,7 +274,7 @@ def _resolve_roles(df, source, roles_wanted):
         v = stacked.mean(axis=1)
         values[role] = v
         present[role] = v.notna().astype(int)
-    for role in roles_wanted:                          # eksik rol -> yok isareti
+    for role in roles_wanted:  # eksik rol -> yok isareti
         values.setdefault(role, pd.Series(np.nan, index=df.index))
         present.setdefault(role, pd.Series(0, index=df.index))
     return values, present
@@ -274,19 +310,32 @@ def _rate_per_run(df, values):
 def build_feature_frame(df: pd.DataFrame, schema: str) -> pd.DataFrame:
     if schema not in SCHEMA_NAMES:
         raise ValueError(f"bilinmeyen sema: {schema}")
-    source = str(df["source_dataset"].iloc[0]) if "source_dataset" in df.columns else "openplc"
+    source = (
+        str(df["source_dataset"].iloc[0])
+        if "source_dataset" in df.columns
+        else "openplc"
+    )
     numeric, categorical = [], []
     out = pd.DataFrame(index=df.index)
 
     # flow (ortak)
     for c in BASE_FLOW_NUM:
-        out[c] = pd.to_numeric(df.get(c), errors="coerce").fillna(0.0) if c in df.columns else 0.0
+        out[c] = (
+            pd.to_numeric(df.get(c), errors="coerce").fillna(0.0)
+            if c in df.columns
+            else 0.0
+        )
         numeric.append(c)
-    out["flow_state"] = df["flow_state"].astype(str) if "flow_state" in df.columns else "unknown"
+    out["flow_state"] = (
+        df["flow_state"].astype(str) if "flow_state" in df.columns else "unknown"
+    )
     categorical.append("flow_state")
 
-    is_write = pd.to_numeric(df.get("modbus_function"), errors="coerce").isin([5, 6, 15, 16]) \
-        if "modbus_function" in df.columns else pd.Series(False, index=df.index)
+    is_write = (
+        pd.to_numeric(df.get("modbus_function"), errors="coerce").isin([5, 6, 15, 16])
+        if "modbus_function" in df.columns
+        else pd.Series(False, index=df.index)
+    )
 
     if _uses_protocol(schema):
         out["modbus_function"] = df.get("modbus_function", "na").astype(str)
@@ -298,19 +347,22 @@ def build_feature_frame(df: pd.DataFrame, schema: str) -> pd.DataFrame:
     if roles:
         values, present = _resolve_roles(df, source, roles)
         for role in roles:
-            out[role] = values[role].fillna(0.0)               # deger (imputed)
-            out[f"{role}_present"] = present[role]             # "alan var mi" isareti
+            out[role] = values[role].fillna(0.0)  # deger (imputed)
+            out[f"{role}_present"] = present[role]  # "alan var mi" isareti
             numeric += [role, f"{role}_present"]
         # zaman ozelligi: dumen degisim hizi
         out["rudder_rate"] = _rate_per_run(df, values["rudder_norm"])
         numeric.append("rudder_rate")
         # fiziksel bantlar (role gore)
-        out["rudder_band"] = [_band(v, *RUDDER_SAFE, w)
-                              for v, w in zip(values["rudder_norm"], is_write)]
+        out["rudder_band"] = [
+            _band(v, *RUDDER_SAFE, w) for v, w in zip(values["rudder_norm"], is_write)
+        ]
         categorical.append("rudder_band")
         if "propulsion_demand_norm" in roles:
-            out["propulsion_band"] = [_band(v, *PROP_SAFE, w)
-                                      for v, w in zip(values["propulsion_demand_norm"], is_write)]
+            out["propulsion_band"] = [
+                _band(v, *PROP_SAFE, w)
+                for v, w in zip(values["propulsion_demand_norm"], is_write)
+            ]
             categorical.append("propulsion_band")
 
     frame = out[numeric + categorical].copy()
@@ -353,14 +405,20 @@ def _gt_has_phases(ground_truth, run_id=None):
 def validate_readiness(test_df, ground_truth):
     reasons = []
     runs = test_df["run_id"].astype(str).unique() if "run_id" in test_df.columns else []
-    if not any(_gt_has_phases(ground_truth, r) for r in (runs if len(runs) else [None])):
-        reasons.append("ground-truth fazlari yok (episode sinirlari faz-bazli olmali; "
-                       "uzun kampanyada run_id->ground-truth eslemesi gerekir)")
+    if not any(
+        _gt_has_phases(ground_truth, r) for r in (runs if len(runs) else [None])
+    ):
+        reasons.append(
+            "ground-truth fazlari yok (episode sinirlari faz-bazli olmali; "
+            "uzun kampanyada run_id->ground-truth eslemesi gerekir)"
+        )
     if "label" in test_df.columns and "run_id" in test_df.columns:
         per_run = test_df.groupby("run_id")["label"].nunique()
         if len(per_run) and (per_run <= 1).all():
-            reasons.append("etiketler kosu-duzeyi gorunuyor; fault kosusunun saglikli "
-                           "baslangici da 'fault' olabilir (faz-bazli etiket gerekli)")
+            reasons.append(
+                "etiketler kosu-duzeyi gorunuyor; fault kosusunun saglikli "
+                "baslangici da 'fault' olabilir (faz-bazli etiket gerekli)"
+            )
     if "scenario" in test_df.columns:
         raw_scen = test_df["scenario"].astype(str)
         fam = pd.Series(scenario_family(raw_scen), index=test_df.index)
@@ -377,15 +435,22 @@ def validate_readiness(test_df, ground_truth):
             )
             thin = reps[reps < MIN_REPEATS]
             if len(thin):
-                reasons.append(f"senaryo basina < {MIN_REPEATS} tekrar: {thin.to_dict()}")
+                reasons.append(
+                    f"senaryo basina < {MIN_REPEATS} tekrar: {thin.to_dict()}"
+                )
     if "timestamp" in test_df.columns and "run_id" in test_df.columns:
-        ts = pd.to_datetime(test_df["timestamp"], format="ISO8601",
-                            errors="coerce", utc=True)
-        dur = ts.groupby(test_df["run_id"]).agg(lambda s: (s.max() - s.min()).total_seconds())
+        ts = pd.to_datetime(
+            test_df["timestamp"], format="ISO8601", errors="coerce", utc=True
+        )
+        dur = ts.groupby(test_df["run_id"]).agg(
+            lambda s: (s.max() - s.min()).total_seconds()
+        )
         short = dur[dur < MIN_DURATION_SEC]
         if len(short):
-            reasons.append(f"kosu suresi < {MIN_DURATION_SEC:.0f}s: "
-                           f"{ {k: round(v, 1) for k, v in short.to_dict().items()} }")
+            reasons.append(
+                f"kosu suresi < {MIN_DURATION_SEC:.0f}s: "
+                f"{ {k: round(v, 1) for k, v in short.to_dict().items()} }"
+            )
     return (len(reasons) == 0), reasons
 
 
@@ -411,13 +476,18 @@ def default_model_factory(numeric, categorical, seed=42):
     from sklearn.pipeline import Pipeline
     from sklearn.preprocessing import OneHotEncoder
 
-    pre = ColumnTransformer([
-        ("num", "passthrough", numeric),
-        ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
-    ])
-    return Pipeline([("pre", pre),
-                     ("clf", RandomForestClassifier(n_estimators=200,
-                                                    random_state=seed))])
+    pre = ColumnTransformer(
+        [
+            ("num", "passthrough", numeric),
+            ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
+        ]
+    )
+    return Pipeline(
+        [
+            ("pre", pre),
+            ("clf", RandomForestClassifier(n_estimators=200, random_state=seed)),
+        ]
+    )
 
 
 def _build_model(factory, numeric, categorical, seed):
@@ -481,7 +551,9 @@ def validate_split(train_df, tr_idx, va_idx, split_basis, max_fpr, test_df=None)
         va_runs = set(train_df.iloc[va_idx]["run_id"].astype(str))
         shared = sorted(tr_runs & va_runs)
         if shared:
-            reasons.append(f"train ve validation ayni kosulari paylasiyor: {shared[:5]}")
+            reasons.append(
+                f"train ve validation ayni kosulari paylasiyor: {shared[:5]}"
+            )
     if "label" in train_df.columns:
         yva = train_df.iloc[va_idx]["label"].astype(str).to_numpy()
         n_neg = int((yva != "attack").sum())
@@ -489,11 +561,15 @@ def validate_split(train_df, tr_idx, va_idx, split_basis, max_fpr, test_df=None)
         # daha azinda quantile hedef orani ayirt edemez.
         need = int(np.ceil(1.0 / max_fpr)) if max_fpr > 0 else 0
         if n_neg == 0:
-            reasons.append("validation'da normal satir yok; esik secilemez "
-                           "(varsayilan 0.5'e dusulur, bu bir sonuc DEGILDIR)")
+            reasons.append(
+                "validation'da normal satir yok; esik secilemez "
+                "(varsayilan 0.5'e dusulur, bu bir sonuc DEGILDIR)"
+            )
         elif n_neg < need:
-            reasons.append(f"validation negatif sayisi {n_neg} < {need} (=1/max_fpr); "
-                           f"hedef FPR {max_fpr} bu ornek buyuklugunde cozulemez")
+            reasons.append(
+                f"validation negatif sayisi {n_neg} < {need} (=1/max_fpr); "
+                f"hedef FPR {max_fpr} bu ornek buyuklugunde cozulemez"
+            )
     reasons += _validate_class_composition(train_df, tr_idx, va_idx, test_df)
     return reasons
 
@@ -524,8 +600,7 @@ def _validate_class_composition(train_df, tr_idx, va_idx, test_df):
     if "label" not in train_df.columns or "run_id" not in train_df.columns:
         return reasons
 
-    test_neg = {lab for lab in test_df["label"].astype(str).unique()
-                if lab != "attack"}
+    test_neg = {lab for lab in test_df["label"].astype(str).unique() if lab != "attack"}
     tr_part, va_part = train_df.iloc[tr_idx], train_df.iloc[va_idx]
 
     def runs_with(part, label):
@@ -585,36 +660,57 @@ def _threshold_at_fpr(proba, y, max_fpr):
     return float(np.nextafter(float(neg.max()), np.inf))
 
 
-def run_lodo(train_df, test_df, schema, ground_truth=None,
-             model_factory=None, max_fpr=0.01, force_headline=False,
-             val_frac=0.3, seed=42):
+def run_lodo(
+    train_df,
+    test_df,
+    schema,
+    ground_truth=None,
+    model_factory=None,
+    max_fpr=0.01,
+    force_headline=False,
+    val_frac=0.3,
+    seed=42,
+):
     # Contract iki tarafli: TEST alani hazir mi, ve esik guvenilir bir
     # train/validation bolmesinden mi geliyor.
     tr_idx, va_idx, split_basis = _split_by_run(train_df, val_frac, seed)
     reasons = validate_readiness(test_df, ground_truth)[1]
-    reasons = reasons + validate_split(train_df, tr_idx, va_idx,
-                                       split_basis, max_fpr, test_df)
+    reasons = reasons + validate_split(
+        train_df, tr_idx, va_idx, split_basis, max_fpr, test_df
+    )
     ready = not reasons
-    result = {"schema": schema, "seed": seed, "ready": ready,
-              "split_basis": split_basis, "refusal_reasons": reasons}
+    result = {
+        "schema": schema,
+        "seed": seed,
+        "ready": ready,
+        "split_basis": split_basis,
+        "refusal_reasons": reasons,
+    }
 
     spec = _schema_spec(schema)
     factory = model_factory or default_model_factory
     model = _build_model(factory, spec["numeric"], spec["categorical"], seed)
 
     Xtr = build_feature_frame(train_df.iloc[tr_idx], schema)
-    ytr = (train_df.iloc[tr_idx]["label"].astype(str) == "attack").astype(int).to_numpy()
+    ytr = (
+        (train_df.iloc[tr_idx]["label"].astype(str) == "attack").astype(int).to_numpy()
+    )
     model.fit(Xtr, ytr)
 
     if not (ready or force_headline):
-        result.update(mode="contract", structural_ok=True,
-                      note="headline REDDEDILDI; nedenler giderilmeli. Yapisal "
-                           "kontroller (sema, sizinti, train/val bolme, fit) gecti.")
+        result.update(
+            mode="contract",
+            structural_ok=True,
+            note="headline REDDEDILDI; nedenler giderilmeli. Yapisal "
+            "kontroller (sema, sizinti, train/val bolme, fit) gecti.",
+        )
         return result
 
     # Esik YALNIZ validation'dan
     Xva = build_feature_frame(train_df.iloc[va_idx], schema)
-    yva = (train_df.iloc[va_idx]["label"].astype(str) == "attack").astype(int).to_numpy()
+    yva = (
+        (train_df.iloc[va_idx]["label"].astype(str) == "attack").astype(int).to_numpy()
+    )
     thr = _threshold_at_fpr(_proba(model, Xva), yva, max_fpr)
 
     Xte = build_feature_frame(test_df, schema)
@@ -625,18 +721,19 @@ def run_lodo(train_df, test_df, schema, ground_truth=None,
     # gercek recall'i asagi ceker.
     raw_scen = test_df["scenario"].astype(str)
     scen = scenario_family(raw_scen)
-    lab = (test_df["label"].astype(str).to_numpy() if "label" in test_df.columns
-           else np.full(len(test_df), "", dtype=object))
-    is_attack = (lab == "attack")
+    lab = (
+        test_df["label"].astype(str).to_numpy()
+        if "label" in test_df.columns
+        else np.full(len(test_df), "", dtype=object)
+    )
+    is_attack = lab == "attack"
 
     result["mode"] = "headline" if ready else "forced"
     result["threshold"] = round(float(thr), 4)
     # Ham ad -> aile eslemesi denetlenebilir olsun; 'other' sessizce dusmesin.
-    result["scenario_map"] = {
-        raw: fam for raw, fam in sorted(set(zip(raw_scen, scen)))
-    }
+    result["scenario_map"] = {raw: fam for raw, fam in sorted(set(zip(raw_scen, scen)))}
     for grp in ("normal", "fault"):
-        m = (scen == grp) & ~is_attack          # simetri: saldiri satiri FPR'ye girmez
+        m = (scen == grp) & ~is_attack  # simetri: saldiri satiri FPR'ye girmez
         result[f"fpr_{grp}"] = round(float(pred[m].mean()), 4) if m.any() else None
         result[f"n_{grp}"] = int(m.sum())
     for atk in ("manipulation", "recon"):
@@ -649,51 +746,68 @@ def run_lodo(train_df, test_df, schema, ground_truth=None,
         result[f"recall_event_{atk}"] = round(float(pred[m].mean()), 4)
         hits, basis = _episode_hits(test_df[m], pred[m], ground_truth)
         mm, lo, hi = episode_bootstrap_ci(hits, seed=seed)
-        result[f"recall_episode_{atk}"] = {"mean": round(mm, 3),
-                                           "ci95": [round(lo, 3), round(hi, 3)],
-                                           "n_episodes": len(hits),
-                                           "episode_basis": basis}
-        result[f"latency_{atk}"] = detection_latency(test_df[m], pred[m],
-                                                     ground_truth)
+        result[f"recall_episode_{atk}"] = {
+            "mean": round(mm, 3),
+            "ci95": [round(lo, 3), round(hi, 3)],
+            "n_episodes": len(hits),
+            "episode_basis": basis,
+        }
+        result[f"latency_{atk}"] = detection_latency(test_df[m], pred[m], ground_truth)
     # Operasyonel yuk: tum test alani uzerinden (yalniz saldiri fazlari degil).
     result["alarm_load"] = alarm_load(test_df, pred)
     return result
 
 
-SUMMARY_METRICS = ("fpr_normal", "fpr_fault",
-                   "recall_event_manipulation", "recall_event_recon")
+SUMMARY_METRICS = (
+    "fpr_normal",
+    "fpr_fault",
+    "recall_event_manipulation",
+    "recall_event_recon",
+)
 
 
-def run_lodo_multiseed(train_df, test_df, schema, ground_truth=None,
-                       seeds=(42,), **kwargs):
+def run_lodo_multiseed(
+    train_df, test_df, schema, ground_truth=None, seeds=(42,), **kwargs
+):
     """Ayni protokolu birden fazla seed ile kosur ve yayilimi ozetler.
 
     Tek seed'lik bir sonuc, bolme ve model rastgeleliginden gelen degiskenligi
     gizler. Faz 1 protokolu coklu seed ister; ozet MIN/MAX'i de tasir ki
     "en iyi seed" secilerek rapor edilmesin.
     """
-    runs = [run_lodo(train_df, test_df, schema, ground_truth, seed=int(s), **kwargs)
-            for s in seeds]
+    runs = [
+        run_lodo(train_df, test_df, schema, ground_truth, seed=int(s), **kwargs)
+        for s in seeds
+    ]
     summary = {}
     for metric in SUMMARY_METRICS:
         vals = [r[metric] for r in runs if r.get(metric) is not None]
         if vals:
-            summary[metric] = {"mean": round(statistics.fmean(vals), 4),
-                               "min": round(min(vals), 4),
-                               "max": round(max(vals), 4)}
+            summary[metric] = {
+                "mean": round(statistics.fmean(vals), 4),
+                "min": round(min(vals), 4),
+                "max": round(max(vals), 4),
+            }
     for atk in ("manipulation", "recon"):
-        vals = [r[f"recall_episode_{atk}"]["mean"] for r in runs
-                if r.get(f"recall_episode_{atk}")]
+        vals = [
+            r[f"recall_episode_{atk}"]["mean"]
+            for r in runs
+            if r.get(f"recall_episode_{atk}")
+        ]
         if vals:
-            summary[f"recall_episode_{atk}"] = {"mean": round(statistics.fmean(vals), 3),
-                                                "min": round(min(vals), 3),
-                                                "max": round(max(vals), 3)}
-    return {"schema": schema,
-            "seeds": [int(s) for s in seeds],
-            "ready": all(r["ready"] for r in runs),
-            "mode": runs[0].get("mode") if runs else None,
-            "summary": summary,
-            "per_seed": runs}
+            summary[f"recall_episode_{atk}"] = {
+                "mean": round(statistics.fmean(vals), 3),
+                "min": round(min(vals), 3),
+                "max": round(max(vals), 3),
+            }
+    return {
+        "schema": schema,
+        "seeds": [int(s) for s in seeds],
+        "ready": all(r["ready"] for r in runs),
+        "mode": runs[0].get("mode") if runs else None,
+        "summary": summary,
+        "per_seed": runs,
+    }
 
 
 def _proba(model, X):
@@ -719,8 +833,9 @@ def _phase_windows(ground_truth, run_id):
         if not isinstance(entry, dict):
             continue
         name = str(entry.get("phase", entry.get("name", ""))).strip()
-        stamp = pd.to_datetime(entry.get("timestamp"), format="ISO8601",
-                               errors="coerce", utc=True)
+        stamp = pd.to_datetime(
+            entry.get("timestamp"), format="ISO8601", errors="coerce", utc=True
+        )
         if name and not pd.isna(stamp):
             windows.append(((stamp - _EPOCH).total_seconds(), name))
     windows.sort()
@@ -750,8 +865,7 @@ def _episode_keys(sub_df, ground_truth):
             rows = np.where(np.isnan(rows), -np.inf, rows)
             pos = np.searchsorted(edges, rows, side="right") - 1
             keys.loc[idx] = [
-                f"{run_id}|{names[p]}" if p >= 0 else f"{run_id}|pre-phase"
-                for p in pos
+                f"{run_id}|{names[p]}" if p >= 0 else f"{run_id}|pre-phase" for p in pos
             ]
         if resolved:
             return keys, "ground_truth_phase"
@@ -764,8 +878,10 @@ def _episode_keys(sub_df, ground_truth):
 def _episode_hits(sub_df, pred, ground_truth):
     key, basis = _episode_keys(sub_df, ground_truth)
     p = pd.Series(pred, index=sub_df.index)
-    hits = [1 if p.loc[list(idx)].max() == 1 else 0
-            for _, idx in key.groupby(key).groups.items()]
+    hits = [
+        1 if p.loc[list(idx)].max() == 1 else 0
+        for _, idx in key.groupby(key).groups.items()
+    ]
     return hits, basis
 
 
@@ -844,11 +960,17 @@ def main(argv=None):
     ap.add_argument("--ground-truth")
     ap.add_argument("--schema", choices=SCHEMA_NAMES + ["all"], default="all")
     ap.add_argument("--max-fpr", type=float, default=0.01)
-    ap.add_argument("--seeds", default="42",
-                    help="virgulle ayrilmis seed listesi (ör. 42,43,44); bolme, "
-                         "model ve bootstrap ayni seed'i kullanir")
-    ap.add_argument("--force-headline", action="store_true",
-                    help="veri hazir olmasa BILE metrik uret (ONERILMEZ)")
+    ap.add_argument(
+        "--seeds",
+        default="42",
+        help="virgulle ayrilmis seed listesi (ör. 42,43,44); bolme, "
+        "model ve bootstrap ayni seed'i kullanir",
+    )
+    ap.add_argument(
+        "--force-headline",
+        action="store_true",
+        help="veri hazir olmasa BILE metrik uret (ONERILMEZ)",
+    )
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args(argv)
 
@@ -870,9 +992,15 @@ def main(argv=None):
     print(f"LODO GENELLEME  (train=OpenPLC, test=harici domain)  seeds={seeds}")
     print("=" * 70)
     for sc in schemas:
-        out = run_lodo_multiseed(train_df, test_df, sc, gt, seeds=seeds,
-                                 max_fpr=args.max_fpr,
-                                 force_headline=args.force_headline)
+        out = run_lodo_multiseed(
+            train_df,
+            test_df,
+            sc,
+            gt,
+            seeds=seeds,
+            max_fpr=args.max_fpr,
+            force_headline=args.force_headline,
+        )
         print(json.dumps(out, ensure_ascii=False, indent=2))
         if not out["ready"] and not args.force_headline:
             print(f"[CONTRACT] '{sc}': HEADLINE REDDEDILDI:")
@@ -890,7 +1018,12 @@ def _dummy_factory(numeric, categorical, seed=42):
             c = numeric[0] if numeric else None
             if not c:
                 return np.zeros(len(X), int)
-            return (pd.to_numeric(X[c], errors="coerce").fillna(0) > 0).astype(int).to_numpy()
+            return (
+                (pd.to_numeric(X[c], errors="coerce").fillna(0) > 0)
+                .astype(int)
+                .to_numpy()
+            )
+
     return _M()
 
 
@@ -900,7 +1033,8 @@ def _self_test():
 
     try:
         assert_no_leakage(pd.DataFrame({"pkts_toserver": [1], "dest_port": [502]}))
-        print("  [FAIL] sizinti guard yakalamadi"); ok = False
+        print("  [FAIL] sizinti guard yakalamadi")
+        ok = False
     except AssertionError:
         print("  [OK] sizinti guard dest_port'u yakaladi")
 
@@ -927,19 +1061,34 @@ def _self_test():
     short = _fixture("macyste", "run", 1, 5)
     ready, reasons = validate_readiness(short, None)
     assert not ready and reasons
-    print(f"  [OK] contract guard kisa/kosu-etiketli veriyi reddetti ({len(reasons)} neden)")
+    print(
+        f"  [OK] contract guard kisa/kosu-etiketli veriyi reddetti ({len(reasons)} neden)"
+    )
 
-    r = run_lodo(_fixture("openplc", "phase", 3, 90), short, "physical_proxy",
-                 ground_truth=None, model_factory=_dummy_factory)
+    r = run_lodo(
+        _fixture("openplc", "phase", 3, 90),
+        short,
+        "physical_proxy",
+        ground_truth=None,
+        model_factory=_dummy_factory,
+    )
     assert r["mode"] == "contract" and "fpr_normal" not in r
     print("  [OK] hazir-olmayan veride headline metrik URETILMEDI")
 
     # headline yolu (dummy): scenario+label maskesi, val esigi, episode kaynagi
     good = _fixture("macyste", "phase", 3, 90)
-    gt = {g: {"phases": [{"name": "warmup"}, {"name": "act"}]}
-          for g in good["run_id"].unique()}
-    r2 = run_lodo(_fixture("openplc", "phase", 4, 90), good, "physical_proxy",
-                  ground_truth=gt, model_factory=_dummy_factory, force_headline=True)
+    gt = {
+        g: {"phases": [{"name": "warmup"}, {"name": "act"}]}
+        for g in good["run_id"].unique()
+    }
+    r2 = run_lodo(
+        _fixture("openplc", "phase", 4, 90),
+        good,
+        "physical_proxy",
+        ground_truth=gt,
+        model_factory=_dummy_factory,
+        force_headline=True,
+    )
     assert "fpr_normal" in r2 and "recall_event_manipulation" in r2
     # maske scenario VE label -> manipulation kosusunun 20 satirindan 16'si
     assert r2["n_manipulation_attack_rows"] == 3 * 16
@@ -947,19 +1096,30 @@ def _self_test():
 
     # episode sinirlari: zaman damgali ground-truth -> faz penceresi
     stamped = {
-        g: {"phases": [
-            {"phase": "baseline", "timestamp": "2023-11-14T22:13:20+00:00"},
-            {"phase": "unauthorized_manipulation",
-             "timestamp": "2023-11-14T22:13:38+00:00"},
-        ]}
+        g: {
+            "phases": [
+                {"phase": "baseline", "timestamp": "2023-11-14T22:13:20+00:00"},
+                {
+                    "phase": "unauthorized_manipulation",
+                    "timestamp": "2023-11-14T22:13:38+00:00",
+                },
+            ]
+        }
         for g in good["run_id"].unique()
     }
-    r3 = run_lodo(_fixture("openplc", "phase", 4, 90), good, "physical_proxy",
-                  ground_truth=stamped, model_factory=_dummy_factory,
-                  force_headline=True)
+    r3 = run_lodo(
+        _fixture("openplc", "phase", 4, 90),
+        good,
+        "physical_proxy",
+        ground_truth=stamped,
+        model_factory=_dummy_factory,
+        force_headline=True,
+    )
     assert r3["recall_episode_manipulation"]["episode_basis"] == "ground_truth_phase"
     assert r2["recall_episode_manipulation"]["episode_basis"] == "phase_column"
-    print("  [OK] episode sinirlari ground-truth fazlarindan (ground_truth kullaniliyor)")
+    print(
+        "  [OK] episode sinirlari ground-truth fazlarindan (ground_truth kullaniliyor)"
+    )
 
     # rudder_rate YALNIZ gercek dumen ornekleri arasinda
     rate_fr = build_feature_frame(good, "physical_strict")
@@ -981,29 +1141,45 @@ def _self_test():
     solo["run_id"] = "tek-kosu"
     ti, vi, basis = _split_by_run(solo, 0.3, 42)
     assert basis == "row"
-    assert any("KOSU bazli degil" in x for x in validate_split(solo, ti, vi, basis, 0.01))
+    assert any(
+        "KOSU bazli degil" in x for x in validate_split(solo, ti, vi, basis, 0.01)
+    )
     ti, vi, basis = _split_by_run(_fixture("openplc", "phase", 4, 90), 0.3, 42)
     assert basis == "run"
     print("  [OK] train/validation bolmesi kosu bazli degilse REDDEDILIYOR")
 
     # tespit gecikmesi ve alarm yuku (Faz 1 zorunlu metrikleri)
-    lat_df = pd.DataFrame({
-        "run_id": ["r1"] * 3,
-        "timestamp": ["2023-11-14T22:13:40+00:00", "2023-11-14T22:13:42+00:00",
-                      "2023-11-14T22:13:45+00:00"],
-    })
-    lat_gt = {"r1": {"phases": [{"phase": "act",
-                                 "timestamp": "2023-11-14T22:13:38+00:00"}]}}
+    lat_df = pd.DataFrame(
+        {
+            "run_id": ["r1"] * 3,
+            "timestamp": [
+                "2023-11-14T22:13:40+00:00",
+                "2023-11-14T22:13:42+00:00",
+                "2023-11-14T22:13:45+00:00",
+            ],
+        }
+    )
+    lat_gt = {
+        "r1": {"phases": [{"phase": "act", "timestamp": "2023-11-14T22:13:38+00:00"}]}
+    }
     lat = detection_latency(lat_df, np.array([0, 1, 0]), lat_gt)
     assert lat["median_sec"] == 2.0 and lat["n_missed"] == 0
     load = alarm_load(lat_df, np.array([0, 1, 0]))
     assert load["n_runs"] == 1 and load["alarms_per_run_mean"] == 1.0
-    print(f"  [OK] tespit gecikmesi={lat['median_sec']}s; alarm/kosu={load['alarms_per_run_mean']}")
+    print(
+        f"  [OK] tespit gecikmesi={lat['median_sec']}s; alarm/kosu={load['alarms_per_run_mean']}"
+    )
 
     # coklu seed: ozet min<=mean<=max tasir ("en iyi seed" secilemez)
-    ms = run_lodo_multiseed(_fixture("openplc", "phase", 4, 90), good,
-                            "physical_proxy", ground_truth=stamped, seeds=(1, 2, 3),
-                            model_factory=_dummy_factory, force_headline=True)
+    ms = run_lodo_multiseed(
+        _fixture("openplc", "phase", 4, 90),
+        good,
+        "physical_proxy",
+        ground_truth=stamped,
+        seeds=(1, 2, 3),
+        model_factory=_dummy_factory,
+        force_headline=True,
+    )
     assert [r["seed"] for r in ms["per_seed"]] == [1, 2, 3]
     for stats in ms["summary"].values():
         assert stats["min"] <= stats["mean"] <= stats["max"]
@@ -1023,29 +1199,46 @@ def _fixture(source, label_mode, n_runs, dur):
     """
     # Senaryo adlari GERCEK kampanya vokabuleridir ('<kaynak>_<aile>'); yalin ad
     # kullanilirsa aile eslemesi test edilmeden kalir.
-    scen = {"openplc": ["baseline", "modbus_write"],
-            "macyste": ["macyste_normal", "macyste_manipulation",
-                        "macyste_recon", "macyste_fault"]}[source]
+    scen = {
+        "openplc": ["baseline", "modbus_write"],
+        "macyste": [
+            "macyste_normal",
+            "macyste_manipulation",
+            "macyste_recon",
+            "macyste_fault",
+        ],
+    }[source]
     macyste = source == "macyste"
     rows = []
     for run in range(n_runs):
         for si, sc in enumerate(scen):
-            base_lab = {"baseline": "normal", "macyste_normal": "normal",
-                        "macyste_fault": "fault"}.get(sc, "attack")
+            base_lab = {
+                "baseline": "normal",
+                "macyste_normal": "normal",
+                "macyste_fault": "fault",
+            }.get(sc, "attack")
             for k in range(20):
                 t = 1_700_000_000 + run * 1000 + k * (dur / 20)
                 # kosu-modu: tum satir base_lab; faz-modu: ilk 4 warmup=normal
-                lab = base_lab if label_mode == "run" else (base_lab if k > 3 else "normal")
+                lab = (
+                    base_lab
+                    if label_mode == "run"
+                    else (base_lab if k > 3 else "normal")
+                )
                 # Dumen sabit durmaz; saldiri aninda sicrar. Sabit deger
                 # verilirse rudder_rate her zaman 0 olur ve hiz hatalari kacar.
                 rudder = (50 if lab == "attack" else 5) + (k % 3)
                 row = {
-                    "source_dataset": source, "run_id": f"{source}-{sc}-{run}",
-                    "scenario": sc, "label": lab,
+                    "source_dataset": source,
+                    "run_id": f"{source}-{sc}-{run}",
+                    "scenario": sc,
+                    "label": lab,
                     "phase": "act" if k > 3 else "warmup",
                     "timestamp": pd.Timestamp(t, unit="s", tz="UTC").isoformat(),
-                    "pkts_toserver": k, "pkts_toclient": k,
-                    "bytes_toserver": 60 * k, "bytes_toclient": 60 * k,
+                    "pkts_toserver": k,
+                    "pkts_toclient": k,
+                    "bytes_toserver": 60 * k,
+                    "bytes_toclient": 60 * k,
                     "flow_state": "established",
                     "modbus_function": 6 if base_lab == "attack" else 3,
                     "modbus_access": "WRITE" if base_lab == "attack" else "READ",

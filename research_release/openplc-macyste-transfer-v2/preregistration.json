@@ -1,0 +1,81 @@
+{
+  "schema": "maritime.openplc-macyste-rc2-preregistration/v1",
+  "version": "1.0.0-rc2",
+  "frozen_on": "2026-08-17",
+  "purpose": "Correct RC1 data-scope, threshold, and uncertainty defects before recomputation",
+  "inputs": {
+    "openplc_candidate": {
+      "path": ".codex-validation/ds02-independent-faults-20260815/dataset.csv",
+      "sha256": "616bf8f05a8a52f9ba7679d54229a5dcab7c384b8f7db9616fadb78f12a37118",
+      "rows": 62630,
+      "provenance_record": "docs/sonuclar/OPENPLC-BAGIMSIZ-ARIZA-KOSULARI-2026-08-15.json",
+      "provenance_sha256": "d6ae0bb5baf94f80cbf42c0adfb54cac9d0bd3dd41bad361a1b278b57c54df12"
+    },
+    "macyste_target": {
+      "path": "captures/macyste/macyste-20260726T113328Z",
+      "derived_manifest": "derived-manifest-v0.4.json",
+      "manifest_sha256": "aa03a6fa04c279be88e7e4784129886f93a2f561ce6c730c7d336bdfc36ee8c8",
+      "rows": 34949,
+      "runs": 12
+    }
+  },
+  "main_model": {
+    "event_types": ["flow", "modbus"],
+    "labels": ["normal", "attack"],
+    "excluded_fault_run_ids": [19, 20, 23, 24, 25, 26, 27, 28],
+    "expected_run_ids": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22],
+    "expected_rows": 18941,
+    "expected_normal_rows": 17646,
+    "expected_attack_rows": 1295,
+    "split_unit": "run_id",
+    "validation_fraction": 0.3,
+    "seeds": [42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61],
+    "minimum_runs_per_label_per_side": 2,
+    "minimum_validation_normal_events": 100,
+    "max_source_validation_fpr": 0.01,
+    "schemas": ["flow", "protocol", "physical_strict", "physical_proxy"],
+    "model_family": "RandomForestClassifier",
+    "n_estimators": 200
+  },
+  "openplc_fault_stress": {
+    "event_types": ["flow", "modbus"],
+    "label": "fault",
+    "run_ids": [19, 20, 23, 24, 25, 26, 27, 28],
+    "scenarios": ["fault_comm_dropout", "fault_plc_restart", "fault_poll_storm"],
+    "expected_rows": 3337,
+    "expected_runs": 8,
+    "expected_run_scenario_cells": 24,
+    "primary_descriptive_metric": "run_scenario_balanced_false_positive_rate",
+    "secondary_descriptive_metric": "event_weighted_false_positive_rate",
+    "summary": "median_min_max_across_all_20_seeds"
+  },
+  "macyste_evaluation": {
+    "event_types": ["flow", "modbus"],
+    "primary_score": "arithmetic_mean_of_20_seed_scores_per_event",
+    "primary_metrics": [
+      "event_weighted_auc",
+      "scenario_balanced_auc",
+      "manipulation_vs_normal_auc",
+      "recon_vs_normal_auc"
+    ],
+    "uncertainty": "scenario_stratified_scripted_run_bootstrap_on_the_same_ensemble_score",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260817,
+    "interval_quantiles": [0.025, 0.975],
+    "uncertainty_claim": "sensitivity_to_the_12_scripted_runs_not_population_generalization",
+    "descriptive_threshold_metrics": [
+      "normal_fpr",
+      "fault_fpr",
+      "manipulation_recall",
+      "recon_recall"
+    ],
+    "threshold_metric_summary": "median_min_max_across_all_20_seeds",
+    "threshold_metrics_allowed_in_headline": false
+  },
+  "publication": {
+    "rc1_remains_private_draft": true,
+    "rc2_publication_requires_contract_tests": true,
+    "r2_raw_archive_claimed": false,
+    "r3_independent_replication_claimed": false
+  }
+}

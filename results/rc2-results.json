@@ -1,0 +1,3960 @@
+{
+  "schema": "maritime.openplc-macyste-rc2-result/v1",
+  "version": "1.0.0-rc2",
+  "preregistration": {
+    "path": "research_release/openplc-macyste-transfer-v2/preregistration.json",
+    "sha256": "5604f52ec3870551b35a41f5ab61ce4cc09e3f78d40f8111b9ccbd73470933c4",
+    "frozen_on": "2026-08-17"
+  },
+  "implementation": {
+    "path": "ml/openplc_macyste_rc2.py",
+    "sha256": "90dc044babf8fee7b34da7bb2aa4e6e37096d80077a800e2da5c2701c55f9be4"
+  },
+  "source_audit": {
+    "raw_rows": 62630,
+    "accepted_flow_modbus_rows": 25000,
+    "main_rows": 18941,
+    "main_label_counts": {
+      "normal": 17646,
+      "attack": 1295
+    },
+    "main_runs": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      21,
+      22
+    ],
+    "excluded_fault_runs": [
+      19,
+      20,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "fault_stress_rows": 3337,
+    "fault_stress_runs": [
+      19,
+      20,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "fault_stress_run_scenario_cells": 24
+  },
+  "target_audit": {
+    "rows": 34949,
+    "runs": 12,
+    "family_event_counts": {
+      "fault": 4317,
+      "manipulation": 4325,
+      "normal": 3238,
+      "recon": 23069
+    },
+    "family_run_counts": {
+      "fault": 3,
+      "manipulation": 3,
+      "normal": 3,
+      "recon": 3
+    },
+    "derived_files": [
+      {
+        "run": "fault-r01",
+        "rows": 1437,
+        "sha256": "3eef99ef0b564c2288126a736a9a86e2af08a62fb6f2b8c1c3f0df895e78e6a8"
+      },
+      {
+        "run": "fault-r02",
+        "rows": 1439,
+        "sha256": "2f71d3f16cad126e2a2fb88237cd8f73d86339f98ad677f898f9fe145ad75110"
+      },
+      {
+        "run": "fault-r03",
+        "rows": 1441,
+        "sha256": "acfc4e9310e02ff7107fc06cfa56d7b0ff13df52f0323e28638b58bf0bac223e"
+      },
+      {
+        "run": "manipulation-r01",
+        "rows": 1441,
+        "sha256": "4d3a08fbb3285cd7f21588840a746e26e4cb096ba4bb7fe83db77dbe361f0a8a"
+      },
+      {
+        "run": "manipulation-r02",
+        "rows": 1441,
+        "sha256": "4435ac8c1cb4c9621c085470aa008be1c5c0de1827a40a249ebcb97468035b1d"
+      },
+      {
+        "run": "manipulation-r03",
+        "rows": 1443,
+        "sha256": "2edc1e5b60f8bfff7f00d6d10c5bcda870188dc01ecee622edeb8fda87b541b5"
+      },
+      {
+        "run": "normal-r01",
+        "rows": 1076,
+        "sha256": "d0453006882d8c22cb0dea966f2f2c997034ed622f800d572ab5db301c77b030"
+      },
+      {
+        "run": "normal-r02",
+        "rows": 1080,
+        "sha256": "e723330d48ea579b698896aa7bafdd509b613a15a17fab0ce57e4a5e947e085d"
+      },
+      {
+        "run": "normal-r03",
+        "rows": 1082,
+        "sha256": "1beca9bb8342d13df9d807169f4e6016d60dbab0a8162e70cf5e2a4f114f94d0"
+      },
+      {
+        "run": "recon-r01",
+        "rows": 7674,
+        "sha256": "c0849bbe0342e425db21b6c957dfb5699ed51a4f44ad6ccd29387057b894c91d"
+      },
+      {
+        "run": "recon-r02",
+        "rows": 7691,
+        "sha256": "03f489988bbbedfbb8f71b9d8de6c4c8843ca1129cf3b383e1bc3836233db71a"
+      },
+      {
+        "run": "recon-r03",
+        "rows": 7704,
+        "sha256": "54c960c16d12c089e16254e55d2e1a326ba695ff1ea806eecde909327e6202b7"
+      }
+    ]
+  },
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "interpretation": {
+    "primary_score": "arithmetic_mean_of_20_seed_scores_per_event",
+    "uncertainty": "sensitivity_to_the_12_scripted_runs_not_population_generalization",
+    "threshold_metrics": "descriptive_only_not_headline",
+    "fault_stress": "unseen_benign_descriptive_only"
+  },
+  "results": [
+    {
+      "schema": "flow",
+      "source_validation_auc": {
+        "median": 0.723309,
+        "min": 0.644959,
+        "max": 0.76373,
+        "n": 20
+      },
+      "source_validation_fpr": {
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "n": 20
+      },
+      "macyste_primary_ensemble": {
+        "event_weighted_auc": {
+          "point": 0.321893,
+          "scripted_run_sensitivity_interval": [
+            0.321826,
+            0.321981
+          ]
+        },
+        "scenario_balanced_auc": {
+          "point": 0.393842,
+          "scripted_run_sensitivity_interval": [
+            0.393806,
+            0.393864
+          ]
+        },
+        "manipulation_vs_normal_auc": {
+          "point": 0.50171,
+          "scripted_run_sensitivity_interval": [
+            0.501704,
+            0.501719
+          ]
+        },
+        "recon_vs_normal_auc": {
+          "point": 0.288435,
+          "scripted_run_sensitivity_interval": [
+            0.288364,
+            0.288477
+          ]
+        }
+      },
+      "macyste_descriptive_threshold_metrics": {
+        "normal_fpr": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        },
+        "fault_fpr": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        },
+        "manipulation_recall": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        },
+        "recon_recall": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        }
+      },
+      "openplc_fault_stress": {
+        "run_scenario_balanced_false_positive_rate": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        },
+        "event_weighted_false_positive_rate": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        }
+      },
+      "per_seed": [
+        {
+          "seed": 42,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              11,
+              12,
+              14,
+              16,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              9,
+              10,
+              13,
+              15,
+              17
+            ],
+            "train_rows": 11762,
+            "validation_rows": 7179,
+            "validation_normal_rows": 6737
+          },
+          "threshold": 0.123781,
+          "source_validation_auc": 0.688585,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 43,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              9,
+              10,
+              11,
+              12,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              8,
+              13,
+              18
+            ],
+            "train_rows": 12871,
+            "validation_rows": 6070,
+            "validation_normal_rows": 5787
+          },
+          "threshold": 0.12365,
+          "source_validation_auc": 0.732417,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 44,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              7,
+              14,
+              16,
+              22
+            ],
+            "train_rows": 12947,
+            "validation_rows": 5994,
+            "validation_normal_rows": 5498
+          },
+          "threshold": 0.098048,
+          "source_validation_auc": 0.736359,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 45,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              10,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              14,
+              15,
+              16
+            ],
+            "train_rows": 13676,
+            "validation_rows": 5265,
+            "validation_normal_rows": 4824
+          },
+          "threshold": 0.101141,
+          "source_validation_auc": 0.727923,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 46,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              9,
+              10,
+              12,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              6,
+              7,
+              8,
+              11,
+              13
+            ],
+            "train_rows": 11938,
+            "validation_rows": 7003,
+            "validation_normal_rows": 6719
+          },
+          "threshold": 0.12497,
+          "source_validation_auc": 0.76373,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 47,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              7,
+              8,
+              12,
+              13,
+              14,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              6,
+              9,
+              10,
+              11,
+              17,
+              22
+            ],
+            "train_rows": 12037,
+            "validation_rows": 6904,
+            "validation_normal_rows": 6502
+          },
+          "threshold": 0.124168,
+          "source_validation_auc": 0.696632,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 48,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              8,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              7,
+              9,
+              14,
+              17,
+              22
+            ],
+            "train_rows": 11765,
+            "validation_rows": 7176,
+            "validation_normal_rows": 6679
+          },
+          "threshold": 0.114394,
+          "source_validation_auc": 0.695538,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 49,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              8,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13228,
+            "validation_rows": 5713,
+            "validation_normal_rows": 5370
+          },
+          "threshold": 0.109891,
+          "source_validation_auc": 0.762291,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 50,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              14,
+              16,
+              21
+            ],
+            "train_rows": 13654,
+            "validation_rows": 5287,
+            "validation_normal_rows": 4792
+          },
+          "threshold": 0.094667,
+          "source_validation_auc": 0.726628,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 51,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "validation_runs": [
+              3,
+              8,
+              12,
+              17,
+              21,
+              22
+            ],
+            "train_rows": 9820,
+            "validation_rows": 9121,
+            "validation_normal_rows": 8549
+          },
+          "threshold": 0.122044,
+          "source_validation_auc": 0.704644,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 52,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              11,
+              12,
+              13,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              9,
+              10,
+              14,
+              15,
+              16,
+              18
+            ],
+            "train_rows": 15475,
+            "validation_rows": 3466,
+            "validation_normal_rows": 3025
+          },
+          "threshold": 0.095111,
+          "source_validation_auc": 0.644959,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 53,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              14,
+              16,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              8,
+              11,
+              12,
+              13,
+              15,
+              21
+            ],
+            "train_rows": 12378,
+            "validation_rows": 6563,
+            "validation_normal_rows": 6009
+          },
+          "threshold": 0.095118,
+          "source_validation_auc": 0.731403,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 54,
+          "split": {
+            "train_runs": [
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              5,
+              8,
+              10,
+              18
+            ],
+            "train_rows": 14431,
+            "validation_rows": 4510,
+            "validation_normal_rows": 4322
+          },
+          "threshold": 0.12342,
+          "source_validation_auc": 0.722582,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 55,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              12,
+              13,
+              14,
+              15,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              11,
+              16,
+              17,
+              22
+            ],
+            "train_rows": 10791,
+            "validation_rows": 8150,
+            "validation_normal_rows": 7689
+          },
+          "threshold": 0.125781,
+          "source_validation_auc": 0.709195,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 56,
+          "split": {
+            "train_runs": [
+              4,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              7,
+              13,
+              14,
+              18
+            ],
+            "train_rows": 13330,
+            "validation_rows": 5611,
+            "validation_normal_rows": 5231
+          },
+          "threshold": 0.111685,
+          "source_validation_auc": 0.71602,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 57,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              6,
+              7,
+              10,
+              12,
+              13,
+              14,
+              15,
+              16,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              8,
+              9,
+              11,
+              17,
+              18
+            ],
+            "train_rows": 11797,
+            "validation_rows": 7144,
+            "validation_normal_rows": 6899
+          },
+          "threshold": 0.148513,
+          "source_validation_auc": 0.692274,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 58,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              10,
+              12,
+              22
+            ],
+            "train_rows": 13434,
+            "validation_rows": 5507,
+            "validation_normal_rows": 5144
+          },
+          "threshold": 0.108138,
+          "source_validation_auc": 0.748348,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 59,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              14,
+              15,
+              16,
+              22
+            ],
+            "train_rows": 12924,
+            "validation_rows": 6017,
+            "validation_normal_rows": 5421
+          },
+          "threshold": 0.087791,
+          "source_validation_auc": 0.724036,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 60,
+          "split": {
+            "train_runs": [
+              3,
+              5,
+              7,
+              8,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              4,
+              6,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13728,
+            "validation_rows": 5213,
+            "validation_normal_rows": 4872
+          },
+          "threshold": 0.110828,
+          "source_validation_auc": 0.73204,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 61,
+          "split": {
+            "train_runs": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              6,
+              14,
+              17,
+              21
+            ],
+            "train_rows": 10838,
+            "validation_rows": 8103,
+            "validation_normal_rows": 7607
+          },
+          "threshold": 0.125092,
+          "source_validation_auc": 0.69344,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.0
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "schema": "protocol",
+      "source_validation_auc": {
+        "median": 0.904289,
+        "min": 0.822005,
+        "max": 0.932027,
+        "n": 20
+      },
+      "source_validation_fpr": {
+        "median": 0.000152,
+        "min": 0.0,
+        "max": 0.00121,
+        "n": 20
+      },
+      "macyste_primary_ensemble": {
+        "event_weighted_auc": {
+          "point": 0.318365,
+          "scripted_run_sensitivity_interval": [
+            0.318195,
+            0.318516
+          ]
+        },
+        "scenario_balanced_auc": {
+          "point": 0.38929,
+          "scripted_run_sensitivity_interval": [
+            0.389177,
+            0.389395
+          ]
+        },
+        "manipulation_vs_normal_auc": {
+          "point": 0.49165,
+          "scripted_run_sensitivity_interval": [
+            0.491516,
+            0.491783
+          ]
+        },
+        "recon_vs_normal_auc": {
+          "point": 0.281867,
+          "scripted_run_sensitivity_interval": [
+            0.281673,
+            0.282
+          ]
+        }
+      },
+      "macyste_descriptive_threshold_metrics": {
+        "normal_fpr": {
+          "median": 0.236257,
+          "min": 0.236257,
+          "max": 0.281655,
+          "n": 20
+        },
+        "fault_fpr": {
+          "median": 0.246699,
+          "min": 0.246699,
+          "max": 0.252259,
+          "n": 20
+        },
+        "manipulation_recall": {
+          "median": 0.248337,
+          "min": 0.248337,
+          "max": 0.251901,
+          "n": 20
+        },
+        "recon_recall": {
+          "median": 0.142752,
+          "min": 0.142752,
+          "max": 0.142752,
+          "n": 20
+        }
+      },
+      "openplc_fault_stress": {
+        "run_scenario_balanced_false_positive_rate": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        },
+        "event_weighted_false_positive_rate": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        }
+      },
+      "per_seed": [
+        {
+          "seed": 42,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              11,
+              12,
+              14,
+              16,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              9,
+              10,
+              13,
+              15,
+              17
+            ],
+            "train_rows": 11762,
+            "validation_rows": 7179,
+            "validation_normal_rows": 6737
+          },
+          "threshold": 0.894612,
+          "source_validation_auc": 0.905159,
+          "source_validation_fpr": 0.000148,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 43,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              9,
+              10,
+              11,
+              12,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              8,
+              13,
+              18
+            ],
+            "train_rows": 12871,
+            "validation_rows": 6070,
+            "validation_normal_rows": 5787
+          },
+          "threshold": 0.295664,
+          "source_validation_auc": 0.922871,
+          "source_validation_fpr": 0.00121,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 44,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              7,
+              14,
+              16,
+              22
+            ],
+            "train_rows": 12947,
+            "validation_rows": 5994,
+            "validation_normal_rows": 5498
+          },
+          "threshold": 1.0,
+          "source_validation_auc": 0.903055,
+          "source_validation_fpr": 0.000364,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 45,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              10,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              14,
+              15,
+              16
+            ],
+            "train_rows": 13676,
+            "validation_rows": 5265,
+            "validation_normal_rows": 4824
+          },
+          "threshold": 0.898143,
+          "source_validation_auc": 0.879162,
+          "source_validation_fpr": 0.000207,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 46,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              9,
+              10,
+              12,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              6,
+              7,
+              8,
+              11,
+              13
+            ],
+            "train_rows": 11938,
+            "validation_rows": 7003,
+            "validation_normal_rows": 6719
+          },
+          "threshold": 0.2959,
+          "source_validation_auc": 0.932027,
+          "source_validation_fpr": 0.001191,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 47,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              7,
+              8,
+              12,
+              13,
+              14,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              6,
+              9,
+              10,
+              11,
+              17,
+              22
+            ],
+            "train_rows": 12037,
+            "validation_rows": 6904,
+            "validation_normal_rows": 6502
+          },
+          "threshold": 0.930382,
+          "source_validation_auc": 0.904951,
+          "source_validation_fpr": 0.000154,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 48,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              8,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              7,
+              9,
+              14,
+              17,
+              22
+            ],
+            "train_rows": 11765,
+            "validation_rows": 7176,
+            "validation_normal_rows": 6679
+          },
+          "threshold": 0.908862,
+          "source_validation_auc": 0.903627,
+          "source_validation_fpr": 0.00015,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 49,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              8,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13228,
+            "validation_rows": 5713,
+            "validation_normal_rows": 5370
+          },
+          "threshold": 0.937497,
+          "source_validation_auc": 0.921969,
+          "source_validation_fpr": 0.000186,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 50,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              14,
+              16,
+              21
+            ],
+            "train_rows": 13654,
+            "validation_rows": 5287,
+            "validation_normal_rows": 4792
+          },
+          "threshold": 0.91918,
+          "source_validation_auc": 0.892639,
+          "source_validation_fpr": 0.000209,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 51,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "validation_runs": [
+              3,
+              8,
+              12,
+              17,
+              21,
+              22
+            ],
+            "train_rows": 9820,
+            "validation_rows": 9121,
+            "validation_normal_rows": 8549
+          },
+          "threshold": 0.288156,
+          "source_validation_auc": 0.893362,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 52,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              11,
+              12,
+              13,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              9,
+              10,
+              14,
+              15,
+              16,
+              18
+            ],
+            "train_rows": 15475,
+            "validation_rows": 3466,
+            "validation_normal_rows": 3025
+          },
+          "threshold": 0.462344,
+          "source_validation_auc": 0.822005,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 53,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              14,
+              16,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              8,
+              11,
+              12,
+              13,
+              15,
+              21
+            ],
+            "train_rows": 12378,
+            "validation_rows": 6563,
+            "validation_normal_rows": 6009
+          },
+          "threshold": 0.273487,
+          "source_validation_auc": 0.920399,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 54,
+          "split": {
+            "train_runs": [
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              5,
+              8,
+              10,
+              18
+            ],
+            "train_rows": 14431,
+            "validation_rows": 4510,
+            "validation_normal_rows": 4322
+          },
+          "threshold": 0.03852,
+          "source_validation_auc": 0.880282,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 55,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              12,
+              13,
+              14,
+              15,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              11,
+              16,
+              17,
+              22
+            ],
+            "train_rows": 10791,
+            "validation_rows": 8150,
+            "validation_normal_rows": 7689
+          },
+          "threshold": 0.382326,
+          "source_validation_auc": 0.902811,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 56,
+          "split": {
+            "train_runs": [
+              4,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              7,
+              13,
+              14,
+              18
+            ],
+            "train_rows": 13330,
+            "validation_rows": 5611,
+            "validation_normal_rows": 5231
+          },
+          "threshold": 0.918185,
+          "source_validation_auc": 0.922249,
+          "source_validation_fpr": 0.000191,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 57,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              6,
+              7,
+              10,
+              12,
+              13,
+              14,
+              15,
+              16,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              8,
+              9,
+              11,
+              17,
+              18
+            ],
+            "train_rows": 11797,
+            "validation_rows": 7144,
+            "validation_normal_rows": 6899
+          },
+          "threshold": 0.366703,
+          "source_validation_auc": 0.884391,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 58,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              10,
+              12,
+              22
+            ],
+            "train_rows": 13434,
+            "validation_rows": 5507,
+            "validation_normal_rows": 5144
+          },
+          "threshold": 0.930063,
+          "source_validation_auc": 0.925152,
+          "source_validation_fpr": 0.000194,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 59,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              14,
+              15,
+              16,
+              22
+            ],
+            "train_rows": 12924,
+            "validation_rows": 6017,
+            "validation_normal_rows": 5421
+          },
+          "threshold": 0.403093,
+          "source_validation_auc": 0.88168,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 60,
+          "split": {
+            "train_runs": [
+              3,
+              5,
+              7,
+              8,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              4,
+              6,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13728,
+            "validation_rows": 5213,
+            "validation_normal_rows": 4872
+          },
+          "threshold": 0.937116,
+          "source_validation_auc": 0.912297,
+          "source_validation_fpr": 0.000205,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 61,
+          "split": {
+            "train_runs": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              6,
+              14,
+              17,
+              21
+            ],
+            "train_rows": 10838,
+            "validation_rows": 8103,
+            "validation_normal_rows": 7607
+          },
+          "threshold": 0.888835,
+          "source_validation_auc": 0.906665,
+          "source_validation_fpr": 0.000131,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.236257,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.248337,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "schema": "physical_strict",
+      "source_validation_auc": {
+        "median": 0.93617,
+        "min": 0.849845,
+        "max": 0.952601,
+        "n": 20
+      },
+      "source_validation_fpr": {
+        "median": 0.000152,
+        "min": 0.0,
+        "max": 0.00121,
+        "n": 20
+      },
+      "macyste_primary_ensemble": {
+        "event_weighted_auc": {
+          "point": 0.32889,
+          "scripted_run_sensitivity_interval": [
+            0.328694,
+            0.329063
+          ]
+        },
+        "scenario_balanced_auc": {
+          "point": 0.384612,
+          "scripted_run_sensitivity_interval": [
+            0.38446,
+            0.384756
+          ]
+        },
+        "manipulation_vs_normal_auc": {
+          "point": 0.465171,
+          "scripted_run_sensitivity_interval": [
+            0.464974,
+            0.465368
+          ]
+        },
+        "recon_vs_normal_auc": {
+          "point": 0.299061,
+          "scripted_run_sensitivity_interval": [
+            0.298828,
+            0.299213
+          ]
+        }
+      },
+      "macyste_descriptive_threshold_metrics": {
+        "normal_fpr": {
+          "median": 0.23425,
+          "min": 0.0,
+          "max": 0.281655,
+          "n": 20
+        },
+        "fault_fpr": {
+          "median": 0.246699,
+          "min": 0.0,
+          "max": 0.252259,
+          "n": 20
+        },
+        "manipulation_recall": {
+          "median": 0.016635,
+          "min": 0.0,
+          "max": 0.251901,
+          "n": 20
+        },
+        "recon_recall": {
+          "median": 0.142752,
+          "min": 0.142752,
+          "max": 0.142752,
+          "n": 20
+        }
+      },
+      "openplc_fault_stress": {
+        "run_scenario_balanced_false_positive_rate": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        },
+        "event_weighted_false_positive_rate": {
+          "median": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "n": 20
+        }
+      },
+      "per_seed": [
+        {
+          "seed": 42,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              11,
+              12,
+              14,
+              16,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              9,
+              10,
+              13,
+              15,
+              17
+            ],
+            "train_rows": 11762,
+            "validation_rows": 7179,
+            "validation_normal_rows": 6737
+          },
+          "threshold": 0.894612,
+          "source_validation_auc": 0.93633,
+          "source_validation_fpr": 0.000148,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 43,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              9,
+              10,
+              11,
+              12,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              8,
+              13,
+              18
+            ],
+            "train_rows": 12871,
+            "validation_rows": 6070,
+            "validation_normal_rows": 5787
+          },
+          "threshold": 0.295664,
+          "source_validation_auc": 0.951778,
+          "source_validation_fpr": 0.00121,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 44,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              7,
+              14,
+              16,
+              22
+            ],
+            "train_rows": 12947,
+            "validation_rows": 5994,
+            "validation_normal_rows": 5498
+          },
+          "threshold": 1.0,
+          "source_validation_auc": 0.919832,
+          "source_validation_fpr": 0.000364,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 45,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              10,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              14,
+              15,
+              16
+            ],
+            "train_rows": 13676,
+            "validation_rows": 5265,
+            "validation_normal_rows": 4824
+          },
+          "threshold": 0.898143,
+          "source_validation_auc": 0.88641,
+          "source_validation_fpr": 0.000207,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 46,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              9,
+              10,
+              12,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              6,
+              7,
+              8,
+              11,
+              13
+            ],
+            "train_rows": 11938,
+            "validation_rows": 7003,
+            "validation_normal_rows": 6719
+          },
+          "threshold": 0.2959,
+          "source_validation_auc": 0.94668,
+          "source_validation_fpr": 0.001191,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 47,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              7,
+              8,
+              12,
+              13,
+              14,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              6,
+              9,
+              10,
+              11,
+              17,
+              22
+            ],
+            "train_rows": 12037,
+            "validation_rows": 6904,
+            "validation_normal_rows": 6502
+          },
+          "threshold": 0.930382,
+          "source_validation_auc": 0.947016,
+          "source_validation_fpr": 0.000154,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 48,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              8,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              7,
+              9,
+              14,
+              17,
+              22
+            ],
+            "train_rows": 11765,
+            "validation_rows": 7176,
+            "validation_normal_rows": 6679
+          },
+          "threshold": 0.908862,
+          "source_validation_auc": 0.937405,
+          "source_validation_fpr": 0.00015,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.234404,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.016635,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 49,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              8,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13228,
+            "validation_rows": 5713,
+            "validation_normal_rows": 5370
+          },
+          "threshold": 0.937497,
+          "source_validation_auc": 0.941351,
+          "source_validation_fpr": 0.000186,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 50,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              14,
+              16,
+              21
+            ],
+            "train_rows": 13654,
+            "validation_rows": 5287,
+            "validation_normal_rows": 4792
+          },
+          "threshold": 0.91918,
+          "source_validation_auc": 0.908939,
+          "source_validation_fpr": 0.000209,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 51,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "validation_runs": [
+              3,
+              8,
+              12,
+              17,
+              21,
+              22
+            ],
+            "train_rows": 9820,
+            "validation_rows": 9121,
+            "validation_normal_rows": 8549
+          },
+          "threshold": 0.288156,
+          "source_validation_auc": 0.952601,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 52,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              11,
+              12,
+              13,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              9,
+              10,
+              14,
+              15,
+              16,
+              18
+            ],
+            "train_rows": 15475,
+            "validation_rows": 3466,
+            "validation_normal_rows": 3025
+          },
+          "threshold": 0.462344,
+          "source_validation_auc": 0.849845,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 53,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              14,
+              16,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              8,
+              11,
+              12,
+              13,
+              15,
+              21
+            ],
+            "train_rows": 12378,
+            "validation_rows": 6563,
+            "validation_normal_rows": 6009
+          },
+          "threshold": 0.273487,
+          "source_validation_auc": 0.944076,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 54,
+          "split": {
+            "train_runs": [
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              5,
+              8,
+              10,
+              18
+            ],
+            "train_rows": 14431,
+            "validation_rows": 4510,
+            "validation_normal_rows": 4322
+          },
+          "threshold": 0.181569,
+          "source_validation_auc": 0.906496,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 55,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              12,
+              13,
+              14,
+              15,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              11,
+              16,
+              17,
+              22
+            ],
+            "train_rows": 10791,
+            "validation_rows": 8150,
+            "validation_normal_rows": 7689
+          },
+          "threshold": 0.382326,
+          "source_validation_auc": 0.936009,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 56,
+          "split": {
+            "train_runs": [
+              4,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              7,
+              13,
+              14,
+              18
+            ],
+            "train_rows": 13330,
+            "validation_rows": 5611,
+            "validation_normal_rows": 5231
+          },
+          "threshold": 0.918185,
+          "source_validation_auc": 0.947725,
+          "source_validation_fpr": 0.000191,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 57,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              6,
+              7,
+              10,
+              12,
+              13,
+              14,
+              15,
+              16,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              8,
+              9,
+              11,
+              17,
+              18
+            ],
+            "train_rows": 11797,
+            "validation_rows": 7144,
+            "validation_normal_rows": 6899
+          },
+          "threshold": 0.366703,
+          "source_validation_auc": 0.932526,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 58,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              10,
+              12,
+              22
+            ],
+            "train_rows": 13434,
+            "validation_rows": 5507,
+            "validation_normal_rows": 5144
+          },
+          "threshold": 0.930063,
+          "source_validation_auc": 0.950135,
+          "source_validation_fpr": 0.000194,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 59,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              14,
+              15,
+              16,
+              22
+            ],
+            "train_rows": 12924,
+            "validation_rows": 6017,
+            "validation_normal_rows": 5421
+          },
+          "threshold": 0.403093,
+          "source_validation_auc": 0.897999,
+          "source_validation_fpr": 0.0,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.281655,
+            "fault_fpr": 0.252259,
+            "manipulation_recall": 0.251901,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 60,
+          "split": {
+            "train_runs": [
+              3,
+              5,
+              7,
+              8,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              4,
+              6,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13728,
+            "validation_rows": 5213,
+            "validation_normal_rows": 4872
+          },
+          "threshold": 0.937116,
+          "source_validation_auc": 0.933786,
+          "source_validation_fpr": 0.000205,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.0,
+            "fault_fpr": 0.0,
+            "manipulation_recall": 0.0,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        },
+        {
+          "seed": 61,
+          "split": {
+            "train_runs": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              6,
+              14,
+              17,
+              21
+            ],
+            "train_rows": 10838,
+            "validation_rows": 8103,
+            "validation_normal_rows": 7607
+          },
+          "threshold": 0.888835,
+          "source_validation_auc": 0.934131,
+          "source_validation_fpr": 0.000131,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.234095,
+            "fault_fpr": 0.246699,
+            "manipulation_recall": 0.016635,
+            "recon_recall": 0.142752
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.0,
+            "event_weighted_false_positive_rate": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "schema": "physical_proxy",
+      "source_validation_auc": {
+        "median": 0.968221,
+        "min": 0.923342,
+        "max": 0.981449,
+        "n": 20
+      },
+      "source_validation_fpr": {
+        "median": 0.004485,
+        "min": 0.00116,
+        "max": 0.008556,
+        "n": 20
+      },
+      "macyste_primary_ensemble": {
+        "event_weighted_auc": {
+          "point": 0.400285,
+          "scripted_run_sensitivity_interval": [
+            0.400007,
+            0.400546
+          ]
+        },
+        "scenario_balanced_auc": {
+          "point": 0.45404,
+          "scripted_run_sensitivity_interval": [
+            0.453771,
+            0.454306
+          ]
+        },
+        "manipulation_vs_normal_auc": {
+          "point": 0.534719,
+          "scripted_run_sensitivity_interval": [
+            0.534368,
+            0.535071
+          ]
+        },
+        "recon_vs_normal_auc": {
+          "point": 0.373295,
+          "scripted_run_sensitivity_interval": [
+            0.373032,
+            0.373552
+          ]
+        }
+      },
+      "macyste_descriptive_threshold_metrics": {
+        "normal_fpr": {
+          "median": 0.516986,
+          "min": 0.47344,
+          "max": 0.994441,
+          "n": 20
+        },
+        "fault_fpr": {
+          "median": 0.498263,
+          "min": 0.494093,
+          "max": 0.99583,
+          "n": 20
+        },
+        "manipulation_recall": {
+          "median": 0.500238,
+          "min": 0.498099,
+          "max": 0.997861,
+          "n": 20
+        },
+        "recon_recall": {
+          "median": 0.285504,
+          "min": 0.285504,
+          "max": 0.571311,
+          "n": 20
+        }
+      },
+      "openplc_fault_stress": {
+        "run_scenario_balanced_false_positive_rate": {
+          "median": 0.000568,
+          "min": 0.000568,
+          "max": 0.000568,
+          "n": 20
+        },
+        "event_weighted_false_positive_rate": {
+          "median": 0.001798,
+          "min": 0.001798,
+          "max": 0.001798,
+          "n": 20
+        }
+      },
+      "per_seed": [
+        {
+          "seed": 42,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              11,
+              12,
+              14,
+              16,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              9,
+              10,
+              13,
+              15,
+              17
+            ],
+            "train_rows": 11762,
+            "validation_rows": 7179,
+            "validation_normal_rows": 6737
+          },
+          "threshold": 0.627016,
+          "source_validation_auc": 0.964854,
+          "source_validation_fpr": 0.001336,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 43,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              9,
+              10,
+              11,
+              12,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              8,
+              13,
+              18
+            ],
+            "train_rows": 12871,
+            "validation_rows": 6070,
+            "validation_normal_rows": 5787
+          },
+          "threshold": 0.079243,
+          "source_validation_auc": 0.978913,
+          "source_validation_fpr": 0.003974,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.994441,
+            "fault_fpr": 0.99583,
+            "manipulation_recall": 0.997861,
+            "recon_recall": 0.571311
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 44,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              7,
+              14,
+              16,
+              22
+            ],
+            "train_rows": 12947,
+            "validation_rows": 5994,
+            "validation_normal_rows": 5498
+          },
+          "threshold": 0.689902,
+          "source_validation_auc": 0.962822,
+          "source_validation_fpr": 0.007639,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 45,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              10,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              14,
+              15,
+              16
+            ],
+            "train_rows": 13676,
+            "validation_rows": 5265,
+            "validation_normal_rows": 4824
+          },
+          "threshold": 0.62972,
+          "source_validation_auc": 0.94963,
+          "source_validation_fpr": 0.002073,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 46,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              9,
+              10,
+              12,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              6,
+              7,
+              8,
+              11,
+              13
+            ],
+            "train_rows": 11938,
+            "validation_rows": 7003,
+            "validation_normal_rows": 6719
+          },
+          "threshold": 0.089499,
+          "source_validation_auc": 0.981449,
+          "source_validation_fpr": 0.003274,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.994441,
+            "fault_fpr": 0.99583,
+            "manipulation_recall": 0.997861,
+            "recon_recall": 0.571311
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 47,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              7,
+              8,
+              12,
+              13,
+              14,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              6,
+              9,
+              10,
+              11,
+              17,
+              22
+            ],
+            "train_rows": 12037,
+            "validation_rows": 6904,
+            "validation_normal_rows": 6502
+          },
+          "threshold": 0.672942,
+          "source_validation_auc": 0.970486,
+          "source_validation_fpr": 0.005844,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 48,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              8,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              7,
+              9,
+              14,
+              17,
+              22
+            ],
+            "train_rows": 11765,
+            "validation_rows": 7176,
+            "validation_normal_rows": 6679
+          },
+          "threshold": 0.682872,
+          "source_validation_auc": 0.96598,
+          "source_validation_fpr": 0.005989,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 49,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              7,
+              8,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13228,
+            "validation_rows": 5713,
+            "validation_normal_rows": 5370
+          },
+          "threshold": 0.631493,
+          "source_validation_auc": 0.972671,
+          "source_validation_fpr": 0.002048,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 50,
+          "split": {
+            "train_runs": [
+              5,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              7,
+              14,
+              16,
+              21
+            ],
+            "train_rows": 13654,
+            "validation_rows": 5287,
+            "validation_normal_rows": 4792
+          },
+          "threshold": 0.688418,
+          "source_validation_auc": 0.957725,
+          "source_validation_fpr": 0.008556,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 51,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "validation_runs": [
+              3,
+              8,
+              12,
+              17,
+              21,
+              22
+            ],
+            "train_rows": 9820,
+            "validation_rows": 9121,
+            "validation_normal_rows": 8549
+          },
+          "threshold": 0.799589,
+          "source_validation_auc": 0.973095,
+          "source_validation_fpr": 0.007954,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 52,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              11,
+              12,
+              13,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              9,
+              10,
+              14,
+              15,
+              16,
+              18
+            ],
+            "train_rows": 15475,
+            "validation_rows": 3466,
+            "validation_normal_rows": 3025
+          },
+          "threshold": 0.631253,
+          "source_validation_auc": 0.923342,
+          "source_validation_fpr": 0.002975,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 53,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              14,
+              16,
+              17,
+              18,
+              22
+            ],
+            "validation_runs": [
+              8,
+              11,
+              12,
+              13,
+              15,
+              21
+            ],
+            "train_rows": 12378,
+            "validation_rows": 6563,
+            "validation_normal_rows": 6009
+          },
+          "threshold": 0.68195,
+          "source_validation_auc": 0.970563,
+          "source_validation_fpr": 0.006324,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 54,
+          "split": {
+            "train_runs": [
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              4,
+              5,
+              8,
+              10,
+              18
+            ],
+            "train_rows": 14431,
+            "validation_rows": 4510,
+            "validation_normal_rows": 4322
+          },
+          "threshold": 0.631968,
+          "source_validation_auc": 0.968351,
+          "source_validation_fpr": 0.002082,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 55,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              12,
+              13,
+              14,
+              15,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              11,
+              16,
+              17,
+              22
+            ],
+            "train_rows": 10791,
+            "validation_rows": 8150,
+            "validation_normal_rows": 7689
+          },
+          "threshold": 0.683001,
+          "source_validation_auc": 0.966408,
+          "source_validation_fpr": 0.005072,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 56,
+          "split": {
+            "train_runs": [
+              4,
+              6,
+              8,
+              9,
+              10,
+              11,
+              12,
+              15,
+              16,
+              17,
+              21,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              7,
+              13,
+              14,
+              18
+            ],
+            "train_rows": 13330,
+            "validation_rows": 5611,
+            "validation_normal_rows": 5231
+          },
+          "threshold": 0.632344,
+          "source_validation_auc": 0.974271,
+          "source_validation_fpr": 0.002103,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 57,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              6,
+              7,
+              10,
+              12,
+              13,
+              14,
+              15,
+              16,
+              21,
+              22
+            ],
+            "validation_runs": [
+              5,
+              8,
+              9,
+              11,
+              17,
+              18
+            ],
+            "train_rows": 11797,
+            "validation_rows": 7144,
+            "validation_normal_rows": 6899
+          },
+          "threshold": 0.626659,
+          "source_validation_auc": 0.965442,
+          "source_validation_fpr": 0.00116,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 58,
+          "split": {
+            "train_runs": [
+              4,
+              5,
+              7,
+              9,
+              11,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              3,
+              6,
+              8,
+              10,
+              12,
+              22
+            ],
+            "train_rows": 13434,
+            "validation_rows": 5507,
+            "validation_normal_rows": 5144
+          },
+          "threshold": 0.680791,
+          "source_validation_auc": 0.977988,
+          "source_validation_fpr": 0.007582,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 59,
+          "split": {
+            "train_runs": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              11,
+              12,
+              13,
+              17,
+              18,
+              21
+            ],
+            "validation_runs": [
+              8,
+              10,
+              14,
+              15,
+              16,
+              22
+            ],
+            "train_rows": 12924,
+            "validation_rows": 6017,
+            "validation_normal_rows": 5421
+          },
+          "threshold": 0.686184,
+          "source_validation_auc": 0.950762,
+          "source_validation_fpr": 0.007379,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 60,
+          "split": {
+            "train_runs": [
+              3,
+              5,
+              7,
+              8,
+              10,
+              12,
+              14,
+              15,
+              17,
+              18,
+              21,
+              22
+            ],
+            "validation_runs": [
+              4,
+              6,
+              9,
+              11,
+              13,
+              16
+            ],
+            "train_rows": 13728,
+            "validation_rows": 5213,
+            "validation_normal_rows": 4872
+          },
+          "threshold": 0.629372,
+          "source_validation_auc": 0.969767,
+          "source_validation_fpr": 0.002053,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.516986,
+            "fault_fpr": 0.498263,
+            "manipulation_recall": 0.500238,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        },
+        {
+          "seed": 61,
+          "split": {
+            "train_runs": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              15,
+              16,
+              18,
+              22
+            ],
+            "validation_runs": [
+              3,
+              5,
+              6,
+              14,
+              17,
+              21
+            ],
+            "train_rows": 10838,
+            "validation_rows": 8103,
+            "validation_normal_rows": 7607
+          },
+          "threshold": 0.680097,
+          "source_validation_auc": 0.96809,
+          "source_validation_fpr": 0.004995,
+          "macyste_descriptive_threshold_metrics": {
+            "normal_fpr": 0.47344,
+            "fault_fpr": 0.494093,
+            "manipulation_recall": 0.498099,
+            "recon_recall": 0.285504
+          },
+          "openplc_fault_stress": {
+            "run_scenario_balanced_false_positive_rate": 0.000568,
+            "event_weighted_false_positive_rate": 0.001798
+          }
+        }
+      ]
+    }
+  ]
+}

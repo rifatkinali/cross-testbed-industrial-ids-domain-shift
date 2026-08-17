@@ -1,147 +1,126 @@
 {
   "schema": "maritime.research-artifact-manifest/v1",
-  "artifact_id": "openplc-macyste-transfer-v1",
-  "version": "1.0.0-rc1",
+  "artifact_id": "openplc-macyste-transfer-v2",
+  "version": "1.0.0-rc2",
   "status": "public_release_approved_pending_publish",
   "release_eligible": true,
-  "frozen_source_tag": "v0.5.0-academic-freeze",
-  "frozen_source_revision": "23a4bbdc7e11eb85698636528fee5799fadb3e8f",
+  "source_revision": "b860fc6bd5114101fe3fe58435c1ac4b5ca6c31a",
   "reproducibility": {
     "r0_hash_verification": "available",
     "r1_derived_data_reanalysis": "available",
-    "r2_raw_campaign_regeneration": "pending_external_archive_doi",
-    "r3_independent_external_replication": "not_completed"
+    "r2_raw_campaign_regeneration": "not_claimed_pending_archive_doi",
+    "r3_independent_external_replication": "not_claimed_collaborators_wanted"
   },
   "files": [
+    {
+      "path": ".codex-validation/ds02-independent-faults-20260815/dataset.csv",
+      "bytes": 10270878,
+      "sha256": "616bf8f05a8a52f9ba7679d54229a5dcab7c384b8f7db9616fadb78f12a37118"
+    },
     {
       "path": ".gitignore",
       "bytes": 79,
       "sha256": "90edfa11cead96c105bf12134116668b2950f243a61e1b11b3425927144341a7"
     },
     {
-      "path": "attack/dataset.csv",
-      "bytes": 8989024,
-      "sha256": "24d3380a9d237e3b90f4ff942823edd94252d336f59ed12203b4ec6a00a30a46"
-    },
-    {
-      "path": "attack/labels.csv",
-      "bytes": 93567,
-      "sha256": "72f28e4d1fe40e3b55fd92d4cf3c96162b01523a060e1eb208a80ddba3240a75"
-    },
-    {
-      "path": "CITATION.cff",
-      "bytes": 1087,
-      "sha256": "9f76d707efbdd0c1796dde9d3e0efad08c2b40c28434384baee805912101922c"
-    },
-    {
-      "path": "CONTRIBUTING.md",
-      "bytes": 570,
-      "sha256": "a1b36155a31199adc26e7498ae59d078d9b1c4443a98c5caaccc4329fbf2e934"
-    },
-    {
-      "path": "data/macyste/macyste-20260726T113328Z/ACCEPTED-LIMITATIONS.json",
+      "path": "captures/macyste/macyste-20260726T113328Z/ACCEPTED-LIMITATIONS.json",
       "bytes": 1274,
       "sha256": "0380e9662501e59fcc92651d52ba235eb4c39e13841b27d0b19838ab31429b46"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/derived-manifest-v0.4.json",
+      "path": "captures/macyste/macyste-20260726T113328Z/derived-manifest-v0.4.json",
       "bytes": 13094,
       "sha256": "aa03a6fa04c279be88e7e4784129886f93a2f561ce6c730c7d336bdfc36ee8c8"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/fault-r01/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/fault-r01/events-v0.4.csv",
       "bytes": 508246,
       "sha256": "3eef99ef0b564c2288126a736a9a86e2af08a62fb6f2b8c1c3f0df895e78e6a8"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/fault-r02/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/fault-r02/events-v0.4.csv",
       "bytes": 507889,
       "sha256": "2f71d3f16cad126e2a2fb88237cd8f73d86339f98ad677f898f9fe145ad75110"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/fault-r03/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/fault-r03/events-v0.4.csv",
       "bytes": 509476,
       "sha256": "acfc4e9310e02ff7107fc06cfa56d7b0ff13df52f0323e28638b58bf0bac223e"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/manifest.json",
+      "path": "captures/macyste/macyste-20260726T113328Z/manifest.json",
       "bytes": 38496,
       "sha256": "5f292140c6137eef955d93f1714aad54bd83ddfeab426f8b78071c7899540475"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/manipulation-r01/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/manipulation-r01/events-v0.4.csv",
       "bytes": 558315,
       "sha256": "4d3a08fbb3285cd7f21588840a746e26e4cb096ba4bb7fe83db77dbe361f0a8a"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/manipulation-r02/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/manipulation-r02/events-v0.4.csv",
       "bytes": 557996,
       "sha256": "4435ac8c1cb4c9621c085470aa008be1c5c0de1827a40a249ebcb97468035b1d"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/manipulation-r03/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/manipulation-r03/events-v0.4.csv",
       "bytes": 558442,
       "sha256": "2edc1e5b60f8bfff7f00d6d10c5bcda870188dc01ecee622edeb8fda87b541b5"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/normal-r01/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/normal-r01/events-v0.4.csv",
       "bytes": 416719,
       "sha256": "d0453006882d8c22cb0dea966f2f2c997034ed622f800d572ab5db301c77b030"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/normal-r02/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/normal-r02/events-v0.4.csv",
       "bytes": 419151,
       "sha256": "e723330d48ea579b698896aa7bafdd509b613a15a17fab0ce57e4a5e947e085d"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/normal-r03/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/normal-r03/events-v0.4.csv",
       "bytes": 420015,
       "sha256": "1beca9bb8342d13df9d807169f4e6016d60dbab0a8162e70cf5e2a4f114f94d0"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/recon-r01/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/recon-r01/events-v0.4.csv",
       "bytes": 2540249,
       "sha256": "c0849bbe0342e425db21b6c957dfb5699ed51a4f44ad6ccd29387057b894c91d"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/recon-r02/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/recon-r02/events-v0.4.csv",
       "bytes": 2546580,
       "sha256": "03f489988bbbedfbb8f71b9d8de6c4c8843ca1129cf3b383e1bc3836233db71a"
     },
     {
-      "path": "data/macyste/macyste-20260726T113328Z/recon-r03/events-v0.4.csv",
+      "path": "captures/macyste/macyste-20260726T113328Z/recon-r03/events-v0.4.csv",
       "bytes": 2550575,
       "sha256": "54c960c16d12c089e16254e55d2e1a326ba695ff1ea806eecde909327e6202b7"
     },
     {
-      "path": "DATASET-SNAPSHOT-v0.3.json",
-      "bytes": 7626,
-      "sha256": "b28c440d96c1396b737922cd86be452b5074447057bb2495a601133c9afef216"
+      "path": "CITATION.cff",
+      "bytes": 1044,
+      "sha256": "11d49c40e5fbcde84b4447c02ab19c4d8541a5d2adf745d1acc56ac12b5bd6e4"
     },
     {
-      "path": "docs/ACADEMIC-FREEZE-v0.5.0.md",
-      "bytes": 3240,
-      "sha256": "eb60c619f04d8d71931d28ffce29744b1b5d8f92114aa4a4c6e2ffe1b181b4d9"
+      "path": "CONTRIBUTING.md",
+      "bytes": 688,
+      "sha256": "92da3917e5c4bb71ff40e02ea72b634b8fd21d7c58833c08b4a3b3130cd8f294"
     },
     {
-      "path": "docs/BULGU-d2-gorulmemis-kategori.md",
-      "bytes": 15594,
-      "sha256": "84e74792c484fc2c1caa97a1760ed27f032557992a1bbb63c6d88c05f6a59377"
+      "path": "docs/sonuclar/OPENPLC-BAGIMSIZ-ARIZA-KOSULARI-2026-08-15.json",
+      "bytes": 2559,
+      "sha256": "d6ae0bb5baf94f80cbf42c0adfb54cac9d0bd3dd41bad361a1b278b57c54df12"
     },
     {
-      "path": "docs/BULGU-d3-skor-kesikligi.md",
-      "bytes": 9179,
-      "sha256": "6a1a2ee3e2923464087022256f1f242be15394e4277c518ee25ade8e38d9fd0d"
+      "path": "docs/sonuclar/OPENPLC-MACYSTE-RC2-ONKAYITLI-SONUC-2026-08-17.json",
+      "bytes": 103509,
+      "sha256": "472df978e118f84cde1d3c9b7263f3ab1b21dfeed0f5b8be817723ab0055384b"
     },
     {
-      "path": "docs/BULGU-lodo-v04-cross-testbed.md",
-      "bytes": 9058,
-      "sha256": "70e6915c443a2dfdd66e41bee35ffe26c63a6ffb3ccc236c8b53529eff1275ce"
-    },
-    {
-      "path": "docs/DATASET-CARD.md",
-      "bytes": 13037,
-      "sha256": "9fe93ae6aae1ed7badde557518ffa39ece6382f3afdbe9ae603a06008c7adf38"
+      "path": "docs/sonuclar/OPENPLC-MACYSTE-RC2-ONKAYITLI-SONUC-2026-08-17.md",
+      "bytes": 3590,
+      "sha256": "33601c28f61b169922c202751623db21949ca199259a4b556cdb0abf9d287b3b"
     },
     {
       "path": "LICENSE",
@@ -150,8 +129,8 @@
     },
     {
       "path": "MACYSTE-PROVENANCE.json",
-      "bytes": 3702,
-      "sha256": "c97a2e4f85dafdfb8636c84e99e993031efda3f14671c826f1e12e32ff7203d7"
+      "bytes": 3366,
+      "sha256": "44853c0f5844ff475b6044318265b3c14f4322ed94fd47cd753ab9a731919750"
     },
     {
       "path": "ml/__init__.py",
@@ -159,54 +138,29 @@
       "sha256": "ebe294bc2074c26a51fe3bac3c200d383e5d87dded8c2ea9110a0f8eace5a4a8"
     },
     {
-      "path": "ml/features.py",
-      "bytes": 13274,
-      "sha256": "b8d03589ae1036494f2674aa49dc15d76a565734a27cfd9a09e701bbc3e76a34"
-    },
-    {
       "path": "ml/lodo_generalization.py",
-      "bytes": 49087,
-      "sha256": "cde21e446ff23010542e9a0a106e521e193d663575b33967b46ff976c1364a70"
+      "bytes": 51408,
+      "sha256": "0627c966d527bc929bfd40cb0de28e8c3939d9f0d4fd468d2dc426ad9ddc2dc2"
     },
     {
-      "path": "ml/lodo_report.py",
-      "bytes": 13743,
-      "sha256": "6043bc32f6cda83023dfcb78c0f3b1f42d5d1b06d2950bec91529539c04abf86"
+      "path": "ml/openplc_macyste_rc2.py",
+      "bytes": 21439,
+      "sha256": "90dc044babf8fee7b34da7bb2aa4e6e37096d80077a800e2da5c2701c55f9be4"
     },
     {
-      "path": "ml/score_discreteness_diagnostic.py",
-      "bytes": 30735,
-      "sha256": "6a2409543ea38607acc410d970c7692f7ac391101db67fadcbc8397dbd6b1719"
+      "path": "preregistration.json",
+      "bytes": 3256,
+      "sha256": "5604f52ec3870551b35a41f5ab61ce4cc09e3f78d40f8111b9ccbd73470933c4"
     },
     {
-      "path": "ml/snapshot_dataset.py",
-      "bytes": 11290,
-      "sha256": "b6367dfae143eff9c315c4d1c590907c28d00d96e1632560a4b8e97e1afa2c19"
+      "path": "PREREGISTRATION.md",
+      "bytes": 6711,
+      "sha256": "bc2219c97a3d57a01acbf485c160221934fdabc01e7b0a6deacf0751bc79e679"
     },
     {
-      "path": "ml/unseen_category_diagnostic.py",
-      "bytes": 26187,
-      "sha256": "3a9fad60fe0ed6db27910954591ef1dc2a1e1bad417d283c5f1af4881165f5ec"
-    },
-    {
-      "path": "ml/unseen_category_mechanism.py",
-      "bytes": 22878,
-      "sha256": "1af0c42a1ab902a759d3e497f46071db872581482aad2577b040f6b8699de065"
-    },
-    {
-      "path": "ml/unseen_category_strata.py",
-      "bytes": 16875,
-      "sha256": "a50222e39613fb89a5ef229272b4997c6a8d10119a83af7b68b9cbcb3e54bdb1"
-    },
-    {
-      "path": "provenance/freeze_academic_results.py",
-      "bytes": 20516,
-      "sha256": "bd8bbea130ae0dc8040bafd5d9bfeb8ba1c02ba1ba4eb409e59bc432dccb54a9"
-    },
-    {
-      "path": "provenance/requirements-full.txt",
-      "bytes": 168,
-      "sha256": "24caa881a1b49ba501127f8040990021d1444254bed2c8c49d3a9331269e3b33"
+      "path": "provenance/build_openplc_macyste_rc2_artifact.py",
+      "bytes": 9974,
+      "sha256": "dbd6bc9893f74e233ffd5fe9f4f3716e4e80d39d89a42bd7aad54a7b5d544b81"
     },
     {
       "path": "pytest.ini",
@@ -215,18 +169,23 @@
     },
     {
       "path": "README.md",
-      "bytes": 9303,
-      "sha256": "276e2adcd145a5b164694eeadc91233d7bce26feb6fc5d429d8785c40fb7f011"
+      "bytes": 6956,
+      "sha256": "7ca827d76bb4bc0a55e5fff4f3870d550dded52aa6eea10ce3b065822187409d"
     },
     {
       "path": "RELEASE-CHECKS.json",
-      "bytes": 2061,
-      "sha256": "1ec7ddd0318f63e2192de3a9e766a8ee789fcdbc18471a3b6e205f0fa3042382"
+      "bytes": 2644,
+      "sha256": "812625786e79d7c95e761d48967211b8812491cf7b1e23af603615a08e4bca5f"
+    },
+    {
+      "path": "RELEASE-NOTES.md",
+      "bytes": 2210,
+      "sha256": "8a46b9bcc814b8669d7c00e9162dc0c6d03f35714453e9ba388c5dbd3a38e92e"
     },
     {
       "path": "release-spec.json",
-      "bytes": 3204,
-      "sha256": "11c7eb9d1762ac54ef6a96e21cf3ebb5bcf30166282ea9148084e3d312eed795"
+      "bytes": 2334,
+      "sha256": "f033bd4fbf4460dc598b8cc83a87ad49df4b4d322210aa64a1984d7aba555636"
     },
     {
       "path": "requirements.txt",
@@ -234,54 +193,29 @@
       "sha256": "9f8e8582b66bd15c068f781ea544089911e5441a330c68257ca0191ed16c572a"
     },
     {
-      "path": "results/d2-h3-mechanism.json",
-      "bytes": 64431,
-      "sha256": "d26bc0cac167e4e6c0c55a2fed8ba2bda2f2afe476836df421b9f6c58d89f379"
+      "path": "research_release/openplc-macyste-transfer-v2/preregistration.json",
+      "bytes": 3256,
+      "sha256": "5604f52ec3870551b35a41f5ab61ce4cc09e3f78d40f8111b9ccbd73470933c4"
     },
     {
-      "path": "results/d2-unseen-category.json",
-      "bytes": 224371,
-      "sha256": "1aff15791b1237e81b301514632be7575bb1b65fe9a4704597f867cbce7a1fd9"
+      "path": "research_release/openplc-macyste-transfer-v2/PREREGISTRATION.md",
+      "bytes": 6711,
+      "sha256": "bc2219c97a3d57a01acbf485c160221934fdabc01e7b0a6deacf0751bc79e679"
     },
     {
-      "path": "results/d2a-strata.json",
-      "bytes": 134518,
-      "sha256": "a262a2e30e7c56d32ec14fa41bec713e3a6b16b0fddc604a574d103dc606fa3c"
+      "path": "results/rc2-main-figure.svg",
+      "bytes": 3486,
+      "sha256": "e1f9c6565c04a5195faef023d2079fda34d2181794198a813570c012359cbe05"
     },
     {
-      "path": "results/d3-score-discreteness.json",
-      "bytes": 706458,
-      "sha256": "e021b52f6c61d119cda61f967ab0e20b41bf1abe7359e28408c2451913a86396"
+      "path": "results/rc2-results.json",
+      "bytes": 103509,
+      "sha256": "472df978e118f84cde1d3c9b7263f3ab1b21dfeed0f5b8be817723ab0055384b"
     },
     {
-      "path": "results/lodo-main-figure.svg",
-      "bytes": 4753,
-      "sha256": "caa49733d58824549a72d2f5271ef84ff0e72dc8e0c69f8f8b45b32ec3bfdc94"
-    },
-    {
-      "path": "results/lodo-main-table.csv",
-      "bytes": 303,
-      "sha256": "32b0153c5ee568d9796c5ee34cdeaffbe59fe45a162253610290acfe0efd2361"
-    },
-    {
-      "path": "results/lodo-main-table.md",
-      "bytes": 372,
-      "sha256": "16969c9c94ab3b4d627bc7842861be913ca1e4b17a577c1e42b8c5dede82764f"
-    },
-    {
-      "path": "results/lodo-results.json",
-      "bytes": 12748,
-      "sha256": "9f5aa21f489fa240b571daba05ee33ed0db5a0a00273966984e54930a67fa6f5"
-    },
-    {
-      "path": "results/manifest.json",
-      "bytes": 8062,
-      "sha256": "0ac6515fe7af78fb36f8e1aa272971100cdc61a4c39768294f93708262cd9afa"
-    },
-    {
-      "path": "scripts/reproduce_openplc_macyste.py",
-      "bytes": 10159,
-      "sha256": "4a67d7090d02c6f1f6bcfb0f962b148a251b4b6eae4ca29eab181c038522a648"
+      "path": "scripts/reproduce_openplc_macyste_rc2.py",
+      "bytes": 3766,
+      "sha256": "94fe25d30df7f7a0fe651705437184e0f65aaf9762d284424fe453c9cad707fc"
     },
     {
       "path": "scripts/verify_artifact.py",
@@ -294,39 +228,19 @@
       "sha256": "9168c629b74c2351a81a3f779a673c3bd579a1d636d9bd8d1b94da4e6b174d89"
     },
     {
-      "path": "tests/test_d2_h3_mechanism.py",
-      "bytes": 10632,
-      "sha256": "83abcc409dff9d66a93ea5813c28f330726962f7de125cc4982e6da397185c66"
+      "path": "tests/test_openplc_macyste_rc2_contract.py",
+      "bytes": 6401,
+      "sha256": "452030edd63650d79616fd64910c613837e6236f4e17f292352fcd2089e5d8a2"
     },
     {
-      "path": "tests/test_d2_unseen_category.py",
-      "bytes": 13890,
-      "sha256": "b49b1274b94ef84b4374a714b43eca650dc23a34518261fc9a2043e702cc4618"
-    },
-    {
-      "path": "tests/test_d2a_strata.py",
-      "bytes": 9194,
-      "sha256": "6672016c38da92c60aef74f3fa42e7279a431cc90ca67867c5ca57ac727c065e"
-    },
-    {
-      "path": "tests/test_d3_score_discreteness.py",
-      "bytes": 10483,
-      "sha256": "1513bd0919cac37f0bdef236f261cc43abbc4f43016beab8da1dcb9d293d8c99"
-    },
-    {
-      "path": "tests/test_lodo.py",
-      "bytes": 23560,
-      "sha256": "210144ed38139c802e7c92e8bf95c688fcc67cd65f435c3874d39df3960dec20"
-    },
-    {
-      "path": "tests/test_lodo_report.py",
-      "bytes": 5281,
-      "sha256": "b60a1d9dcb64a2bab35931a0d603ef3bb3d3172d2c858b91d416f1a2266818e7"
+      "path": "tests/test_openplc_macyste_rc2_result.py",
+      "bytes": 3330,
+      "sha256": "331d9a56f98980e9d4d6b4b4c5be13850e10a913add8aea17b321b2451929251"
     },
     {
       "path": "THIRD-PARTY-NOTICE.md",
-      "bytes": 1018,
-      "sha256": "34213bed8d5f149cf7107bc98645190b9331f26d163dc1f59e8110d5832e4c84"
+      "bytes": 1022,
+      "sha256": "5790054ba64f3c0e22c574aa9c102f645c279f203daa62709d8ba56136abe7b4"
     },
     {
       "path": "THIRD_PARTY_LICENSES/MaCySTe-LICENSE.txt",
@@ -339,7 +253,7 @@
       "sha256": "7c4774473088677d71c70924d22f848d4c33be15789d475e7801f732c90e7aaa"
     }
   ],
-  "file_count": 65,
-  "total_bytes": 22794466,
+  "file_count": 48,
+  "total_bytes": 22813275,
   "publication_blockers": []
 }

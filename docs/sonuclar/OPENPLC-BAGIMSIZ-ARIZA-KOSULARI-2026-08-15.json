@@ -1,0 +1,40 @@
+{
+  "schema": "maritime.openplc-independent-fault-runs/v1",
+  "status": "passed",
+  "date": "2026-08-15",
+  "claim_boundary": "Controlled synthetic localhost lab evidence only; not field, HIL, production, class, or model-performance evidence.",
+  "source_commit": "01df63cccc88906712a78631366363f6ec0b2422",
+  "acceptance": {
+    "prior_fault_run_count": 2,
+    "new_fault_run_count": 6,
+    "total_fault_run_count": 8,
+    "new_fault_labels": 18,
+    "failed_fault_labels": 0,
+    "cleanup_failed_fault_labels": 0,
+    "distinct_variants_per_fault_scenario": 6,
+    "empty_fault_windows": 0
+  },
+  "collection": {
+    "warmup_seconds": 30,
+    "gap_seconds": 20,
+    "new_dataset_rows": 5233,
+    "new_fault_rows": 3512,
+    "new_normal_rows": 1721,
+    "runs": [
+      {"run_id": 23, "seed": 2026081501, "normal_rows": 120, "fault_rows": {"fault_comm_dropout": 13, "fault_plc_restart": 84, "fault_poll_storm": 584}},
+      {"run_id": 24, "seed": 2026081502, "normal_rows": 268, "fault_rows": {"fault_comm_dropout": 13, "fault_plc_restart": 80, "fault_poll_storm": 883}},
+      {"run_id": 25, "seed": 2026081503, "normal_rows": 405, "fault_rows": {"fault_comm_dropout": 27, "fault_plc_restart": 35, "fault_poll_storm": 120}},
+      {"run_id": 26, "seed": 2026081504, "normal_rows": 409, "fault_rows": {"fault_comm_dropout": 30, "fault_plc_restart": 76, "fault_poll_storm": 195}},
+      {"run_id": 27, "seed": 2026081505, "normal_rows": 125, "fault_rows": {"fault_comm_dropout": 32, "fault_plc_restart": 43, "fault_poll_storm": 631}},
+      {"run_id": 28, "seed": 2026081506, "normal_rows": 394, "fault_rows": {"fault_comm_dropout": 28, "fault_plc_restart": 75, "fault_poll_storm": 563}}
+    ]
+  },
+  "artifacts": {
+    "labels": {"path": "attack/labels.csv", "rows": 612, "bytes": 101734, "sha256": "51ffc021853b5cec546944aba88f7b970e6b51faba08be554f8c648dd77e9b20"},
+    "raw_eve": {"path": "suricata-ot/logs/eve.json", "bytes": 525034816, "sha256": "9ddb87d4df88cce918e0ea742dbc0d862a7652420bb65cc3d3d6ac0da4814ca3"},
+    "validation_dataset": {"path": ".codex-validation/ds02-independent-faults-20260815/dataset.csv", "rows": 62630, "bytes": 10270878, "sha256": "616bf8f05a8a52f9ba7679d54229a5dcab7c384b8f7db9616fadb78f12a37118"},
+    "compose": {"path": "docker-compose.pilot.yml", "sha256": "b4ef573031989daeea3e1f91816e31e7d4fe55edb4cdca2caeb7bd3a5ea32b04"}
+  },
+  "network_scope": ["127.0.0.1:502", "127.0.0.1:8080"],
+  "next_gate": "DS-03 MaCySTe: at least six clean runs of at least 60 seconds for each of normal, manipulation, recon, and fault."
+}

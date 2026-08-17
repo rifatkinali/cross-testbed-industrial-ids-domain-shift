@@ -12,75 +12,19 @@
   "campaign_use": "Selected upstream steering-gear and Modbus/NATS engine-telegraph components were built without source modifications and driven by project-owned harness code through container, network, and file interfaces.",
   "distributed_source_boundary": "No MaCySTe source code is included in the public artifact; the upstream license and README are included for attribution and provenance.",
   "selected_local_files": [
-    {
-      "path": "src/containers/modbus_nats_kv/Containerfile",
-      "bytes": 177,
-      "sha256": "ed5e76c1e0eef6335e519b642aa956590f33b537f5a4c7603cfb268d958db5f3"
-    },
-    {
-      "path": "src/containers/modbus_nats_kv/modbus-nats-kv/__init__.py",
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    {
-      "path": "src/containers/modbus_nats_kv/modbus-nats-kv/__main__.py",
-      "bytes": 5276,
-      "sha256": "0e3617391fdf4033361e8e593b21aaa296bc4747c4e2ef0ea092f135f3353818"
-    },
-    {
-      "path": "src/containers/modbus_nats_kv/requirements.txt",
-      "bytes": 29,
-      "sha256": "09ce24345a2a60c3ae9ac280d975bcb3802d861005b1d070bf3c2e01ca278bea"
-    },
-    {
-      "path": "src/containers/steering_gear_system/Containerfile",
-      "bytes": 166,
-      "sha256": "32d1d5c1ea3048091401ffcbeda9ed8b6bc16e9b6e32fd33882178905a9a1303"
-    },
-    {
-      "path": "src/containers/steering_gear_system/requirements.txt",
-      "bytes": 49,
-      "sha256": "5ac61b1f8de485474f5dcf1dabe738391c4831e75658474aab85015c499bb358"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/__main__.py",
-      "bytes": 7797,
-      "sha256": "fa34e314e12b4652fe6c65f9f43a4112517f957d42af78800ea12bfc16ee9297"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/hydraulic_system.py",
-      "bytes": 921,
-      "sha256": "2c8421cedb565a2c541fef2b2c8de59913c16ed5cb11b77d4d605f10b45aa4d7"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/modBusServer.py",
-      "bytes": 13644,
-      "sha256": "af725f5a3f142b24d290d193b57eae5085972b870ae3725c0e291109801b9b04"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/natsExporter.py",
-      "bytes": 953,
-      "sha256": "5f2656dd77a0237bb61daabed5ec64acb2c1a869cc09081e604e08b359adad1c"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/oil_pump.py",
-      "bytes": 2239,
-      "sha256": "ca7ebd4d32600cb513f17d8f6ae4b5aae52735097335e41838010778b8454475"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/oil_tank.py",
-      "bytes": 2132,
-      "sha256": "17824993f00523047b5594184a2b2985fcdae27244dcca2f12891aa07b95903d"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/rudder.py",
-      "bytes": 1723,
-      "sha256": "96576bcfab41090f52e36ca07d224fe0c71186e01fdc06f2f89991320789261e"
-    },
-    {
-      "path": "src/containers/steering_gear_system/src/steering_gear_system.py",
-      "bytes": 2192,
-      "sha256": "0a0a31c819be4bdbdfb17427a9a039530078dc9bde13c53ad7b198fad6eaf663"
-    }
+    {"path": "src/containers/modbus_nats_kv/Containerfile", "bytes": 177, "sha256": "ed5e76c1e0eef6335e519b642aa956590f33b537f5a4c7603cfb268d958db5f3"},
+    {"path": "src/containers/modbus_nats_kv/modbus-nats-kv/__init__.py", "bytes": 1, "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"},
+    {"path": "src/containers/modbus_nats_kv/modbus-nats-kv/__main__.py", "bytes": 5276, "sha256": "0e3617391fdf4033361e8e593b21aaa296bc4747c4e2ef0ea092f135f3353818"},
+    {"path": "src/containers/modbus_nats_kv/requirements.txt", "bytes": 29, "sha256": "09ce24345a2a60c3ae9ac280d975bcb3802d861005b1d070bf3c2e01ca278bea"},
+    {"path": "src/containers/steering_gear_system/Containerfile", "bytes": 166, "sha256": "32d1d5c1ea3048091401ffcbeda9ed8b6bc16e9b6e32fd33882178905a9a1303"},
+    {"path": "src/containers/steering_gear_system/requirements.txt", "bytes": 49, "sha256": "5ac61b1f8de485474f5dcf1dabe738391c4831e75658474aab85015c499bb358"},
+    {"path": "src/containers/steering_gear_system/src/__main__.py", "bytes": 7797, "sha256": "fa34e314e12b4652fe6c65f9f43a4112517f957d42af78800ea12bfc16ee9297"},
+    {"path": "src/containers/steering_gear_system/src/hydraulic_system.py", "bytes": 921, "sha256": "2c8421cedb565a2c541fef2b2c8de59913c16ed5cb11b77d4d605f10b45aa4d7"},
+    {"path": "src/containers/steering_gear_system/src/modBusServer.py", "bytes": 13644, "sha256": "af725f5a3f142b24d290d193b57eae5085972b870ae3725c0e291109801b9b04"},
+    {"path": "src/containers/steering_gear_system/src/natsExporter.py", "bytes": 953, "sha256": "5f2656dd77a0237bb61daabed5ec64acb2c1a869cc09081e604e08b359adad1c"},
+    {"path": "src/containers/steering_gear_system/src/oil_pump.py", "bytes": 2239, "sha256": "ca7ebd4d32600cb513f17d8f6ae4b5aae52735097335e41838010778b8454475"},
+    {"path": "src/containers/steering_gear_system/src/oil_tank.py", "bytes": 2132, "sha256": "17824993f00523047b5594184a2b2985fcdae27244dcca2f12891aa07b95903d"},
+    {"path": "src/containers/steering_gear_system/src/rudder.py", "bytes": 1723, "sha256": "96576bcfab41090f52e36ca07d224fe0c71186e01fdc06f2f89991320789261e"},
+    {"path": "src/containers/steering_gear_system/src/steering_gear_system.py", "bytes": 2192, "sha256": "0a0a31c819be4bdbdfb17427a9a039530078dc9bde13c53ad7b198fad6eaf663"}
   ]
 }

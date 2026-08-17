@@ -1,76 +1,86 @@
 {
   "schema": "maritime.research-artifact-release-checks/v1",
-  "candidate_version": "1.0.0-rc1",
+  "candidate_version": "1.0.0-rc2",
   "checked_at": "2026-08-17",
   "checks": {
-    "package_contract_tests": {
+    "preregistration_frozen_before_results": {
+      "status": "passed",
+      "initial_commit": "851f73d",
+      "bootstrap_clarification_commit": "57a0640"
+    },
+    "rc2_contract_and_result_tests": {
+      "status": "passed",
+      "passed": 8,
+      "failed": 0
+    },
+    "artifact_package_tests": {
       "status": "passed",
       "passed": 2,
       "failed": 0
     },
-    "academic_contract_tests": {
+    "source_contract": {
       "status": "passed",
-      "passed": 153,
-      "failed": 0
-    },
-    "openplc_snapshot": {
-      "status": "passed",
-      "files": 2
+      "candidate_rows": 62630,
+      "main_rows": 18941,
+      "main_runs": 18,
+      "fault_stress_rows": 3337,
+      "fault_runs": 8,
+      "run_scenario_cells": 24
     },
     "macyste_derived_campaign": {
       "status": "passed",
       "runs": 12,
       "rows": 34949
     },
-    "scientific_outputs": {
+    "scientific_result": {
       "status": "passed",
-      "semantic_matches": 5,
-      "mismatches": 0,
-      "normalization": "host-specific combined-target path only"
+      "schemas": 4,
+      "seeds_per_schema": 20,
+      "source_threshold_violations": 0,
+      "result_sha256": "472df978e118f84cde1d3c9b7263f3ab1b21dfeed0f5b8be817723ab0055384b"
     },
-    "content_scrub": {
+    "clean_artifact_r1_reproduction": {
       "status": "passed",
-      "rejects": [
-        "host user paths",
-        "placeholder citation identity",
-        "private development email",
-        "GitHub access tokens",
-        "AWS access keys",
-        "private keys",
-        "forbidden product paths",
-        "PCAP and private-key file extensions"
-      ]
+      "schemas": 4,
+      "models": 80,
+      "contract_and_result_tests": 8,
+      "comparison": "exact_semantic_equality_no_tolerance"
+    },
+    "artifact_integrity_and_boundary": {
+      "status": "passed",
+      "manifest_files": 48,
+      "forbidden_or_unexpected_files": 0,
+      "archive_root": "cross-testbed-industrial-ids-domain-shift-v1.0.0-rc2"
     },
     "dependency_audit": {
       "status": "passed",
-      "tool": "pip-audit --strict --no-deps",
+      "tool": "pip-audit 2.10.1 --strict --no-deps",
+      "direct_pinned_requirements": 4,
       "known_vulnerabilities": 0,
-      "remediation": "pytest upgraded from vulnerable 8.3.4 to 9.1.1"
+      "residual_note": "versions are pinned but wheel hashes are not included"
     },
     "antimalware_scan": {
       "status": "passed",
       "tool": "Microsoft Defender custom scan with remediation disabled",
-      "targets": [
-        "built artifact directory",
-        "built ZIP archive"
-      ],
+      "targets": ["artifact directory", "versioned ZIP archive"],
       "threats": 0
     },
-    "ruff": {
-      "status": "passed"
+    "claim_boundaries": {
+      "status": "passed",
+      "macyste_threshold_metrics": "descriptive_not_headline",
+      "openplc_fault_stress": "descriptive_not_population_estimate",
+      "scripted_run_intervals": "not_generalization_confidence_intervals"
     },
-    "project_ownership_and_publication_authority": {
-      "status": "confirmed_by_owner",
-      "owner": "Rifat Kinali",
-      "confirmed_at": "2026-08-15"
+    "citation_metadata": {
+      "status": "passed",
+      "date_released_present": false
     },
-    "rc1_patent_and_publication_decision": {
-      "status": "public_release_approved_no_patent_filing",
-      "owner": "Rifat Kinali",
-      "confirmed_at": "2026-08-17",
-      "scope": "RC1 research artifact only; GOZCU product sources remain excluded"
+    "product_boundary": {
+      "status": "passed",
+      "scope": "research artifact only; GOZCU product sources excluded"
     }
   },
   "public_release_eligible": true,
-  "remaining_owner_decisions": []
+  "remaining_owner_decisions": [],
+  "publication_state": "private_repository_and_unpublished_release_draft"
 }

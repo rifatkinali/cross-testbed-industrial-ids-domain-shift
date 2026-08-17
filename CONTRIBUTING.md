@@ -1,11 +1,12 @@
 # Contributing
 
-Independent reproduction reports are especially welcome. Please include the
-artifact tag, operating system, Python version, command, and complete failure
-output. Do not attach private captures, vessel data, credentials, or
-executable attack material to an issue.
+Independent reproduction reports and attempts to falsify the method are
+especially welcome. Include the artifact tag, operating system, Python version,
+command, and complete failure output. Do not attach private captures, vessel
+data, credentials, sensitive topology, or executable attack material.
 
-Scientific changes should preserve source-only model and threshold selection,
-run-aware evaluation, scenario-balanced reporting, and machine-verifiable
-provenance. Claims that extend beyond the documented OpenPLC–MaCySTe case
+Scientific changes must preserve the preregistered source-only model and
+threshold selection, complete fault-run exclusion, run-level splitting, all 20
+seeds, the separate benign-fault stress test, and consistent ensemble point and
+uncertainty calculations. Claims beyond the documented OpenPLC–MaCySTe case
 study require new evidence rather than wording changes alone.
