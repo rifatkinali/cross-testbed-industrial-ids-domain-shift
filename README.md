@@ -1,20 +1,27 @@
-# Cross-Testbed Domain Shift in Industrial IDS
+# When a Lab-Accurate Industrial IDS Meets a New Testbed
 
-## An OpenPLC → MaCySTe reproducible case study
+## A reproducible OpenPLC → MaCySTe maritime OT case study
 
-> **Release state:** local release candidate; not yet a public release  
-> **Primary result:** an IDS trained and thresholded only on OpenPLC does not
-> transfer reliably to the held-out MaCySTe campaign used here.
+> **Release state:** public R1 release approved; GitHub publication pending
+>
+> **Headline result:** a model scoring **0.95–0.98 AUC** on OpenPLC fell to
+> **0.32–0.46 AUC** on held-out MaCySTe data. A threshold selected for a 1%
+> false-positive rate produced approximately **26–50%** on the new testbed.
 
-The result motivates—but does not validate—a product architecture based on
-deployment-specific discovery, semantic mapping, local calibration, explicit
-degraded-state reporting, and change-triggered revalidation. The private
-GÖZCÜ EDGE implementation of those capabilities is not part of this repository.
+That is not a small accuracy drop. In this case study, a detector that looked
+strong in its source laboratory could create an operationally unusable alarm
+load—and parts of its target-domain ranking were inverted.
 
-This is the deliberately narrow, publishable research slice of Maritime-Lab.
-It is designed to support thesis evaluation, independent technical scrutiny,
-and early product discovery without publishing the GÖZCÜ EDGE product source,
-customer delivery methods, or production security configuration.
+This repository lets researchers and maritime-OT practitioners verify the
+result from distributed data and frozen analysis code. It also tests a product
+hypothesis: dependable vessel monitoring may require deployment-specific
+discovery, semantic mapping, local calibration, explicit degraded-state
+reporting, and change-triggered revalidation instead of trusting a static
+model trained elsewhere.
+
+The repository is a deliberately narrow research slice of Maritime-Lab. The
+private GÖZCÜ EDGE product source, customer delivery methods, and production
+security configuration are not included.
 
 ## Sixty-second result
 
@@ -29,6 +36,8 @@ The threshold was selected only on OpenPLC for a target false-positive rate of
 1%. On the held-out MaCySTe campaign, the observed false-positive rate rises to
 approximately 26–50%, depending on the feature schema. AUC values below 0.5
 mean that the target-domain ranking is not merely weaker; it can be inverted.
+
+![OpenPLC validation performance compared with held-out MaCySTe event and scenario-balanced performance](results/lodo-main-figure.svg)
 
 The result is bounded to one transfer direction, one OpenPLC–MaCySTe testbed
 pair, one 200-tree Random Forest model family, and the included attack/fault
@@ -130,6 +139,26 @@ Repository stars alone are not product validation. Useful signals are external
 reproductions, citations, dataset reuse, integration pull requests, qualified
 industry conversations, and a paid design-partner path.
 
+## We are looking for collaborators
+
+This release is meant to start useful conversations, not merely collect stars.
+We would especially like to hear from:
+
+- researchers who can independently reproduce R1 or challenge the method;
+- laboratories that can support a second authorized testbed or reverse-transfer
+  experiment;
+- maritime faculties, simulator operators, integrators, yards, owners, and
+  cyber teams that can test whether calibration and evidence gaps are real
+  operational problems;
+- technical mentors, research sponsors, and design partners who can help move
+  the work from a bounded laboratory result toward authorized simulator, VDR,
+  or field validation.
+
+Open a GitHub issue for a public reproduction or collaboration question, or
+contact **info@nauticmall.com** for a private introduction. Do not send vessel
+data, credentials, private captures, or sensitive topology through a public
+issue.
+
 ## Deliberately excluded
 
 This artifact must not contain:
@@ -143,18 +172,18 @@ This artifact must not contain:
 - real-vessel or restricted validation data;
 - private keys, credentials, runtime logs, PCAP/PCAPNG, or debrief material.
 
-## Publication blockers
+## Release readiness
 
-The candidate is technically testable, but public release still requires:
+The owner confirmed project-code and generated-data publication authority on
+15 August 2026. On 17 August 2026, the owner decided not to pursue a patent
+application for this RC1 research artifact and approved public release because
+the GÖZCÜ product sources remain outside the package.
 
-1. replacing placeholder author/repository fields in `CITATION.cff`;
-2. confirming contributor ownership for project-owned code and data;
-3. completing an IP/patent disclosure decision before first public disclosure;
-4. archiving the raw campaign and provenance record under a DOI if
-   R2 reproduction will be claimed;
-5. performing privacy, secret, malware, and executable-scenario review on the
-   generated archive;
-6. running the release from a clean commit and recording the commit/tag/DOI.
+Identity, ownership, licensing/provenance, privacy and secret review,
+dependency audit, malware scan, clean release history, R0 hash verification,
+and R1 derived-data reproduction checks are complete. R2 raw-campaign DOI
+archiving and R3 independent replication remain future reproducibility levels;
+they are not claims or blockers for this R1 release.
 
 ## Licenses and provenance
 

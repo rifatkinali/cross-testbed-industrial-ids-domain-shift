@@ -1,7 +1,7 @@
 {
   "schema": "maritime.research-artifact-release-checks/v1",
   "candidate_version": "1.0.0-rc1",
-  "checked_at": "2026-08-15",
+  "checked_at": "2026-08-17",
   "checks": {
     "package_contract_tests": {
       "status": "passed",
@@ -58,11 +58,19 @@
     },
     "ruff": {
       "status": "passed"
+    },
+    "project_ownership_and_publication_authority": {
+      "status": "confirmed_by_owner",
+      "owner": "Rifat Kinali",
+      "confirmed_at": "2026-08-15"
+    },
+    "rc1_patent_and_publication_decision": {
+      "status": "public_release_approved_no_patent_filing",
+      "owner": "Rifat Kinali",
+      "confirmed_at": "2026-08-17",
+      "scope": "RC1 research artifact only; GOZCU product sources remain excluded"
     }
   },
-  "public_release_eligible": false,
-  "remaining_owner_decisions": [
-    "contributor ownership confirmation",
-    "IP and patent disclosure decision"
-  ]
+  "public_release_eligible": true,
+  "remaining_owner_decisions": []
 }

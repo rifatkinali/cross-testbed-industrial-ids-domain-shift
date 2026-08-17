@@ -2,7 +2,7 @@
   "schema": "maritime.research-artifact-release-spec/v1",
   "artifact_id": "openplc-macyste-transfer-v1",
   "version": "1.0.0-rc1",
-  "status": "private_release_candidate",
+  "status": "public_release_approved_pending_publish",
   "repository_url": "https://github.com/rifatkinali/cross-testbed-industrial-ids-domain-shift",
   "purpose": [
     "thesis_evaluation",
@@ -34,6 +34,20 @@
       "notice": "THIRD-PARTY-NOTICE.md"
     }
   },
+  "ownership_decisions": {
+    "project_code_and_generated_research_data": {
+      "status": "confirmed_by_owner",
+      "owner": "Rifat Kinali",
+      "confirmation_date": "2026-08-15",
+      "publication_authority": "confirmed"
+    },
+    "rc1_patent_and_publication": {
+      "status": "public_release_approved_no_patent_filing",
+      "owner": "Rifat Kinali",
+      "decision_date": "2026-08-17",
+      "scope": "RC1 research artifact only; GOZCU product sources remain excluded"
+    }
+  },
   "forbidden_prefixes": [
     "architecture/",
     "artifacts/",
@@ -55,10 +69,7 @@
     "docker-compose.edge-console.yml",
     "docker-compose.edge-live.yml"
   ],
-  "publication_blockers": [
-    "contributor_ownership_confirmation",
-    "ip_and_patent_disclosure_decision"
-  ],
+  "publication_blockers": [],
   "future_level_blockers": {
     "r2": [
       "raw_campaign_archive_doi",

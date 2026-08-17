@@ -2,8 +2,8 @@
   "schema": "maritime.research-artifact-manifest/v1",
   "artifact_id": "openplc-macyste-transfer-v1",
   "version": "1.0.0-rc1",
-  "status": "private_release_candidate",
-  "release_eligible": false,
+  "status": "public_release_approved_pending_publish",
+  "release_eligible": true,
   "frozen_source_tag": "v0.5.0-academic-freeze",
   "frozen_source_revision": "23a4bbdc7e11eb85698636528fee5799fadb3e8f",
   "reproducibility": {
@@ -215,18 +215,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 7865,
-      "sha256": "fa358caac787bb7262a03ddf45242db8a9a931476908601091cfb5efe516a9f4"
+      "bytes": 9303,
+      "sha256": "276e2adcd145a5b164694eeadc91233d7bce26feb6fc5d429d8785c40fb7f011"
     },
     {
       "path": "RELEASE-CHECKS.json",
-      "bytes": 1721,
-      "sha256": "90607513e0f52b0a09977e6d008ecf3ad798b67f2426ccc51b292a6cafb7b5cf"
+      "bytes": 2061,
+      "sha256": "1ec7ddd0318f63e2192de3a9e766a8ee789fcdbc18471a3b6e205f0fa3042382"
     },
     {
       "path": "release-spec.json",
-      "bytes": 2780,
-      "sha256": "7d6e329e06fdf3084d37b8c88d08441e74182461521c3128dc0c84d077fa1f03"
+      "bytes": 3204,
+      "sha256": "11c7eb9d1762ac54ef6a96e21cf3ebb5bcf30166282ea9148084e3d312eed795"
     },
     {
       "path": "requirements.txt",
@@ -340,9 +340,6 @@
     }
   ],
   "file_count": 65,
-  "total_bytes": 22792264,
-  "publication_blockers": [
-    "contributor_ownership_confirmation",
-    "ip_and_patent_disclosure_decision"
-  ]
+  "total_bytes": 22794466,
+  "publication_blockers": []
 }
